@@ -29,7 +29,7 @@ try {
         }
         w.debug = debug;
 
-        console.log("starting");
+        debug("starting");
 
         String.prototype.splice = function( idx, rem, s ) {
             return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
@@ -190,35 +190,6 @@ try {
 
         });
 
-        function insert_patched_interface_map (src, content) {
-            debug('patching interface_map.js');
-            function cb (source) {
-                var patched_source = patch_script(source,
-                    "map.drawStars = function () {",
-                    "};",
-                    draw_star_patch);
-
-                insert_script(patched_source);
-            }
-            debug("getting script");
-            get("/triton/scripts/game/interface_map.js", cb, true);
-        }
-
-        function insert_patched_game (src, content) {
-            debug('patching game.js');
-            function cb (source) {
-                debug('cb game.js');
-                var patched_source = patch_script(source,
-                    "if (ps[0].kind === \"star\") {",
-                    "}\r\n            if (ps[0].kind === \"fleet\") {",
-                    waypoint_patch);
-
-                insert_script(patched_source);
-            }
-            debug("getting script");
-            get("/triton/scripts/game/game.js", cb, true);
-        }
-
 
         function patch_init (src, content) {
             debug("patching init");
@@ -226,29 +197,8 @@ try {
                 "var si = NeptunesPride.SharedInterface(npui);",
                 "",
                 init_patch);
-
-            // we need to append to end of event queue so other scripts are injected first
-            setTimeout(function () {
-                insert_script(patched_source);
-            }, 0);
+            insert_script(patched_source);
         }
-
-        // function insert_new_screens (src, content) {
-        //     function cb (source) {
-        //         var patched_source = patch_script(source,
-        //             "var screens = {",
-        //             "",
-        //             '"carriers": npui.MainMenuScreen,');
-
-        //         insert_script(patched_source);
-        //     }
-        //     debug("getting script");
-        //     get("/triton/scripts/game/interface.js", cb, true);
-        // }
-
-        //disable_script(/interface_map\./,                       insert_patched_interface_map);
-        //disable_script(/game\./,                                insert_patched_game);
-        //disable_script(/interface\./,                             insert_new_screens);
         disable_script(/\$\(window\)\.ready\(function \(\) \{/, patch_init);
 
     }) (unsafeWindow);
