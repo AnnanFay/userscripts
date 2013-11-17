@@ -10,12 +10,18 @@
 // ==/UserScript==
 
 /*TODO:
-Use pathfinding to plan multi stop routes (taking into account gateways)
 Split into multiple seperate modulare files
     Modding Library
     Layers
     Info Selection
     UI Tweaks
+        Use pathfinding to plan fastest multi stop routes
+            Taking into account gateways and enemies
+        Charts
+            Add buttons to added empire charts
+            Chart highlighting
+                Hover over icons
+                setSelection([{row:0,column:1},{row:1, column:null}]) 
     Routing Guide
 
 */ 
@@ -32,7 +38,21 @@ try {
                 console.log.apply(this, arguments);
             }
         }
+
+        function debug_watch (obj, method) {
+            if (DEBUG) {
+                obj[method] = wrap(obj[method], function (args) {
+                    debug(method + ' input: ', args);
+                    return args;
+                },  function (args, ret) {
+                    debug(method + ' returns: ', ret);
+                    return ret;
+
+                });
+            }
+        }
         w.debug = debug;
+        w.debug_watch = debug_watch;
 
         debug("starting");
 
@@ -353,7 +373,7 @@ try {
         }
 
         function drawCOM (src, ctx, c, label, color) {
-            debug('drawCOM', to_array(arguments));
+            //debug('drawCOM', to_array(arguments));
             var offset  = ctx.canvas.width/2,
                 x       = c.x * 250 + offset,
                 y       = c.y * 250 + offset,
@@ -377,11 +397,12 @@ try {
                 ctx.fillStyle       = color;
                 ctx.font            = 'bold '+(radius*1.5)+'px sans-serif';
                 ctx.textBaseline    = 'top';
-                ctx.fillText(label, x-(radius/2), y-(radius/2));
+                var tw = ctx.measureText(label).width;
+                ctx.fillText(label, x-(tw/2), y-(radius/2));
         }
 
         function drawFleetCentres (src, ctx, player, data) {
-            debug('drawFleetCentres', to_array(arguments));
+            //debug('drawFleetCentres', to_array(arguments));
             var total   = player.total_strength,
                 src     = tint(src, player.color);
 
@@ -395,28 +416,37 @@ try {
 
             var player_data     = _.filter(data, function (v) { return v.puid === player.uid}),
                 star_data       = _.filter(player_data, function (v) { return v.kind === 'star'; }),
+                fleet_data      = _.filter(player_data, function (v) { return v.kind === 'fleet'; }),
                 equal_stars     = _.map(star_data, Node),
+                equal_fleets    = _.map(fleet_data, Node),
                 resource_stars  = _.map(star_data, function (v) {return _.extend(Node(v), {m: v.r}); }),
+                industry_stars  = _.map(star_data, function (v) {return _.extend(Node(v), {m: v.i}); }),
                 fleet_nodes     = _.map(player_data, function (v) {return _.extend(Node(v), {m: v.st}); });
 
             // if (equal_stars.length) {
             //     drawCOM(src, ctx, centre_of_mass(equal_stars), 'S', player.color);
             // }
-            if (resource_stars.length) {
-                drawCOM(src, ctx, centre_of_mass(resource_stars), 'R', player.color);
+            // if (resource_stars.length) {
+            //     drawCOM(src, ctx, centre_of_mass(resource_stars), 'R', player.color);
+            // }
+            if (industry_stars.length) {
+                drawCOM(src, ctx, centre_of_mass(industry_stars), 'I', player.color);
             }
             if (fleet_nodes.length) {
                 drawCOM(src, ctx, centre_of_mass(fleet_nodes), 'F', player.color);
             }
+            if (equal_fleets.length) {
+                drawCOM(src, ctx, centre_of_mass(equal_fleets), 'C', player.color);
+            }
         }
 
         function fleetStrengthLayer (ctx, data, map) {
-            debug('fleetStrengthLayer', to_array(arguments));
+            // debug('fleetStrengthLayer', to_array(arguments));
             // we want 3 centres
                 // star centre
                 // scannable ship centre
                 // weighted combination
-                // Later: resource centre
+                // resource centre
             var universe    = data.universe,
                 stars       = universe.galaxy.stars,
                 fleets      = universe.galaxy.fleets,
@@ -699,6 +729,8 @@ try {
 
             google.load("visualization", "1", {packages:["imagesparkline"], callback: noop});
 
+            debug_watch(universe, "calcWaypoints");
+
             registerLayer(Mousetrap, np, universe, 'show_paths', 'l p');
             registerLayer(Mousetrap, np, universe, 'show_scanning_boundaries', 'l s');
             registerLayer(Mousetrap, np, universe, 'show_hyperdrive_boundaries', 'l h');
@@ -755,6 +787,11 @@ try {
                 var order       = args[0],
                     star        = universe.galaxy.stars[order[1]],
                     starText    = fno.children[1];
+
+
+                if (star === undefined) {
+                    return fno;
+                }
 
                 // remove current text
                 fno.removeChild(starText);
@@ -849,10 +886,6 @@ try {
                         stats       = snapshot.players[player.uid],
                         // fstats      = filter(stats, valid_keys),
                         row         = get_values(stats);
-                    // prevent overlapping lines
-                    for (var r in row) {
-                        row[r] *= 1.01 * player.uid;
-                    }
                     row.unshift(snapshot.tick);
                     constructionArray.push(row);
                     if (snapshot.tick === 384)
@@ -919,9 +952,19 @@ try {
             npui.EmpireTechChart = function (player) {
                  var empireTechChart = Crux.Widget("rel")
                         .setSize(480, 256);
-
+                if (!player.intelData) {
+                    return empireTechChart;
+                }
                 var columns = ["Tick", "Weapons","Banking","Manufacturing","Hyperspace","Scanning", "Experimentation", "Terraforming"];
                 var array = filter_matrix(player.intelData, columns);
+                array = _.map(array, function (row, i) {
+                    return _.map(row, function (value, j) {
+                        if (i > 0 && j > 0) {
+                            return value * (1 + (j*0.01));
+                        }
+                        return value;
+                    });
+                });
                 var data = google.visualization.arrayToDataTable(array);
                 var chart = new google.visualization.LineChart(empireTechChart.ui.get(0));
                 var options = $.extend({},
@@ -959,9 +1002,9 @@ try {
                 var size = empireScience.getSize();
                 empireScience.setSize(size.w, size.h + 256);
 
-                npui.EmpireTechChart(player)
-                    .grid(0, 256/Crux.gridSize + 1, 480/Crux.gridSize, 256/Crux.gridSize)
-                    .roost(empireScience)
+                // npui.EmpireTechChart(player)
+                //     .grid(0, 256/Crux.gridSize + 1, 480/Crux.gridSize, 256/Crux.gridSize)
+                //     .roost(empireScience)
 
 
                 return empireScience;
@@ -1073,19 +1116,39 @@ try {
 
                 map.onMouseUp = wrap(map.onMouseUp, function (args) {
                     var event = args[0];
-                    if (event.button === 2) {
+                    if (event.button === 2 && map.selectionBox) {
 
+                        var players = universe.galaxy.players,
+                            message  = 'SELECTION CONTAINS: \n';
 
-                        var dim =  map.selectionBox.selection,
-                            objects     = getObjectsIn(dim),
-                            count       = objects.length,
-                            strength    = _.reduce(objects, function (m, v) {return m + (v.st ? v.st : 0); }, 0),
-                            resources   = _.reduce(objects, function (m, v) {return m + (v.r ? v.r : 0); }, 0);
+                        for (var p in players) {
+                            var player      = players[p],
+                                dim         = map.selectionBox.selection,
+                                objects     = getObjectsIn(dim),
+                                pobjects    = _.filter(objects, function (o) { return o.puid === player.uid}),
+                                fleets      = _.filter(pobjects, function (o) {return o.kind === 'fleet';}),
+                                stars       = _.filter(pobjects, function (o) {return o.kind === 'star';}),
 
-                        message  = 'SELECTION CONTAINS: \n';
-                        message += '\t' + count + ' objects\n';
-                        message += '\t' + strength + ' total strength\n';
-                        message += '\t' + resources + ' total resources\n';
+                                strength    = _.reduce(pobjects, function (m, v) {return m + (v.st ? v.st : 0)}, 0),
+                                resources   = _.reduce(pobjects, function (m, v) {return m + (v.r ? v.r : 0)}, 0),
+                                economy     = _.reduce(stars,   function (m, s) {return m + s.e}, 0),
+                                science     = _.reduce(stars,   function (m, s) {return m + s.s}, 0),
+                                industry    = _.reduce(stars,   function (m, s) {return m + s.i}, 0);
+                            //    ship_prod   = industry * (5 + 1);
+                            if (pobjects.length > 0) {
+                                message += '\tPLAYER: ' + player.alias + '\n';
+                                message += '\t\t' + pobjects.length + ' objects\n';
+                                message += '\t\t\t' + stars.length + ' stars\n';
+                                message += '\t\t\t\t' + resources + ' res.\n';
+                                message += '\t\t\t\t$' + (economy * 10) + ' income\n';
+                                message += '\t\t\t\t' + science + ' science\n';
+                                message += '\t\t\t\t' + industry + ' industry\n';
+                                // message += '\t\t\t' + ship_prod + ' ships / day\n';
+                                message += '\t\t\t' + fleets.length + ' fleets\n';
+                                message += '\t\t' + strength + ' total strength\n';
+                            }
+                        }
+
                         alert(message); 
 
                         map.selectionBox.mum.removeChild(map.selectionBox)
@@ -1120,6 +1183,15 @@ try {
 
                     return found;
                 }
+
+                // fix for black screen bug
+                // 31 10 2013
+                map.drawWaypoints = wrap(map.drawWaypoints, function (args) {
+                    if (map.waypointOriginScale === 0) {
+                        map.waypointOriginScale = 1;
+                    }
+                    return args;
+                }, noop);
 
                 map.onMouseMove = wrap(map.onMouseMove, function (args, ret) {
                     if (map.rightDragging) {
@@ -1156,7 +1228,6 @@ try {
                 });
 
                 map.draw = wrap(map.draw, function (args, ret) {
-
                     // TODO: abstract this out a bit
                     if (universe['show_scanning_boundaries']) {
                         if (!sbl) {
@@ -1194,6 +1265,14 @@ try {
 
                     return ret;
                 });
+
+                map.drawSprite = wrap(map.drawSprite, function (args, ret) {
+                    // debug('drawing sprites', arguments);
+
+                    return ret;
+                });
+
+
 
 
                 // reregister draw function
