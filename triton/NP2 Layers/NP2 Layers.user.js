@@ -4,7 +4,8 @@
 // @namespace   http://userscripts.org/users/AnnanFay
 // @include     http*://triton.ironhelmet.com/game*
 // @version     1
-// @require     http://underscorejs.org/underscore-min.js
+// @require     http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.3.0/lodash.js
+// @require     http://d3js.org/d3.v3.min.js
 // @require     http://userscripts.org/scripts/source/181520.user.js
 // @run-at      document-start
 // @grant       none
@@ -14,13 +15,16 @@
 (function () {
     "strict true";
 
-    var overlaySize = 5000,
-        overlayMiddle = overlaySize / 2;
+    var overlaySize = 6500,
+        overlayMiddle = overlaySize / 2,
+        tileSize = 500; // pixels
 
+    /*******************/
+    /*     UTILITY     */
+    /*******************/
     String.prototype.splice = function( idx, rem, s ) {
         return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
     };
-
     function noop () {}
 
     function to_array (a) {
@@ -40,16 +44,54 @@
             return f.apply(this, args);
         };
     }
-    //
-    // image functions
-    //
-    function canvas_to_image (c) {
-        var i = document.createElement('img');
-        i.src = c.toDataURL();
-        return i;
+
+    function hex_to_rgb (hex) {
+        var m = hex.match(/#?(..?)(..?)(..?)/);
+        return [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)].join(',');
     }
 
+    function area_to_radius (area) {
+        return Math.sqrt(area/Math.PI);
+    }
+
+    function volume_to_radius (vol) {
+        // v = 1/3 * base_area * height
+        // base_area = (3 * v) / height
+        // radius = area_to_radius((3 * v) / height)
+        return area_to_radius(3 * vol);
+    }
+
+
+    function centre_of_mass (nodes) {
+        var totalm  = 0,
+            totalx  = 0,
+            totaly  = 0;
+
+        for (var i in nodes) {
+            var node = nodes[i];
+            totalm += node.m;
+            totalx += node.x * node.m;
+            totaly += node.y * node.m;
+        }
+        return {x: totalx/totalm, y: totaly/totalm};
+    }
+
+    function square (x) {
+        return Math.pow(x, 2);
+    }
+    /*******************/
+    /*      IMAGE      */
+    /*******************/
+    function canvas_to_image (c) {
+        var i = document.createElement('img');
+        if (c) {
+            i.src = c.toDataURL();
+        }
+        return i;
+    }
     function canvas (width, height) {
+        // canvas(image)
+        // canvas(width, height)
         var image;
         if (!height) {
             image = width;
@@ -142,31 +184,36 @@
         return buffer;
     }
 
-
-    function drawPath (ctx, starA, starB, easy) {
-        if (easy) {
-            ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
-        } else {
-            ctx.strokeStyle = "rgba(255, 100, 100, 0.1)";
+    /*******************/
+    /*     LAYERS      */
+    /*******************/
+    function drawLine (ctx, posA, posB, ss) {
+        if (ss) {
+            ctx.strokeStyle = ss;
         }
-        
         ctx.beginPath();
-        ctx.moveTo(starA.x * 250 + ctx.canvas.width/2, starA.y * 250 + ctx.canvas.height/2);
-        ctx.lineTo(starB.x * 250 + ctx.canvas.width/2, starB.y * 250 + ctx.canvas.height/2);
+        ctx.moveTo(posA.x * 250 + ctx.canvas.width/2, posA.y * 250 + ctx.canvas.height/2);
+        ctx.lineTo(posB.x * 250 + ctx.canvas.width/2, posB.y * 250 + ctx.canvas.height/2);
         ctx.stroke();
     }
-
     function pathLayer (ctx, data, map) {
         var universe    = data.universe,
             stars       = universe.galaxy.stars,
-            prop        = universe.player ? universe.player.tech.propulsion.value : 4/8,
-            next_prop   = prop + (1/8); // speed and distance units are in 1/8th of ly
+
+            du          = (1/8), // distance unit, 1/8th of ly
+            curr_prop   = universe.player ? universe.player.tech.propulsion.value : 4/8,
+            next_prop   = curr_prop + du,
+            ignore_prop = curr_prop - 4*du,
+
+            scurr_prop   = square(curr_prop),
+            snext_prop   = square(next_prop),
+            signore_prop = square(ignore_prop);
 
         ctx.lineWidth = 4 * map.pixelRatio;
 
         var done = []; // efficiency hack because stars is an object.
 
-        // TODO: Make more efficient. This is basically collision detection
+        // TODO: Make more efficient. This is basically collision detection.
         for (var i in stars) if (stars.hasOwnProperty(i)) {
             var starA = stars[i];
             done[i] = true;
@@ -181,11 +228,33 @@
                 }
 
                 var dist2 = Math.pow(starA.x-starB.x, 2) + Math.pow(starA.y-starB.y, 2);
-                if (dist2 <= Math.pow(next_prop, 2)) {
-                    drawPath(ctx, starA, starB, Math.sqrt(dist2) <= prop);
+                // If the stars are too far apart or too close go to next star pair.
+                // We don't want to draw short paths, doing that makes lots of noise.
+                if (dist2 > snext_prop || dist2 < signore_prop) {
+                    continue;
                 }
+                
+                var easy = (dist2 <= scurr_prop);
+                var warped = easy && starA.ga && starB.ga;
+                var ss;// = "rgba(0,0,0,0)";
+
+                if (warped) {
+                    ss = "rgba(100, 255, 100, 0.6)";
+                } else if (easy) {
+                    ss = "rgba(255, 255, 255, 0.3)";
+                } else {
+                    ss = "rgba(255, 100, 100, 0.1)";
+                }
+
+                drawLine(ctx, starA, starB, ss);
             }
         }
+    }
+
+    function voronoiLayer (ctx, data, map) {
+        var universe    = data.universe,
+            stars       = universe.galaxy.stars;
+        
     }
 
     function drawHalo (ctx, x, y, r, c) {
@@ -196,28 +265,11 @@
         ctx.fillStyle = gradient;
         ctx.fillRect(x-r,y-r,x+r,y+r);
     }
-
     function drawFleetHalo (ctx, x, y, size, c) {
         debug('dfh', arguments);
         x = x * 250 + ctx.canvas.width/2;
         y = y * 250 + ctx.canvas.width/2;
         drawHalo(ctx, x, y, overlayMiddle*area_to_radius(size), hex_to_rgb(c));
-    }
-
-    function hex_to_rgb (hex) {
-        var m = hex.match(/#?(..?)(..?)(..?)/);
-        return [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)].join(',');
-    }
-
-    function area_to_radius (area) {
-        return Math.sqrt(area/Math.PI);
-    }
-
-    function volume_to_radius (vol) {
-        // v = 1/3 * base_area * height
-        // base_area = (3 * v) / height
-        // radius = area_to_radius((3 * v) / height)
-        return area_to_radius(3 * vol);
     }
 
     function fleetSizeLayer (ctx, data, map) {
@@ -276,21 +328,6 @@
             ctx.textBaseline    = 'top';
             var tw = ctx.measureText(label).width;
             ctx.fillText(label, x-(tw/2), y-(radius/2));
-    }
-
-
-    function centre_of_mass (nodes) {
-        var totalm  = 0,
-            totalx  = 0,
-            totaly  = 0;
-
-        for (var i in nodes) {
-            var node = nodes[i];
-            totalm += node.m;
-            totalx += node.x * node.m;
-            totaly += node.y * node.m;
-        }
-        return {x: totalx/totalm, y: totaly/totalm};
     }
     
     function drawFleetCentres (src, ctx, player, data) {
@@ -362,9 +399,7 @@
             ctx.drawImage(sprite.image, sprite.spriteX, sprite.spriteY, sprite.width, sprite.height, -sprite.pivotX, -sprite.pivotY, sprite.width , sprite.height);
             ctx.restore();
         }
-    };
-
-
+    }
 
     function hyperdriveBoundaryLayer (ctx, data, map) {
         debug('hyperdriveBoundaryLayer', arguments);
@@ -522,6 +557,9 @@
         return ctx;
     }
 
+    /*******************/
+    /* LAYER FRAMEWORK */
+    /*******************/
     function registerLayer (Mousetrap, np, universe, name, key) {
         var method_name = 'on_'+name,
             event_name  = 'start_'+name,
@@ -568,7 +606,9 @@
                 spriteY: 0,
                 visible: true});
     }
-
+    /*******************/
+    /*    MOD HOOKS    */
+    /*******************/
     function pre_init_hook () {
         console.log('LAYERS: pre_init_hook');
     }
@@ -585,10 +625,10 @@
         registerLayer(Mousetrap, np, universe, 'show_centre_of_strength', 'l t');
 
         NeptunesPride.Map = NP2M.wrap(NeptunesPride.Map, function (args, map) {
-            var sbl, hbl, pl, al, fs;
+            var sbl, hbl, pl, al, fs, lv;
             
             map.createSprites = NP2M.wrap(map.createSprites, function (args, ret) {
-                pl = hbl = sbl = al = undefined;
+                pl = hbl = sbl = al = fs = lv = undefined;
                 return ret;
             });
 
@@ -626,6 +666,13 @@
                         fs = getLayer(data, map, fleetStrengthLayer);
                     }
                     drawLayer(map, fs);
+                }
+                if (universe['show_centre_of_strength']) {
+                    // drawPaths(universe, map);
+                    if (!lv) {
+                        lv = getLayer(data, map, voronoiLayer);
+                    }
+                    drawLayer(map, lv);
                 }
 
                 return ret;
