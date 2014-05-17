@@ -1,0 +1,101 @@
+
+TODO:
+    UI Tweaks
+        Use pathfinding to plan fastest multi stop routes
+            Taking into account gateways and enemies
+    Charting overhaul
+        Using d3
+        Add buttons to added empire charts
+        Chart highlighting
+            Hover over icons
+            setSelection([{row:0,column:1},{row:1, column:null}]) 
+    Routing Guide
+
+
+
+WHERE TO PUT THESE?
+    var DEBUG = true;
+
+    function debug () {
+        if (DEBUG) {
+            console.log.apply(this, arguments);
+        }
+    }
+
+    function debug_watch (obj, method) {
+        if (DEBUG) {
+            obj[method] = wrap(obj[method], function (args) {
+                debug(method + ' input: ', args);
+                return args;
+            },  function (args, ret) {
+                debug(method + ' returns: ', ret);
+                return ret;
+
+            });
+        }
+    }
+
+    function trigger_logger (args) {
+        debug('triggering', args);
+        return args;
+    }
+    // np.trigger   = wrap(np.trigger,   trigger_logger, noop);
+    // npui.trigger = wrap(npui.trigger, trigger_logger, noop);
+
+
+    universe.selectStar = wrap(universe.selectStar, function (args) {
+        debug('STAR: ', args);
+        return args;
+    }, function (args, ret) {
+        return ret;
+    });
+    universe.selectFleet = wrap(universe.selectFleet, function (args) {
+        debug('Fleet: ', args);
+        return args;
+    }, function (args, ret) {
+        return ret;
+    });
+
+
+FIXED IN GAME
+
+// fix for black screen bug
+// 31 10 2013
+// map.drawWaypoints = wrap(map.drawWaypoints, function (args) {
+//     if (map.waypointOriginScale === 0) {
+//         map.waypointOriginScale = 1;
+//     }
+//     return args;
+// }, noop);
+
+
+
+// Micro Research screen
+// No longer needed, officially added
+// npui.TechRow = NP2M.wrap(npui.TechRow, function (args, techRow) {
+//     var img         = techRow.children[1],
+//         title       = techRow.children[0],
+//         titleText   = title.ui.text();
+
+//     // resize image
+//     img.setSize(32, 48);
+//     img.ui.attr({ alt: titleText, title: titleText });
+
+//     // status message
+//     if (techRow.children.length == 6) {
+//         techRow.children[5].grid(2, 0, 7, 3)
+//     }
+
+//     // change block values to be on same line
+//     techRow.children[2].grid(9, 0, 7, 3)
+//     techRow.children[3].grid(16, 0, 14, 3)
+
+//     // remove the description and title
+//     techRow.removeChild(techRow.children[4]);
+//     title.hide(); // can't removeChild, referenced by update event somewhere
+
+//     // resize entire techrow to account for changes 
+//     techRow.setSize(Crux.gridSize*30, 13*3*1);
+
+//     return techRow;
+// });

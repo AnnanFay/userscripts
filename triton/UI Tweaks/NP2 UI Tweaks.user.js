@@ -116,6 +116,12 @@
             var pos = '(' + Math.floor(dx*8) + ',' + Math.floor(-dy*8) + ')';
             var heading = star.homeplayer.colourBox + ' ' + star.n + ' ' + pos;
             starInspector.heading.rawHTML(heading);
+
+
+            if (star ===  star.home) {
+                starInspector.heading.ui.find('span').css('text-shadow', '0px 0px 12px #fff');
+            }
+
             return starInspector;
         });
 
@@ -1477,6 +1483,43 @@
 
         // bug fix, default fleet action
         universe.interfaceSettings.defaultFleetAction = "1";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        var TAU_SYMBOL = 'τ';
+        function formatTick (ticks) {
+            var ticks   = parseInt(ticks),
+                cycle   = Math.floor(ticks / 24),
+                tick    = ticks % 24;
+            return cycle + TAU_SYMBOL + tick;
+        }
+
+        npui.InboxRowEvent = NP2M.wrap(npui.InboxRowEvent, function(args, inboxRowEvent) {
+            var message = args[0],
+                tick    = message.payload.tick,
+                tickText = inboxRowEvent.children[inboxRowEvent.children.length-1];
+            debug(inboxRowEvent.children);
+            tickText.rawHTML(formatTick(tick));
+            return inboxRowEvent;
+        });
+
+
+
     }
 
 
