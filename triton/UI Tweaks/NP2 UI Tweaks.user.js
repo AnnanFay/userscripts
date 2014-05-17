@@ -3,7 +3,7 @@
 // @description Various UI and chart tweaks
 // @namespace   http://userscripts.org/users/AnnanFay
 // @include     http*://triton.ironhelmet.com/game*
-// @version     1
+// @version     2
 // @require     http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.3.0/lodash.js
 // @require     http://userscripts.org/scripts/source/181520.user.js
 // @run-at      document-start
@@ -11,7 +11,15 @@
 // ==/UserScript==
 
 /* TODO
-// 
+    Split this file up again
+        it's getting too big.
+    Multi-selectins
+        Stars
+        Fleets
+    Groups/Labels
+        Stars
+        Fleets
+        Players
 */
 
 /* globals unsafeWindow, $, _, google, NP2M */
@@ -276,7 +284,8 @@
                         .grid(14, yPos, 6, 2)
                         .roost(bg);
                     total = Number(tech.level) * Number(tech.brr);
-                    html = tech.research + " < " + total + " > " + (total - tech.research);
+                    //html = tech.research + " < " + total + " > " + (total - tech.research);
+                    html = tech.research + " of " + total;
                     Crux.Text("", "txt_right pad12")
                         .rawHTML(html)
                         .grid(20, yPos, 10, 2)
@@ -1428,7 +1437,6 @@
             np.trigger("map_rebuild");
         }
 
-        unsafeWindow.warpGateEverything = warpGateEverything;
 
         uniShipTransfer = function(starStrength, fleetStrength) {
             universe.selectedFleet.st = fleetStrength;
@@ -1456,7 +1464,6 @@
             np.trigger("refresh_interface");
             np.trigger("map_rebuild");
         }
-        unsafeWindow.emptyStaticFleets = emptyStaticFleets;
 
         function checkPlayers(address) {
             _.each(universe.playerAchievements, function(a) {
@@ -1465,8 +1472,6 @@
                 }
             });
         }
-        unsafeWindow.checkPlayers = checkPlayers;
-        unsafeWindow._ = _;
 
         function listPlayerAddresses() {
             var list = [];
@@ -1475,7 +1480,41 @@
             });
             return list.join('\n');
         }
+
+        function removePath(fleet) {
+            universe.selectedFleet = fleet;
+            universe.clearFleetWaypoints();
+            // debug(  'trying to remove paths from ', fleet, 
+            //         'with path', fleet.path, 
+            //         'orbiting', fleet.orbiting);
+
+            if (fleet.orbiting) {
+                np.trigger("server_request", {type: "batched_order",
+                        order: "clear_fleet_orders," + fleet.uid});
+            } else {
+                np.trigger("server_request", {type: "batched_order",
+                        order: "add_fleet_orders," + fleet.uid + "," + fleet.orders[0].join(",") + ",0"
+                       });
+            }
+        }
+
+        function removeFleetPaths() {
+            _.each(universe.galaxy.fleets, function(fleet) {
+                if (fleet.player === universe.player && fleet.path.length > 0) {
+                    removePath(fleet);
+                }
+            });
+            np.trigger("refresh_interface");
+            np.trigger("map_rebuild");
+        }
+
+
+        unsafeWindow._ = _;
+        unsafeWindow.warpGateEverything = warpGateEverything;
+        unsafeWindow.emptyStaticFleets = emptyStaticFleets;
+        unsafeWindow.checkPlayers = checkPlayers;
         unsafeWindow.listPlayerAddresses = listPlayerAddresses;
+        unsafeWindow.removeFleetPaths = removeFleetPaths;
 
 
         // map.on("map_refresh", _.partial(debug, 'REFRESHING map'));
@@ -1483,21 +1522,6 @@
 
         // bug fix, default fleet action
         universe.interfaceSettings.defaultFleetAction = "1";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
