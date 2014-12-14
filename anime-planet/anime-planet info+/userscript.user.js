@@ -209,8 +209,8 @@ var changes = [
 ];
 
 function change_row(row) {
-  var status = get_by_name("status", row);
-  var episodes = get_by_name("episodes", row);
+  var status = get_by_class("changeStatus", row);
+  var episodes = get_by_class("episodes", row);
   var current_anime = anime(status, episodes);
 
   for (var i = 0, l = changes.length; i < l; i++) {
