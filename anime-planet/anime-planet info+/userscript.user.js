@@ -2,7 +2,7 @@
 // @name        anime-planet info+
 // @namespace   http://annanfay.com
 // @include     http://www.anime-planet.com/users/*/anime*
-// @version     6
+// @version     7
 // @grant       none
 // ==/UserScript==
 
@@ -47,12 +47,21 @@ function get_by_name(name, src) {
 //
 
 function anime(status, episodes) {
-  return {
+
+  // TODO:  Add human readable anime status codes.
+  //        Currently they are: 0 no-status, 1 ????, 2 Watching, 3 Dropped,
+  //        4 Want to Watch, 5 Stalled, 6 Won't Watch
+
+  var self = {
     status: status.value,
     episodes: episodes.children.length - 1,
     current_episode: episodes.value,
     airing: !~status.innerHTML.search("Watched")
   };
+
+  self.episodesLeft = self.episodes - self.current_episode;
+
+  return self;
 }
 
 function change(pred, changer, reset) {
@@ -169,17 +178,15 @@ var changes = [
     function (anime) {
       // stalled OR watching
       // AND nearly finished
-      var episodesLeft = anime.episodes - anime.current_episode;
       return (
         (
           anime.status == 2 ||
           anime.status == 5
         ) &&
-        episodesLeft <= NEARLY_FINISHED_THRESHOLD &&
-        episodesLeft > 0);
+        anime.episodesLeft <= NEARLY_FINISHED_THRESHOLD &&
+        anime.episodesLeft > 0);
     }, function (anime, row) {
-      var episodesLeft = anime.episodes - anime.current_episode;
-      var m = message("[+" + episodesLeft + "]", "#151ab0");
+      var m = message("[+" + anime.episodesLeft + "]", "#151ab0");
       row.children[0].appendChild(m);
     }, function (row) {
       var cp = get_by_class('apip-message', row);
@@ -188,14 +195,15 @@ var changes = [
       }
     }),
   //
-  // Labels anime as [UPDATE NEEDED] if you have finished them or haven't started them
+  // Labels anime as [UPDATE NEEDED] if you have watched everything but not marked as 'Watched' or haven't started them
   //
   change(
     function (anime) {
-      var episodesLeft = anime.episodes - anime.current_episode;
       return (
+        // watching or stalled
         (anime.status == 2 || anime.status == 5) &&
-        (anime.episodes == 0 || episodesLeft == 0) &&
+        // not watched any or watched everything
+        (anime.current_episode == 0 || anime.episodesLeft == 0) &&
         !anime.airing);
     }, function (anime, row) {
       var m = message("[UPDATE NEEDED]", "#15b01a");
