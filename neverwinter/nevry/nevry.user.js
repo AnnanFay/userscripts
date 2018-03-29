@@ -32,8 +32,9 @@
         + now.getMinutes() + ':' //
         + now.getSeconds() + ' || ';
 
+      var l = level; // to stop the next line deleting
       Array.prototype.splice.call(arguments, 0, 1, dateString)
-      console[level].apply(console, arguments);
+      console[l].apply(console, arguments);
     }
   }
 
@@ -44,7 +45,7 @@
 
   nevry.addCss = function addCss(css) {
     $("<style type='text/css'></style>")
-      .html(css)
+      .html(str(css))
       .appendTo("head");
   }
 

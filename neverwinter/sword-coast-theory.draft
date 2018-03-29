@@ -1,0 +1,59 @@
+DICE ROLL ->
+    DO WE LOSE?
+        quit
+    HIT:
+        Only one?
+            Do it
+            auto-roll
+        Many
+            1. Do we win?
+                Cash in
+
+            2. Stop dice from becoming useless
+                If a die has M/C
+                        the trials don't have any M
+                        you roll C
+                    Use it
+
+            3. Use less useful dice first
+                If need M+C
+                        a bone dice rolls M
+                        alternatives have higher prob. of being useful
+                    Use it.
+            4. Don't use dice below utility threshold
+                If need C10
+                    dice rolls C1 instead of C3
+                    already played a dice
+                Don't use it
+
+    MISS:
+        Discard
+            1. Useless dice
+                No matching sides in current required
+            2. Less useful dice
+                Low probability of matching sides
+                    Bone has 1/6 of !C
+                    Low level specials have 1/2 of !C
+                Low contributioin if matched
+                    If you need T6
+                        any dice which only gives T1
+                Low level dice (bone, triangle, etc.)
+
+
+
+
+Simple case is a single trial. Here we can calculate usefulness from only the next roll contrinbution. With multiple trials you need to somehow weight contribution to current trial higher than later trials.
+
+
+trial = 1m + 1t + 6c
+die = bone (1t + 1m + 1p + 1c + 2c + 3c)
+useful sides = 1t + 1m + 1c + 2c + 3c
+contrib = P(1t) * something     // HIGH
+        + P(1m) * something     // HIGH
+        + P(1m) * 0             // ZERO
+        + P(1c) * something     // LOW
+        + P(2c) * 2 * something // MEDIUM
+        + P(3c) * 3 * something // HIGH
+
+
+

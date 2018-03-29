@@ -5,55 +5,62 @@
 // @include     http*://gateway.playneverwinter.com*
 // @version     1
 // @require     http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js
-// require     http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js
-// require     http://cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js
 // @grant       none
 // ==/UserScript==
 
-/* globals $, unsafeWindow, _, client */
+/* globals $, nevry, unsafeWindow, _, client */
 try {
   (function () {
     "strict true";
-    var DEBUG = true;
+    nevry.DEBUG = true;
     window.PAUSED = false;
     // unsafeWindow.localStorage.debug = '*';
 
+    var debug = nevry.log;
 
-
-    function str(f) {
-      return f.toString()
-        .replace(/^[^\/]+\/\*!?/, '')
-        .replace(/\*\/[^\/]+$/, '');
-    }
-
-    function addCss(css) {
-      $("<style type='text/css'></style>")
-        .html(css)
-        .appendTo("head");
-    }
-    var CSS = str(function () {
+    var CSS = function () {
       /*!
-          #reward-bag {
-            padding: 0.5em;
-            position: absolute;
+          #sca-bot {
+            position: fixed;
             right: 0;
             top: 0;
-            width: 20%;
-            min-height: 100%;
+
+            width: 12px;
+            height: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
             border: 1px solid white;
             background-color: #999;
             z-index: 100;
+          }
+          #sca-bot:hover {
+            width: 20%;
+            overflow: auto;
+          }
+          #sca-bot > #stats {
+            background-color: #777;
+            height: 30px;
+          }
+
+          #reward-bag {
+            padding: 0.5em;
           }
           #reward-bag > div {
             height: 1em;
             overflow: hidden;
           }
-          #reward-bag > div.open {
+          #reward-bag > div.open,
+          #reward-bag > div:hover {
             height: auto;
             overflow: auto;
           }
+          #reward-bag div.reward-item {
+            display: inline-box;
+          }
     */
-    });
+    };
 
     function max(a, b) {
       // safe max
@@ -86,16 +93,6 @@ try {
         return v;
       }
     };
-
-    function debug() {
-      if (DEBUG) {
-        var l = arguments[0];
-        var now = new Date();
-        var dateString = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds() + ' || V';
-        Array.prototype.splice.call(arguments, 0, 0, dateString)
-        console[(!l) ? 'error' : 'log'].apply(console, arguments);
-      }
-    }
 
     // Decision making code
     function dieValue(trials, die) {
@@ -134,9 +131,16 @@ try {
         die.value = dieValue(trials, die);
       });
       if (!discarding) {
+        var activeTrial = _.first(_.filter(trials, 'active'));
         // use high value dice first
         dice = _.sortBy(dice, function (die) {
-          return [1 / die.roll.count, die.value];
+          var contrib = Math.min(
+            die.roll.count,
+            activeTrial.needs[die.roll.symbol].requires);
+          return [
+            1 / contrib,
+            die.value // FIXME: Should be value AFTER playing
+          ];
         });
       } else {
         // discard less useful
@@ -152,18 +156,7 @@ try {
 
       var die = chooseDie(trials, allDice, discarding);
 
-      var d = client.dataModel.model.gatewaygamedata.quest.roller.pile.dice[die];
-      var e = $(".dice.slot-" + die);
-      if (d.used || e.hasClass("used") || e.hasClass("disabled")) {
-        debug(0, 'vbad1', d.used, e.hasClass("used"), e.hasClass("disabled"));
-      }
-      var state = client.dataModel.model.gatewaygamedata.state;
-
-      if (state == "k_Discard" && d.valid || (state == "k_CombatChoose" || state == "k_Combat") && !d.valid) {
-        debug(0, 'vbad2');
-      }
-
-      when(function () {
+      nevry.when(function () {
         var e = $(".dice.slot-" + die);
         var state = client.dataModel.model.gatewaygamedata.state;
         var d = client.dataModel.model.gatewaygamedata.quest.roller.pile.dice[die];
@@ -177,7 +170,6 @@ try {
       }, function () {
         var uiLink = $(".dice.slot-" + die);
         debug(1, 'COMBAT CHOICE', die, uiLink.offset(), uiLink);
-        debug(1, 'CURRENT STATE', d, state);
         client.scaChooseDie(die, uiLink.offset());
       });
     }
@@ -327,7 +319,7 @@ try {
       var rewards = client.dataModel.model.gatewaygamedata.queuedrewardbag.rewards;
       for (var i in rewards) {
         var r = rewards[i];
-        rewardBag.append('<div>' + r.count + 'x ' + r.name + ' (' + r.value + ')</div>');
+        rewardBag.append('<div class="reward-item" data="' + JSON.stringify(r) + '">' + r.count + 'x ' + r.name + ' (' + r.value + ')</div>');
       }
     }
 
@@ -335,7 +327,15 @@ try {
 
     var encChoice = undefined;
     var eventHandlers = {
+      // k_DailyAward: function () {
+      //   nevry.err('TODO: daily award');
+      //   client.scaCheckDailies();
+      // },
       k_ChooseQuest: function () {
+
+        // scaCheckDailies
+        // scaRollDaily
+
         var expires = client.dataModel.model.gatewaygamedata.invokestatus.invokeexpiretime;
         var timeTill = new Date(expires) - new Date();
         var hours12 = 12 * 60 * 60 * 1000;
@@ -359,7 +359,7 @@ try {
       },
       k_ChooseParty: function () {
         shift(client, 'chooseparty', function () {
-          when(function () {
+          nevry.when(function () {
             var companions = client.dataModel.model.gatewaygamedata.companions;
             return !!_(companions).filter('valid').reject('selected').value().length;
           }, function () {
@@ -479,21 +479,19 @@ try {
       }
     }
 
-    function init() {
-      // var $anim = jQuery.fn.animate;
-      // jQuery.fn.animate = function () {
-      //   debug(1, '$anim', this, arguments);
-      //   return $anim.apply(this, arguments);
-      // }
+    function badRequestAnimFrame(callback) {
+      window.setTimeout(callback, 1);
+    }
 
-      // var $delay = jQuery.fn.delay;
-      // jQuery.fn.delay = function () {
-      //   debug(1, '$delay', this, arguments);
-      //   return $delay.apply(this, arguments);
-      // }
+    function scaRollDiceInBox(diceBoxElement, callback) {
+      return callback();
+    }
+
+    function init() {
+      window.requestAnimationFrame = badRequestAnimFrame;
 
       lastAction = new Date();
-      addCss(CSS);
+      nevry.addCss(CSS);
 
       var client = window.client;
       debug(2, 'init, client:', client);
@@ -520,18 +518,18 @@ try {
       debug(2, 'wrapped', wrapped);
       setTimeout(function () {
         client.scaProcessState = _.wrap(client.scaProcessState, scaProcessStateWrapper);
+        client.scaRollDiceInBox = scaRollDiceInBox;
       }, 2000);
 
-      var bag = $('<div id="sco-bot"><div id="stats"></div><div id="reward-bag"></div></div>')
+      var section = $('<div id="sca-bot">' + //
+          '<a href="">PAUSE</a>' + //
+          '<div id="stats"></div><div id="reward-bag"></div></div>')
         .appendTo(document.body);
-    }
 
-    function when(pred, f) {
-      // KISS!
-      try {
-        var v = pred();
-      } catch (e) {}
-      v ? f() : setTimeout(when, 200, pred, f);
+      $('a', section).click(function () {
+        PAUSED != PAUSED;
+        return false;
+      });
     }
 
     function scaIsLoaded() {
@@ -550,8 +548,8 @@ try {
       window.location.reload(false);
     }
 
-    when(scaIsLoaded, init);
-    when(sleeping, reload);
+    nevry.when(scaIsLoaded, init);
+    nevry.when(sleeping, reload);
   })();
 } catch (e) {
   console.log('error:', e)

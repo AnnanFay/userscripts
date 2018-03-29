@@ -1,0 +1,718 @@
+// ==UserScript==
+// @name sca-bot
+// @description
+// @namespace   https://github.com/AnnanFay
+// @include     http*://gateway.playneverwinter.com*
+// @version     2
+// @require     http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js
+// @grant       none
+// ==/UserScript==
+
+/* globals $, nevry, unsafeWindow, _, client */
+try {
+  (function () {
+    "strict true";
+    nevry.DEBUG = true;
+    window.PAUSED = false;
+    // unsafeWindow.localStorage.debug = '*';
+
+    var debug = nevry.log;
+
+    var CSS = function () {
+      /*!
+          #sca-bot {
+            position: fixed;
+            right: 0;
+            top: 0;
+
+            width: 12px;
+            height: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            border: 1px solid white;
+            background-color: #999;
+            z-index: 100;
+          }
+          #sca-bot:hover {
+            width: 20%;
+            overflow: auto;
+          }
+          #sca-bot > #stats {
+            background-color: #777;
+            height: 30px;
+          }
+
+          #reward-bag {
+            padding: 0.5em;
+          }
+          #reward-bag > div {
+            height: 1em;
+            overflow: hidden;
+          }
+          #reward-bag > div.open,
+          #reward-bag > div:hover {
+            height: auto;
+            overflow: auto;
+          }
+          #reward-bag div.reward-item {
+            display: inline-box;
+          }
+    */
+    };
+
+    function max(a, b) {
+      // safe max
+      return Math.max(a || 0, b || 0);
+    }
+
+    var Vector = {
+      dist: function (a, b) {
+        var d = 0;
+        var l = Math.max(a.length, b.length);
+        for (var i = 0; i < l; i++) {
+          d += Math.pow((a[i] || 0) - (b[i] || 0), 2);
+        }
+        return Math.sqrt(d);
+      },
+      length: function (vec) {
+        var d = 0;
+        for (var i = 0; i < vec.length; i++) {
+          d += Math.pow((vec[i] || 0), 2);
+        }
+        return Math.sqrt(d);
+      },
+      norm: function (vec) {
+        var d = Vector.length(vec);
+        if (!d) return 0;
+        var v = [];
+        for (var i = 0; i < vec.length; i++) {
+          v[i] = vec[i] / d;
+        }
+        return v;
+      },
+      sub: function (a, b) {
+        var v = [];
+        var l = Math.max(a.length, b.length);
+        for (var i = 0; i < l; i++) {
+          v[i] = (a[i] || 0) - (b[i] || 0);
+        }
+        return v;
+      },
+      add: function (a, b) {
+        var v = [];
+        var l = Math.max(a.length, b.length);
+        for (var i = 0; i < l; i++) {
+          v[i] = (a[i] || 0) + (b[i] || 0);
+        }
+        return v;
+      }
+    };
+
+    // Decision making code
+    function dieValue(trials, die) {
+      var score = 0;
+      // ...refactor
+      _(trials).forEach(function (t) {
+        _(t.needs).forEach(function (n) {
+          _(die.sides).forEach(function (side) {
+            if (side.sym === n.symbol) {
+              var v = Math.min(side.count, n.requires) / die.sides.length;
+              if (side.sym === 'c') {
+                v /= 2; // temp hack
+              }
+              score += v;
+            }
+          });
+        });
+      });
+      return score;
+    }
+
+    function validDice(dice, discarding) {
+      //(!d.locked && (d.valid || discarding && !d.used))
+      return _(dice)
+        .reject('locked') // not accessible yet
+        .reject('used') // already played
+        .filter(discarding ? _.constant(true) : 'valid')
+        .value();
+    }
+
+
+    function getFutures(trials, dice, discarding) {
+      var trialsPower = trialsPowerVector(trials);
+      var futures = [];
+      for (var i in dice) {
+        var die = dice[i];
+        var future = {};
+
+        future.die = die;
+        future.roll = die.roll;
+        future.rollPower = rollPowerVector(die.roll);
+        future.dicePower = dicePowerVector();
+        future.futureDicePower = Vector.sub(future.dicePower, diePowerVector(die));
+        future.futureTrialsPower = Vector.sub(trialsPower, future.rollPower);
+        future.score = Vector.dist(
+          Vector.norm(trialsPower),
+          Vector.norm(future.futureTrialsPower));
+
+        futures.push(future);
+      }
+      return futures;
+    }
+
+    // bit better than random
+    function chooseDie(trials, allDice, discarding) {
+      var dice = validDice(allDice, discarding);
+
+      var futures = getFutures(trials, dice, discarding);
+
+      console.log('!!!!!!!futures', futures);
+
+      dice = _.forEach(dice, function (die) {
+        die.value = dieValue(trials, die);
+      });
+
+      if (!discarding) {
+        var activeTrial = _.first(_.filter(trials, 'active'));
+        // use high value dice first
+        dice = _.sortBy(dice, function (die) {
+          var contrib = Math.min(
+            die.roll.count,
+            activeTrial.needs[die.roll.symbol].requires);
+          return [
+            1 / contrib,
+            die.value // FIXME: Should be value AFTER playing
+          ];
+        });
+      } else {
+        // discard less useful
+        dice = _.sortBy(dice, 'value');
+      }
+
+      return dice[0].id;
+    }
+
+
+    function combatChoice(client, discarding, canRoll) {
+      var gd = client.dataModel.model.gatewaygamedata;
+      var trials = gd.quest.encounter.challenge.trials;
+      var allDice = gd.quest.roller.pile.dice;
+
+      var die = chooseDie(trials, allDice, discarding);
+
+      nevry.when(function () {
+        if (PAUSED) return;
+        var e = $(".dice.slot-" + die);
+        var state = client.dataModel.model.gatewaygamedata.state;
+        var d = client.dataModel.model.gatewaygamedata.quest.roller.pile.dice[die];
+        return e.length //
+          && !d.used //
+          && !e.hasClass('used') //
+          && !e.hasClass('disabled') //
+          && !(state == "k_Discard" && d.valid) //
+          && !((state == "k_CombatChoose" || state == "k_Combat") //
+            && !d.valid);
+      }, function () {
+        var uiLink = $(".dice.slot-" + die);
+        debug(1, 'COMBAT CHOICE', die, uiLink.offset(), uiLink);
+        client.scaChooseDie(die, uiLink.offset());
+      });
+    }
+
+    function partyPowerVectors(party) {
+      return _.map(party, function (m) {
+        var powerVector = _(m.pow).mapValues('p').pairs().sortBy(0).map(1).value()
+        return Vector.norm(powerVector);
+      });
+    }
+
+    var DIM = 'cmpt';
+
+    function rollPowerVector(roll) {
+      var power = {
+        c: 0,
+        m: 0,
+        p: 0,
+        t: 0
+      };
+      power[roll.vals[0].sym] = roll.vals[0].count;
+
+      return _(power).pairs().sortBy(0).map(1).value();
+    }
+
+    function diePowerVector(die) {
+      return _(die.sides)
+        .reduce(function (acc, side) {
+          acc[side.sym] += side.count;
+          return acc;
+        }, {
+          c: 0,
+          m: 0,
+          p: 0,
+          t: 0
+        })
+    }
+
+    function dicePowerVector(dice) {
+      return _(dice).map(diePowerVector).reduce(Vector.add, []);
+    }
+
+    function trialsPowerVector(trials) {
+      return _(_(trials)
+          .map('needs')
+          .reduce(function (acc, trial) {
+            return _.merge(acc, trial, function (a, b) {
+              return b.requires + (a && a.requires || 0);
+            });
+          }, {
+            c: 0,
+            m: 0,
+            p: 0,
+            t: 0
+          }))
+        .pairs()
+        .sortBy(0)
+        .map(1)
+        .value();
+    }
+
+    function encounterPowerVectors(encs) {
+      return _.map(encs, function (enc) {
+        return trialsPowerVector(enc.challenge.trials);
+      });
+    }
+
+    function encounterPowerCompares(party, encs, powers, encPowers) {
+      var compares = [];
+      for (var i in powers) {
+        for (var j in encPowers) {
+          compares.push({
+            id: party[i].typename + ' - ' + encs[j].challenge.def.name,
+            mem: party[i],
+            enc: encs[j],
+            score: Vector.dist(Vector.norm(powers[i]), Vector.norm(encPowers[j]))
+          });
+        }
+      }
+      return _.sortBy(compares, 'score');
+    }
+
+    function encounterChoice(client) {
+      // get needed data
+      var gamedata = client.dataModel.model.gatewaygamedata;
+      var party = _.reject(gamedata.party.members, 'empty'); // includes resting
+      var encs = _(gamedata.quest.encs)
+        .omit('end').reject('complete').reject({
+          id: gamedata.quest.encs.end.id
+        }).filter('challenge').value();
+
+      var choice;
+      debug(1, 'encs', encs);
+
+      // deal with stars and boss battle
+      if (!encs.length) {
+        var encID = gamedata.quest.map.match(/data\-encounter\-id="([^"]+)" data\-tt\-stencil="content-tt-sca-descend"/);
+        //could also use '.stairs-down'
+        if (encID) {
+          // stairs
+          return {
+            encounterID: encID[1],
+            memberID: undefined
+          };
+        } else {
+          // boss
+          encs = [gamedata.quest.encs.end];
+        }
+      }
+
+      // find hard encounters for good characters
+      var powers = partyPowerVectors(party);
+      var encPowers = encounterPowerVectors(encs);
+      var compares = encounterPowerCompares(party, encs, powers, encPowers)
+
+      for (var i in encs) {
+        var enc = encs[i];
+        var bestCompare = _(compares).filter({
+          enc: enc
+        }).sortBy('score').first();
+        enc.best = bestCompare.mem.id;
+        enc.bestResting = bestCompare.mem.resting;
+        enc.score = bestCompare.score;
+      }
+
+      _(encs).sortBy('score').reverse().forEach(function (enc) {
+        if (!enc.bestResting) {
+          choice = {
+            encounterID: enc.id,
+            memberID: enc.best
+          }
+        }
+      });
+
+      // Find easy encounters for bad characters
+      if (!choice) {
+        var active = _.reject(party, 'resting');
+        for (var i in active) {
+          var mem = active[i];
+          var bestCompare = _(compares).filter({
+            mem: mem
+          }).sortBy('score').first();
+          mem.bestEnc = bestCompare.enc.id;
+          mem.bestScore = bestCompare.score;
+        }
+        var bestMem = _(active).sortBy('bestScore').first();
+        choice = {
+          encounterID: bestMem.bestEnc,
+          memberID: bestMem.id
+        }
+      }
+
+      if (choice) {
+        return choice;
+      } else {
+        debug(0, 'dunno what to do!');
+      }
+    }
+
+    function shift(client, a, b) {
+      // debug(1, 'SHIFTING... ', client.shifter.toSource())
+      client.shifter.shift(client.shifter.resolveHash("/adventures/" + a),
+        false, true, b);
+    }
+
+    function flog(i, f, args_) {
+      var args = Array.prototype.slice.call(arguments, 2);
+      debug(3, i, args);
+      return f.apply(this, args);
+    }
+
+    function updateRewardBag() {
+      var qid = client.dataModel.model.gatewaygamedata.quest.id;
+      var bag = $('#reward-bag .quest-' + qid);
+      if (!bag.length) {
+        var questBagHTML = '<div class="quest-' + qid + '"><h2>' + qid + '</h2><div class="rewards"></div></div>';
+        $('#reward-bag').append(questBagHTML);
+        bag = $('#reward-bag .quest-' + qid);
+      }
+
+      $('#reward-bag div').removeClass('open');
+      bag.addClass('open');
+
+      var rewardBag = $('.rewards', bag).empty();
+      var rewards = client.dataModel.model.gatewaygamedata.queuedrewardbag.rewards;
+      for (var i in rewards) {
+        var r = rewards[i];
+        rewardBag.append('<div class="reward-item" data="' //
+          + JSON.stringify(r) + '">' + r.count + 'x ' + r.name + ' (' + r.value + ')</div>');
+      }
+    }
+
+
+
+    var encChoice = undefined;
+    var eventHandlers = {
+      // k_DailyAward: function () {
+      //   nevry.err('TODO: daily award');
+      //   client.scaCheckDailies();
+      // },
+      k_ChooseQuest: function () {
+
+        // scaCheckDailies
+        // scaRollDaily
+        var invokeStatus = client.dataModel.model.gatewaygamedata.invokestatus;
+        var timeTill = new Date(invokeStatus.invokeexpiretime) - new Date();
+        var hours12 = 12 * 60 * 60 * 1000;
+
+
+        // current known level IDs are: d1-d6 (normal), i1 (invoke), e1 (event)
+        if (invokeStatus.caninvoke && timeTill < hours12) {
+          var level = 'i1'; // invoke quest
+        } else {
+          var level = 'e1';
+          // var level = 'd3';
+          // if (~window.location.href.indexOf('caetr')) {
+          //   level = 'd2'; //'t1';
+          // }
+        }
+
+        client.emitToProxy("Client_ScaSetQuest", {
+          id: level
+        });
+        setTimeout(client.scaConfirmQuest, 1000);
+        encChoice = undefined;
+      },
+      k_ChooseParty: function () {
+
+        var companions = client.dataModel.model.gatewaygamedata.companions;
+        var train = _(companions).filter('cantrain').last();
+        if (train) {
+          client.startTraining(train.id);
+          return;
+        }
+
+        shift(client, 'chooseparty', function () {
+          nevry.when(function () {
+            if (PAUSED) return;
+            var companions = client.dataModel.model.gatewaygamedata.companions;
+            return !!_(companions).filter('valid').reject('selected').value().length;
+          }, function () {
+            var companions = client.dataModel.model.gatewaygamedata.companions;
+            var choice = _(companions).filter('valid').reject('selected').sortBy('stamina').last();
+            client.scaAddPartyMember(choice.id, undefined);
+          })
+        });
+      },
+      k_ConfirmTavernCompanions: function () {
+        eventHandlers.k_ConfirmParty();
+      },
+      k_ConfirmParty: function () {
+        client.scaConfirmParty();
+      },
+      k_FirstRolling: function () {
+        shift(client, 'combat', function () {
+          client.scaEnterCombat();
+        });
+      },
+      k_Rolling: function () {
+        shift(client, 'combat', function () {
+          setTimeout(client.scaAnimateDiceRoll, 500);
+        });
+      },
+      k_Combat: function () {
+        eventHandlers.k_CombatChoose(false, true);
+      },
+      k_Discard: function () {
+        eventHandlers.k_CombatChoose(true, false);
+      },
+      k_CombatChoose: function (discarding, canRoll) {
+        //debug(1, 'k_CombatChoose', arguments);
+        shift(client, 'combat', function () {
+          combatChoice(client, discarding, canRoll);
+          lastState = '';
+        });
+      },
+      k_ChallengeFailure: function () {
+        eventHandlers.k_ChallengeSuccess(true);
+      },
+      k_ChallengeSuccess: function (failed) {
+
+        var gamedata = client.dataModel.model.gatewaygamedata;
+        var enc = gamedata.quest.encounter;
+        var roller = gamedata.quest.roller;
+
+        recordEncounter({
+          result: failed ? 'loss' : 'win',
+          encounter: {
+            eid: enc.id,
+            cid: enc.challenge.def.id,
+            trials: enc.challenge.trials
+          },
+          character: {
+            name: roller.typename,
+            id: roller.id,
+            level: roller.level
+          } //,
+          //dice: roller.pile.dice
+        });
+
+
+        updateRewardBag();
+        client.scaCombatDone();
+        encChoice = undefined;
+      },
+      k_ChooseEncounter: function () {
+        // k_ChooseEncounter ->
+        // scaSetEncounter ["r11c15", true] ->
+        // k_ConfirmEncounter ->
+        // scaConfirmEncounter ["2166553002146529548", "Pet_Dog"]
+        var health = client.dataModel.model.gatewaygamedata.party.health;
+        if (health < 2) {
+          //throw new Error('quit now');
+          client.scaQuestDone();
+          return;
+        }
+        if (!encChoice) {
+          encChoice = encounterChoice(client);
+          debug(2, 'encChoice', encChoice);
+          setTimeout(client.scaSetEncounter, 1000,
+            encChoice.encounterID, true);
+          if (!encChoice.memberID) {
+            // not a real encounter
+            encChoice = undefined;
+          }
+        }
+      },
+      k_ConfirmEncounter: function () {
+
+        if (encChoice) {
+          // setTimeout(function () {
+          //   shift(client, 'explore', function () {
+          //     shift(client, 'encounter', function () {
+          // debug(2, 'CALL client.scaConfirmEncounter(', encChoice.memberID, undefined, ');')
+          setTimeout(client.scaConfirmEncounter, 2000,
+            encChoice.memberID, undefined);
+          //     });
+          //   });
+          // }, 2000);
+        } else {
+          debug(2, 'cannot confirm');
+          eventHandlers.k_ChooseEncounter();
+        }
+      },
+      k_QuestSuccess: function () {
+        client.scaQuestDone();
+      },
+      k_QuestFailure: function () {
+        client.scaQuestDone();
+      }
+    };
+    var lastState = '';
+
+    function scaProcessStateWrapper(f) {
+      lastAction = new Date();
+
+      var args = Array.prototype.slice.call(arguments, 1);
+      var state = args[0];
+      var passing = PAUSED || !(state in eventHandlers);
+
+      debug(2, 'scaProcessState', args, 'passing: ', passing);
+
+      if (passing) {
+        return f.apply(this, args);
+      }
+
+      // if (lastState === state) {
+      //   return;
+      // }
+      lastState = state;
+      try {
+        eventHandlers[state]();
+      } catch (e) {
+        debug(0, 'scaProcessStateWrapper error', e)
+        return f.apply(this, args);
+      }
+    }
+
+    function badRequestAnimFrame(callback) {
+      window.setTimeout(callback, 1);
+    }
+
+    function scaRollDiceInBox(diceBoxElement, callback) {
+      return callback();
+    }
+
+    window.listEncounters = function listEncounters() {
+      var ls = window.localStorage;
+      var encounterCount = JSON.parse(ls.getItem('encounters') || '0');
+
+      if (encounterCount) {
+        var encounters = [];
+        for (var i = 0; i < encounterCount; i++) {
+          encounters.push(JSON.parse(ls.getItem('enc-' + i)));
+        }
+        window.document.body.innerHTML = '<textarea>' + JSON.stringify(encounters) + '</textarea>';
+        return encounters;
+      }
+    }
+
+    window.clearEncounters = function clearEncounters() {
+      debug('clearing encounters');
+      var ls = window.localStorage;
+      var encounters = JSON.parse(ls.getItem('encounters') || '0');
+
+      if (encounters) {
+        for (var i = 0; i < encounters; i++) {
+          ls.removeItem('enc-' + i);
+        }
+      }
+      ls.removeItem('encounters');
+    }
+
+    function recordEncounter(enc) {
+      debug('recording encounter');
+      var ls = window.localStorage;
+      var encounters = JSON.parse(ls.getItem('encounters') || '0');
+      try {
+        ls.setItem('enc-' + encounters, JSON.stringify(enc));
+        ls.setItem('encounters', JSON.stringify(encounters + 1));
+      } catch (e) {
+        alert('encounter mem full');
+        PAUSED = !PAUSED;
+      }
+    }
+
+    function init() {
+      window.requestAnimationFrame = badRequestAnimFrame;
+
+      lastAction = new Date();
+      nevry.addCss(CSS);
+
+      var client = window.client;
+      debug(2, 'init, client:', client);
+
+      var wrapped = [];
+
+      for (var i in client) {
+        var f = client[i];
+        if (f && !f.__bindData__ && typeof f === 'function' && (i.indexOf('sca') === 0 || i == 'emitToProxy')) {
+          wrapped.push(i);
+          client[i] = _.wrap(f, _.partial(flog, i));
+        }
+      }
+
+      //client.shifter.shift = _.wrap(client.shifter.shift, _.partial(flog, 'shifter.shift'));
+      for (var i in client.shifter) {
+        var f = client.shifter[i];
+        if (f && !f.__bindData__ && typeof f === 'function') {
+          wrapped.push(i);
+          client.shifter[i] = _.wrap(f, _.partial(flog, 'shifter.' + i));
+        }
+      }
+
+      debug(2, 'wrapped', wrapped);
+      setTimeout(function () {
+        client.scaProcessState = _.wrap(client.scaProcessState, scaProcessStateWrapper);
+        client.scaRollDiceInBox = scaRollDiceInBox;
+      }, 2000);
+
+      var section = $('<div id="sca-bot">' //
+          + '<a href="">PAUSED: <span>' //
+          + (PAUSED ? 'yes' : 'no') //
+          + '</span></a>' //
+          + '<div id="stats"></div><div id="reward-bag"></div></div>')
+        .appendTo(document.body);
+
+      $('#sca-bot a').click(function (e) {
+        window.PAUSED = !window.PAUSED;
+        $('#sca-bot a span').get(0).innerHTML = (PAUSED ? 'yes' : 'no');
+        return false;
+      });
+
+
+
+    }
+
+    function scaIsLoaded() {
+      return !!(window.client && window.client.scaProcessState);
+    }
+
+    var lastAction = new Date();
+
+    function sleeping() {
+      var dur = 60 * 6 * 1000; // 6mins
+      var diff = (new Date() - lastAction);
+      return diff > dur && window.location.href.indexOf('adventures') != -1;
+    }
+
+    function reload() {
+      window.location.reload(false);
+    }
+
+    nevry.when(scaIsLoaded, init);
+    nevry.when(sleeping, reload);
+  })();
+} catch (e) {
+  console.log('error:', e)
+}

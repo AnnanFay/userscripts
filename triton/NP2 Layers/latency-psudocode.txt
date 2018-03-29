@@ -1,0 +1,12 @@
+
+for star in stars:
+    paths = filter(carriers, pickup-this-star)
+    latencies = []
+    for path in paths:
+        our-path-segment = current-star to first drop off after star
+        path-latency = distance(our-path-segment)
+        latencies.push(path-latency)
+
+    latency = average(latencies)
+
+        

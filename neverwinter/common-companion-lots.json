@@ -1,0 +1,5341 @@
+[{
+  "containerid": 537566719,
+  "index": 0,
+  "creationtime": "Tue, 08 Jul 2014 17:15:13 GMT",
+  "expiretime": "Sun, 13 Jul 2014 17:15:13 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 154,
+  "minimumbid": 159,
+  "numbids": 31,
+  "biddingplayeraccountid": 8234530,
+  "biddingplayercontainerid": 503853308,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Capitaine Swing",
+  "ownerhandle": "charlesdu17",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537582389,
+  "index": 1,
+  "creationtime": "Tue, 08 Jul 2014 19:11:40 GMT",
+  "expiretime": "Sun, 13 Jul 2014 19:11:40 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 433,
+  "minimumbid": 446,
+  "numbids": 19,
+  "biddingplayeraccountid": 4421476,
+  "biddingplayercontainerid": 504586545,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Capitaine Swing",
+  "ownerhandle": "charlesdu17",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537582364,
+  "index": 2,
+  "creationtime": "Tue, 08 Jul 2014 19:11:30 GMT",
+  "expiretime": "Sun, 13 Jul 2014 19:11:30 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 453,
+  "minimumbid": 467,
+  "numbids": 38,
+  "biddingplayeraccountid": 9901879,
+  "biddingplayercontainerid": 504571053,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Capitaine Swing",
+  "ownerhandle": "charlesdu17",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537443051,
+  "index": 3,
+  "creationtime": "Mon, 07 Jul 2014 21:18:35 GMT",
+  "expiretime": "Sat, 12 Jul 2014 21:18:35 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 578,
+  "minimumbid": 595,
+  "numbids": 6,
+  "biddingplayeraccountid": 9901879,
+  "biddingplayercontainerid": 504571053,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Galmar",
+  "ownerhandle": "galmar1997",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537566662,
+  "index": 4,
+  "creationtime": "Tue, 08 Jul 2014 17:14:49 GMT",
+  "expiretime": "Sun, 13 Jul 2014 17:14:49 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 632,
+  "minimumbid": 651,
+  "numbids": 54,
+  "biddingplayeraccountid": 11708034,
+  "biddingplayercontainerid": 504529443,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Capitaine Swing",
+  "ownerhandle": "charlesdu17",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537428455,
+  "index": 5,
+  "creationtime": "Mon, 07 Jul 2014 19:37:22 GMT",
+  "expiretime": "Sat, 12 Jul 2014 19:37:22 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 700,
+  "minimumbid": 721,
+  "numbids": 6,
+  "biddingplayeraccountid": 9436775,
+  "biddingplayercontainerid": 504516905,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shahara Moonshadow",
+  "ownerhandle": "dylanraytodd",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537566693,
+  "index": 6,
+  "creationtime": "Tue, 08 Jul 2014 17:15:02 GMT",
+  "expiretime": "Sun, 13 Jul 2014 17:15:02 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 788,
+  "minimumbid": 812,
+  "numbids": 16,
+  "biddingplayeraccountid": 10737753,
+  "biddingplayercontainerid": 503417521,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Capitaine Swing",
+  "ownerhandle": "charlesdu17",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537675374,
+  "index": 7,
+  "creationtime": "Wed, 09 Jul 2014 12:49:45 GMT",
+  "expiretime": "Mon, 14 Jul 2014 12:49:45 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 824,
+  "minimumbid": 849,
+  "numbids": 13,
+  "biddingplayeraccountid": 11048648,
+  "biddingplayercontainerid": 503787439,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "horizon lan",
+  "ownerhandle": "salomonik0071",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849612,
+  "index": 8,
+  "creationtime": "Thu, 10 Jul 2014 20:09:06 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:09:06 GMT",
+  "price": 990,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849583,
+  "index": 9,
+  "creationtime": "Thu, 10 Jul 2014 20:08:56 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:08:56 GMT",
+  "price": 990,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537840778,
+  "index": 10,
+  "creationtime": "Thu, 10 Jul 2014 19:07:33 GMT",
+  "expiretime": "Tue, 15 Jul 2014 19:07:33 GMT",
+  "price": 999,
+  "canbid": 1,
+  "currentbid": 500,
+  "minimumbid": 500,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Junitchi",
+  "ownerhandle": "jonhitchi",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537428390,
+  "index": 11,
+  "creationtime": "Mon, 07 Jul 2014 19:36:55 GMT",
+  "expiretime": "Sat, 12 Jul 2014 19:36:55 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1030,
+  "numbids": 12,
+  "biddingplayeraccountid": 9436775,
+  "biddingplayercontainerid": 504516905,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shahara Moonshadow",
+  "ownerhandle": "dylanraytodd",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537565513,
+  "index": 12,
+  "creationtime": "Tue, 08 Jul 2014 17:06:56 GMT",
+  "expiretime": "Sun, 13 Jul 2014 17:06:56 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1030,
+  "numbids": 1,
+  "biddingplayeraccountid": 11679492,
+  "biddingplayercontainerid": 504512113,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ketojan",
+  "ownerhandle": "cianu1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537428333,
+  "index": 13,
+  "creationtime": "Mon, 07 Jul 2014 19:36:35 GMT",
+  "expiretime": "Sat, 12 Jul 2014 19:36:35 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1030,
+  "numbids": 10,
+  "biddingplayeraccountid": 9436775,
+  "biddingplayercontainerid": 504516905,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shahara Moonshadow",
+  "ownerhandle": "dylanraytodd",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849499,
+  "index": 14,
+  "creationtime": "Thu, 10 Jul 2014 20:08:16 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:08:16 GMT",
+  "price": 1030,
+  "canbid": 1,
+  "currentbid": 941,
+  "minimumbid": 941,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849858,
+  "index": 15,
+  "creationtime": "Thu, 10 Jul 2014 20:10:48 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:10:48 GMT",
+  "price": 1030,
+  "canbid": 1,
+  "currentbid": 941,
+  "minimumbid": 941,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537829407,
+  "index": 16,
+  "creationtime": "Thu, 10 Jul 2014 17:43:41 GMT",
+  "expiretime": "Tue, 15 Jul 2014 17:43:41 GMT",
+  "price": 1037,
+  "canbid": 1,
+  "currentbid": 938,
+  "minimumbid": 938,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Garahal",
+  "ownerhandle": "garahal",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537834628,
+  "index": 17,
+  "creationtime": "Thu, 10 Jul 2014 18:22:39 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:22:39 GMT",
+  "price": 1037,
+  "canbid": 1,
+  "currentbid": 938,
+  "minimumbid": 938,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Primal",
+  "ownerhandle": "pancham13",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537834649,
+  "index": 18,
+  "creationtime": "Thu, 10 Jul 2014 18:22:49 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:22:49 GMT",
+  "price": 1037,
+  "canbid": 1,
+  "currentbid": 938,
+  "minimumbid": 938,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Primal",
+  "ownerhandle": "pancham13",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849688,
+  "index": 19,
+  "creationtime": "Thu, 10 Jul 2014 20:09:40 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:09:40 GMT",
+  "price": 1040,
+  "canbid": 1,
+  "currentbid": 952,
+  "minimumbid": 952,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849677,
+  "index": 20,
+  "creationtime": "Thu, 10 Jul 2014 20:09:34 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:09:34 GMT",
+  "price": 1040,
+  "canbid": 1,
+  "currentbid": 952,
+  "minimumbid": 952,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537837254,
+  "index": 21,
+  "creationtime": "Thu, 10 Jul 2014 18:43:52 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:43:52 GMT",
+  "price": 1046,
+  "canbid": 1,
+  "currentbid": 947,
+  "minimumbid": 947,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537837249,
+  "index": 22,
+  "creationtime": "Thu, 10 Jul 2014 18:43:48 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:43:48 GMT",
+  "price": 1046,
+  "canbid": 1,
+  "currentbid": 947,
+  "minimumbid": 947,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537837264,
+  "index": 23,
+  "creationtime": "Thu, 10 Jul 2014 18:44:00 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:44:00 GMT",
+  "price": 1046,
+  "canbid": 1,
+  "currentbid": 947,
+  "minimumbid": 947,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537837257,
+  "index": 24,
+  "creationtime": "Thu, 10 Jul 2014 18:43:55 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:43:55 GMT",
+  "price": 1046,
+  "canbid": 1,
+  "currentbid": 947,
+  "minimumbid": 947,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537837197,
+  "index": 25,
+  "creationtime": "Thu, 10 Jul 2014 18:43:21 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:43:21 GMT",
+  "price": 1046,
+  "canbid": 1,
+  "currentbid": 947,
+  "minimumbid": 947,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813769,
+  "index": 26,
+  "creationtime": "Thu, 10 Jul 2014 13:09:45 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:45 GMT",
+  "price": 1047,
+  "canbid": 1,
+  "currentbid": 948,
+  "minimumbid": 948,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813700,
+  "index": 27,
+  "creationtime": "Thu, 10 Jul 2014 13:09:08 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:08 GMT",
+  "price": 1047,
+  "canbid": 1,
+  "currentbid": 948,
+  "minimumbid": 948,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813721,
+  "index": 28,
+  "creationtime": "Thu, 10 Jul 2014 13:09:20 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:20 GMT",
+  "price": 1047,
+  "canbid": 1,
+  "currentbid": 948,
+  "minimumbid": 948,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537834671,
+  "index": 29,
+  "creationtime": "Thu, 10 Jul 2014 18:23:03 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:23:03 GMT",
+  "price": 1047,
+  "canbid": 1,
+  "currentbid": 948,
+  "minimumbid": 948,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Primal",
+  "ownerhandle": "pancham13",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537814622,
+  "index": 30,
+  "creationtime": "Thu, 10 Jul 2014 13:18:16 GMT",
+  "expiretime": "Sun, 13 Jul 2014 13:18:16 GMT",
+  "price": 1048,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Alyon",
+  "ownerhandle": "alyon9",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537816152,
+  "index": 31,
+  "creationtime": "Thu, 10 Jul 2014 13:36:30 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:36:30 GMT",
+  "price": 1048,
+  "canbid": 1,
+  "currentbid": 500,
+  "minimumbid": 500,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Dara Droverson",
+  "ownerhandle": "killabombsquad",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537772937,
+  "index": 32,
+  "creationtime": "Thu, 10 Jul 2014 03:50:47 GMT",
+  "expiretime": "Tue, 15 Jul 2014 03:50:47 GMT",
+  "price": 1050,
+  "canbid": 1,
+  "currentbid": 991,
+  "minimumbid": 991,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Keira Hawklight",
+  "ownerhandle": "pretorien63",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537773040,
+  "index": 33,
+  "creationtime": "Thu, 10 Jul 2014 03:51:56 GMT",
+  "expiretime": "Tue, 15 Jul 2014 03:51:56 GMT",
+  "price": 1050,
+  "canbid": 1,
+  "currentbid": 991,
+  "minimumbid": 1021,
+  "numbids": 1,
+  "biddingplayeraccountid": 11305686,
+  "biddingplayercontainerid": 504347824,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Keira Hawklight",
+  "ownerhandle": "pretorien63",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537824203,
+  "index": 34,
+  "creationtime": "Thu, 10 Jul 2014 17:02:05 GMT",
+  "expiretime": "Tue, 15 Jul 2014 17:02:05 GMT",
+  "price": 1050,
+  "canbid": 1,
+  "currentbid": 950,
+  "minimumbid": 950,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "AndrewRed",
+  "ownerhandle": "andrewred89",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849742,
+  "index": 35,
+  "creationtime": "Thu, 10 Jul 2014 20:10:05 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:10:05 GMT",
+  "price": 1050,
+  "canbid": 1,
+  "currentbid": 949,
+  "minimumbid": 949,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849726,
+  "index": 36,
+  "creationtime": "Thu, 10 Jul 2014 20:09:58 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:09:58 GMT",
+  "price": 1050,
+  "canbid": 1,
+  "currentbid": 949,
+  "minimumbid": 949,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537805196,
+  "index": 37,
+  "creationtime": "Thu, 10 Jul 2014 11:29:53 GMT",
+  "expiretime": "Tue, 15 Jul 2014 11:29:53 GMT",
+  "price": 1056,
+  "canbid": 1,
+  "currentbid": 100,
+  "minimumbid": 103,
+  "numbids": 5,
+  "biddingplayeraccountid": 8839680,
+  "biddingplayercontainerid": 500456853,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "ohmsAD",
+  "ownerhandle": "OV_ohms",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537802325,
+  "index": 38,
+  "creationtime": "Thu, 10 Jul 2014 10:54:02 GMT",
+  "expiretime": "Tue, 15 Jul 2014 10:54:02 GMT",
+  "price": 1056,
+  "canbid": 1,
+  "currentbid": 955,
+  "minimumbid": 955,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Olotumal",
+  "ownerhandle": "mints12",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537749743,
+  "index": 39,
+  "creationtime": "Wed, 09 Jul 2014 23:35:24 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:35:24 GMT",
+  "price": 1056,
+  "canbid": 1,
+  "currentbid": 955,
+  "minimumbid": 955,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537749711,
+  "index": 40,
+  "creationtime": "Wed, 09 Jul 2014 23:35:11 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:35:11 GMT",
+  "price": 1056,
+  "canbid": 1,
+  "currentbid": 955,
+  "minimumbid": 955,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537749722,
+  "index": 41,
+  "creationtime": "Wed, 09 Jul 2014 23:35:15 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:35:15 GMT",
+  "price": 1056,
+  "canbid": 1,
+  "currentbid": 955,
+  "minimumbid": 955,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537749737,
+  "index": 42,
+  "creationtime": "Wed, 09 Jul 2014 23:35:21 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:35:21 GMT",
+  "price": 1056,
+  "canbid": 1,
+  "currentbid": 955,
+  "minimumbid": 955,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537749729,
+  "index": 43,
+  "creationtime": "Wed, 09 Jul 2014 23:35:18 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:35:18 GMT",
+  "price": 1056,
+  "canbid": 1,
+  "currentbid": 955,
+  "minimumbid": 955,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537359383,
+  "index": 44,
+  "creationtime": "Mon, 07 Jul 2014 09:50:51 GMT",
+  "expiretime": "Sat, 12 Jul 2014 09:50:51 GMT",
+  "price": 1057,
+  "canbid": 1,
+  "currentbid": 800,
+  "minimumbid": 800,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Channi",
+  "ownerhandle": "hajipoo",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537143848,
+  "index": 45,
+  "creationtime": "Sat, 05 Jul 2014 23:40:24 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:40:24 GMT",
+  "price": 1058,
+  "canbid": 1,
+  "currentbid": 772,
+  "minimumbid": 795,
+  "numbids": 4,
+  "biddingplayeraccountid": 11605891,
+  "biddingplayercontainerid": 504462664,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Junitchi",
+  "ownerhandle": "jonhitchi",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537428296,
+  "index": 46,
+  "creationtime": "Mon, 07 Jul 2014 19:36:21 GMT",
+  "expiretime": "Sat, 12 Jul 2014 19:36:21 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 1061,
+  "minimumbid": 1093,
+  "numbids": 25,
+  "biddingplayeraccountid": 11686573,
+  "biddingplayercontainerid": 504515149,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shahara Moonshadow",
+  "ownerhandle": "dylanraytodd",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537712245,
+  "index": 47,
+  "creationtime": "Wed, 09 Jul 2014 18:24:15 GMT",
+  "expiretime": "Mon, 14 Jul 2014 18:24:15 GMT",
+  "price": 1061,
+  "canbid": 1,
+  "currentbid": 350,
+  "minimumbid": 360,
+  "numbids": 17,
+  "biddingplayeraccountid": 11735340,
+  "biddingplayercontainerid": 504562448,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Darrak Battleheart",
+  "ownerhandle": "OV_ohms",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217607,
+  "index": 48,
+  "creationtime": "Sun, 06 Jul 2014 12:57:07 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:57:07 GMT",
+  "price": 1063,
+  "canbid": 1,
+  "currentbid": 962,
+  "minimumbid": 962,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217602,
+  "index": 49,
+  "creationtime": "Sun, 06 Jul 2014 12:57:04 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:57:04 GMT",
+  "price": 1063,
+  "canbid": 1,
+  "currentbid": 962,
+  "minimumbid": 962,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217595,
+  "index": 50,
+  "creationtime": "Sun, 06 Jul 2014 12:57:01 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:57:01 GMT",
+  "price": 1063,
+  "canbid": 1,
+  "currentbid": 962,
+  "minimumbid": 962,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537221245,
+  "index": 51,
+  "creationtime": "Sun, 06 Jul 2014 13:24:51 GMT",
+  "expiretime": "Fri, 11 Jul 2014 13:24:51 GMT",
+  "price": 1063,
+  "canbid": 1,
+  "currentbid": 962,
+  "minimumbid": 962,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Brkcn",
+  "ownerhandle": "rocksiqt",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217589,
+  "index": 52,
+  "creationtime": "Sun, 06 Jul 2014 12:56:58 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:56:58 GMT",
+  "price": 1063,
+  "canbid": 1,
+  "currentbid": 962,
+  "minimumbid": 962,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537222717,
+  "index": 53,
+  "creationtime": "Sun, 06 Jul 2014 13:36:41 GMT",
+  "expiretime": "Fri, 11 Jul 2014 13:36:41 GMT",
+  "price": 1063,
+  "canbid": 1,
+  "currentbid": 962,
+  "minimumbid": 962,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Keira Swordhand",
+  "ownerhandle": "ninja4everpl",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537822863,
+  "index": 54,
+  "creationtime": "Thu, 10 Jul 2014 16:49:37 GMT",
+  "expiretime": "Tue, 15 Jul 2014 16:49:37 GMT",
+  "price": 1065,
+  "canbid": 1,
+  "currentbid": 550,
+  "minimumbid": 550,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Orianna Babausong",
+  "ownerhandle": "skitty5poid",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537793157,
+  "index": 55,
+  "creationtime": "Thu, 10 Jul 2014 08:54:27 GMT",
+  "expiretime": "Tue, 15 Jul 2014 08:54:27 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justice",
+  "ownerhandle": "milaylee",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537793153,
+  "index": 56,
+  "creationtime": "Thu, 10 Jul 2014 08:54:23 GMT",
+  "expiretime": "Tue, 15 Jul 2014 08:54:23 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justice",
+  "ownerhandle": "milaylee",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537793162,
+  "index": 57,
+  "creationtime": "Thu, 10 Jul 2014 08:54:32 GMT",
+  "expiretime": "Tue, 15 Jul 2014 08:54:32 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justice",
+  "ownerhandle": "milaylee",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537243366,
+  "index": 58,
+  "creationtime": "Sun, 06 Jul 2014 16:00:38 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:00:38 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justin Weed Bieber",
+  "ownerhandle": "sckmicoke1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537243379,
+  "index": 59,
+  "creationtime": "Sun, 06 Jul 2014 16:00:46 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:00:46 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justin Weed Bieber",
+  "ownerhandle": "sckmicoke1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537250410,
+  "index": 60,
+  "creationtime": "Sun, 06 Jul 2014 16:51:19 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:51:19 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Nemo",
+  "ownerhandle": "sleeypu",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537243373,
+  "index": 61,
+  "creationtime": "Sun, 06 Jul 2014 16:00:43 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:00:43 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justin Weed Bieber",
+  "ownerhandle": "sckmicoke1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537243354,
+  "index": 62,
+  "creationtime": "Sun, 06 Jul 2014 16:00:33 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:00:33 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justin Weed Bieber",
+  "ownerhandle": "sckmicoke1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537243391,
+  "index": 63,
+  "creationtime": "Sun, 06 Jul 2014 16:00:52 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:00:52 GMT",
+  "price": 1067,
+  "canbid": 1,
+  "currentbid": 966,
+  "minimumbid": 966,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justin Weed Bieber",
+  "ownerhandle": "sckmicoke1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537804684,
+  "index": 64,
+  "creationtime": "Thu, 10 Jul 2014 11:24:24 GMT",
+  "expiretime": "Tue, 15 Jul 2014 11:24:24 GMT",
+  "price": 1069,
+  "canbid": 1,
+  "currentbid": 15,
+  "minimumbid": 16,
+  "numbids": 7,
+  "biddingplayeraccountid": 11401295,
+  "biddingplayercontainerid": 504451302,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Beiro Foxbane",
+  "ownerhandle": "OV_ohms",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537802382,
+  "index": 65,
+  "creationtime": "Thu, 10 Jul 2014 10:54:44 GMT",
+  "expiretime": "Tue, 15 Jul 2014 10:54:44 GMT",
+  "price": 1069,
+  "canbid": 1,
+  "currentbid": 968,
+  "minimumbid": 968,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Olotumal",
+  "ownerhandle": "mints12",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537803844,
+  "index": 66,
+  "creationtime": "Thu, 10 Jul 2014 11:13:11 GMT",
+  "expiretime": "Tue, 15 Jul 2014 11:13:11 GMT",
+  "price": 1069,
+  "canbid": 1,
+  "currentbid": 9,
+  "minimumbid": 10,
+  "numbids": 9,
+  "biddingplayeraccountid": 11698686,
+  "biddingplayercontainerid": 504530924,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Darrak Battleheart",
+  "ownerhandle": "OV_ohms",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537221256,
+  "index": 67,
+  "creationtime": "Sun, 06 Jul 2014 13:24:54 GMT",
+  "expiretime": "Fri, 11 Jul 2014 13:24:54 GMT",
+  "price": 1079,
+  "canbid": 1,
+  "currentbid": 976,
+  "minimumbid": 976,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Brkcn",
+  "ownerhandle": "rocksiqt",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217670,
+  "index": 68,
+  "creationtime": "Sun, 06 Jul 2014 12:57:37 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:57:37 GMT",
+  "price": 1079,
+  "canbid": 1,
+  "currentbid": 976,
+  "minimumbid": 976,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537746368,
+  "index": 69,
+  "creationtime": "Wed, 09 Jul 2014 23:05:10 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:05:10 GMT",
+  "price": 1081,
+  "canbid": 1,
+  "currentbid": 978,
+  "minimumbid": 978,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "geoff of reporoa",
+  "ownerhandle": "lordgarnett",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537345660,
+  "index": 70,
+  "creationtime": "Mon, 07 Jul 2014 07:13:34 GMT",
+  "expiretime": "Sat, 12 Jul 2014 07:13:34 GMT",
+  "price": 1083,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537345540,
+  "index": 71,
+  "creationtime": "Mon, 07 Jul 2014 07:12:20 GMT",
+  "expiretime": "Sat, 12 Jul 2014 07:12:20 GMT",
+  "price": 1083,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537779752,
+  "index": 72,
+  "creationtime": "Thu, 10 Jul 2014 05:28:33 GMT",
+  "expiretime": "Tue, 15 Jul 2014 05:28:33 GMT",
+  "price": 1084,
+  "canbid": 1,
+  "currentbid": 981,
+  "minimumbid": 981,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Xvorr",
+  "ownerhandle": "xvorr",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537779758,
+  "index": 73,
+  "creationtime": "Thu, 10 Jul 2014 05:28:38 GMT",
+  "expiretime": "Tue, 15 Jul 2014 05:28:38 GMT",
+  "price": 1087,
+  "canbid": 1,
+  "currentbid": 984,
+  "minimumbid": 984,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Xvorr",
+  "ownerhandle": "xvorr",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537773020,
+  "index": 74,
+  "creationtime": "Thu, 10 Jul 2014 03:51:41 GMT",
+  "expiretime": "Tue, 15 Jul 2014 03:51:41 GMT",
+  "price": 1087,
+  "canbid": 1,
+  "currentbid": 984,
+  "minimumbid": 984,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Keira Hawklight",
+  "ownerhandle": "pretorien63",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537211148,
+  "index": 75,
+  "creationtime": "Sun, 06 Jul 2014 12:01:53 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:01:53 GMT",
+  "price": 1088,
+  "canbid": 1,
+  "currentbid": 985,
+  "minimumbid": 985,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Harth Guard",
+  "ownerhandle": "kyron1414",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849898,
+  "index": 76,
+  "creationtime": "Thu, 10 Jul 2014 20:11:03 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:11:03 GMT",
+  "price": 1090,
+  "canbid": 1,
+  "currentbid": 1004,
+  "minimumbid": 1004,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849475,
+  "index": 77,
+  "creationtime": "Thu, 10 Jul 2014 20:08:01 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:08:01 GMT",
+  "price": 1090,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537706523,
+  "index": 78,
+  "creationtime": "Wed, 09 Jul 2014 17:38:30 GMT",
+  "expiretime": "Mon, 14 Jul 2014 17:38:30 GMT",
+  "price": 1099,
+  "canbid": 1,
+  "currentbid": 958,
+  "minimumbid": 958,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Drew Urthadar",
+  "ownerhandle": "caelcormag",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537784373,
+  "index": 79,
+  "creationtime": "Thu, 10 Jul 2014 06:41:17 GMT",
+  "expiretime": "Tue, 15 Jul 2014 06:41:17 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "occhio di falco",
+  "ownerhandle": "ulisse50",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849533,
+  "index": 80,
+  "creationtime": "Thu, 10 Jul 2014 20:08:32 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:08:32 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849552,
+  "index": 81,
+  "creationtime": "Thu, 10 Jul 2014 20:08:38 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:08:38 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537134655,
+  "index": 82,
+  "creationtime": "Sat, 05 Jul 2014 22:30:04 GMT",
+  "expiretime": "Thu, 10 Jul 2014 22:30:04 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 900,
+  "minimumbid": 900,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Xvorr",
+  "ownerhandle": "xvorr",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537789744,
+  "index": 83,
+  "creationtime": "Thu, 10 Jul 2014 08:02:57 GMT",
+  "expiretime": "Tue, 15 Jul 2014 08:02:57 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 953,
+  "minimumbid": 953,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "klingelfee",
+  "ownerhandle": "sauschwanz",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537151698,
+  "index": 84,
+  "creationtime": "Sun, 06 Jul 2014 00:56:07 GMT",
+  "expiretime": "Fri, 11 Jul 2014 00:56:07 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 950,
+  "minimumbid": 950,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Bishop",
+  "ownerhandle": "tas4me",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537151677,
+  "index": 85,
+  "creationtime": "Sun, 06 Jul 2014 00:55:56 GMT",
+  "expiretime": "Fri, 11 Jul 2014 00:55:56 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 950,
+  "minimumbid": 950,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Bishop",
+  "ownerhandle": "tas4me",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537840930,
+  "index": 86,
+  "creationtime": "Thu, 10 Jul 2014 19:08:40 GMT",
+  "expiretime": "Tue, 15 Jul 2014 19:08:40 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 2,
+  "minimumbid": 3,
+  "numbids": 2,
+  "biddingplayeraccountid": 11698686,
+  "biddingplayercontainerid": 504530924,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shao Qian",
+  "ownerhandle": "yantai2013",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537789805,
+  "index": 87,
+  "creationtime": "Thu, 10 Jul 2014 08:03:50 GMT",
+  "expiretime": "Tue, 15 Jul 2014 08:03:50 GMT",
+  "price": 1100,
+  "canbid": 1,
+  "currentbid": 989,
+  "minimumbid": 989,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "klingelfee",
+  "ownerhandle": "sauschwanz",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537736977,
+  "index": 88,
+  "creationtime": "Wed, 09 Jul 2014 21:34:07 GMT",
+  "expiretime": "Sat, 12 Jul 2014 21:34:07 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 998,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Bluel Darkheart",
+  "ownerhandle": "bluell",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537739498,
+  "index": 89,
+  "creationtime": "Wed, 09 Jul 2014 21:56:19 GMT",
+  "expiretime": "Mon, 14 Jul 2014 21:56:19 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 998,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Kairon Helltalon",
+  "ownerhandle": "strikerx189",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537826617,
+  "index": 90,
+  "creationtime": "Thu, 10 Jul 2014 17:21:36 GMT",
+  "expiretime": "Tue, 15 Jul 2014 17:21:36 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 998,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Mc.coy.ony.",
+  "ownerhandle": "gnap1012",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537836652,
+  "index": 91,
+  "creationtime": "Thu, 10 Jul 2014 18:39:45 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:39:45 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 998,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Psyk'a Delik",
+  "ownerhandle": "shamanfungi",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537834660,
+  "index": 92,
+  "creationtime": "Thu, 10 Jul 2014 18:22:54 GMT",
+  "expiretime": "Tue, 15 Jul 2014 18:22:54 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 1028,
+  "numbids": 1,
+  "biddingplayeraccountid": 6526446,
+  "biddingplayercontainerid": 504540019,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Primal",
+  "ownerhandle": "pancham13",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813726,
+  "index": 93,
+  "creationtime": "Thu, 10 Jul 2014 13:09:24 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:24 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 998,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813709,
+  "index": 94,
+  "creationtime": "Thu, 10 Jul 2014 13:09:12 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:12 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 998,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813752,
+  "index": 95,
+  "creationtime": "Thu, 10 Jul 2014 13:09:38 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:38 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 998,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813777,
+  "index": 96,
+  "creationtime": "Thu, 10 Jul 2014 13:09:49 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:49 GMT",
+  "price": 1103,
+  "canbid": 1,
+  "currentbid": 998,
+  "minimumbid": 998,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537803852,
+  "index": 97,
+  "creationtime": "Thu, 10 Jul 2014 11:13:17 GMT",
+  "expiretime": "Tue, 15 Jul 2014 11:13:17 GMT",
+  "price": 1104,
+  "canbid": 1,
+  "currentbid": 106,
+  "minimumbid": 109,
+  "numbids": 5,
+  "biddingplayeraccountid": 4274917,
+  "biddingplayercontainerid": 504467978,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Darrak Battleheart",
+  "ownerhandle": "OV_ohms",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537802377,
+  "index": 98,
+  "creationtime": "Thu, 10 Jul 2014 10:54:39 GMT",
+  "expiretime": "Tue, 15 Jul 2014 10:54:39 GMT",
+  "price": 1104,
+  "canbid": 1,
+  "currentbid": 999,
+  "minimumbid": 999,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Olotumal",
+  "ownerhandle": "mints12",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537816996,
+  "index": 99,
+  "creationtime": "Thu, 10 Jul 2014 13:44:53 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:44:53 GMT",
+  "price": 1105,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ermack",
+  "ownerhandle": "leozagaglia",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537817006,
+  "index": 100,
+  "creationtime": "Thu, 10 Jul 2014 13:44:58 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:44:58 GMT",
+  "price": 1105,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ermack",
+  "ownerhandle": "leozagaglia",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537742176,
+  "index": 101,
+  "creationtime": "Wed, 09 Jul 2014 22:22:33 GMT",
+  "expiretime": "Mon, 14 Jul 2014 22:22:33 GMT",
+  "price": 1109,
+  "canbid": 1,
+  "currentbid": 1004,
+  "minimumbid": 1004,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "alphahawk98",
+  "ownerhandle": "applepie316",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537529282,
+  "index": 102,
+  "creationtime": "Tue, 08 Jul 2014 11:43:24 GMT",
+  "expiretime": "Sun, 13 Jul 2014 11:43:24 GMT",
+  "price": 1111,
+  "canbid": 1,
+  "currentbid": 25,
+  "minimumbid": 26,
+  "numbids": 25,
+  "biddingplayeraccountid": 5060569,
+  "biddingplayercontainerid": 400031689,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "ohmsAD",
+  "ownerhandle": "OV_ohms",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537378646,
+  "index": 103,
+  "creationtime": "Mon, 07 Jul 2014 13:05:13 GMT",
+  "expiretime": "Sat, 12 Jul 2014 13:05:13 GMT",
+  "price": 1111,
+  "canbid": 1,
+  "currentbid": 27,
+  "minimumbid": 28,
+  "numbids": 27,
+  "biddingplayeraccountid": 11727856,
+  "biddingplayercontainerid": 504546999,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "ohmsAD",
+  "ownerhandle": "OV_ohms",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537425557,
+  "index": 104,
+  "creationtime": "Mon, 07 Jul 2014 19:17:41 GMT",
+  "expiretime": "Sat, 12 Jul 2014 19:17:41 GMT",
+  "price": 1111,
+  "canbid": 1,
+  "currentbid": 950,
+  "minimumbid": 950,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Aelex",
+  "ownerhandle": "aewonne",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537425566,
+  "index": 105,
+  "creationtime": "Mon, 07 Jul 2014 19:17:48 GMT",
+  "expiretime": "Sat, 12 Jul 2014 19:17:48 GMT",
+  "price": 1111,
+  "canbid": 1,
+  "currentbid": 950,
+  "minimumbid": 950,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Aelex",
+  "ownerhandle": "aewonne",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537691479,
+  "index": 106,
+  "creationtime": "Wed, 09 Jul 2014 15:22:13 GMT",
+  "expiretime": "Mon, 14 Jul 2014 15:22:13 GMT",
+  "price": 1111,
+  "canbid": 1,
+  "currentbid": 948,
+  "minimumbid": 948,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Abahms",
+  "ownerhandle": "meerchaum",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537156675,
+  "index": 107,
+  "creationtime": "Sun, 06 Jul 2014 01:44:28 GMT",
+  "expiretime": "Fri, 11 Jul 2014 01:44:28 GMT",
+  "price": 1111,
+  "canbid": 1,
+  "currentbid": 700,
+  "minimumbid": 721,
+  "numbids": 1,
+  "biddingplayeraccountid": 11701064,
+  "biddingplayercontainerid": 504523604,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ghost Schaffarion",
+  "ownerhandle": "helix061",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537746391,
+  "index": 108,
+  "creationtime": "Wed, 09 Jul 2014 23:05:20 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:05:20 GMT",
+  "price": 1116,
+  "canbid": 1,
+  "currentbid": 1009,
+  "minimumbid": 1009,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "geoff of reporoa",
+  "ownerhandle": "lordgarnett",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537170840,
+  "index": 109,
+  "creationtime": "Sun, 06 Jul 2014 04:27:13 GMT",
+  "expiretime": "Fri, 11 Jul 2014 04:27:13 GMT",
+  "price": 1124,
+  "canbid": 1,
+  "currentbid": 1017,
+  "minimumbid": 1017,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ariel Wazimuness",
+  "ownerhandle": "wazimuness",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537742151,
+  "index": 110,
+  "creationtime": "Wed, 09 Jul 2014 22:22:16 GMT",
+  "expiretime": "Mon, 14 Jul 2014 22:22:16 GMT",
+  "price": 1130,
+  "canbid": 1,
+  "currentbid": 1023,
+  "minimumbid": 1023,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "alphahawk98",
+  "ownerhandle": "applepie316",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537746356,
+  "index": 111,
+  "creationtime": "Wed, 09 Jul 2014 23:05:05 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:05:05 GMT",
+  "price": 1130,
+  "canbid": 1,
+  "currentbid": 1023,
+  "minimumbid": 1023,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "geoff of reporoa",
+  "ownerhandle": "lordgarnett",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537178590,
+  "index": 112,
+  "creationtime": "Sun, 06 Jul 2014 06:21:59 GMT",
+  "expiretime": "Fri, 11 Jul 2014 06:21:59 GMT",
+  "price": 1131,
+  "canbid": 1,
+  "currentbid": 1024,
+  "minimumbid": 1024,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Krakket",
+  "ownerhandle": "Lakeata",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537182244,
+  "index": 113,
+  "creationtime": "Sun, 06 Jul 2014 07:11:35 GMT",
+  "expiretime": "Fri, 11 Jul 2014 07:11:35 GMT",
+  "price": 1131,
+  "canbid": 1,
+  "currentbid": 1024,
+  "minimumbid": 1024,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Calatius",
+  "ownerhandle": "Lakeata",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217352,
+  "index": 114,
+  "creationtime": "Sun, 06 Jul 2014 12:55:07 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:55:07 GMT",
+  "price": 1137,
+  "canbid": 1,
+  "currentbid": 1028,
+  "minimumbid": 1028,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217357,
+  "index": 115,
+  "creationtime": "Sun, 06 Jul 2014 12:55:10 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:55:10 GMT",
+  "price": 1137,
+  "canbid": 1,
+  "currentbid": 1028,
+  "minimumbid": 1028,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537223344,
+  "index": 116,
+  "creationtime": "Sun, 06 Jul 2014 13:41:17 GMT",
+  "expiretime": "Fri, 11 Jul 2014 13:41:17 GMT",
+  "price": 1137,
+  "canbid": 1,
+  "currentbid": 1028,
+  "minimumbid": 1028,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Renkara Drakeslayer",
+  "ownerhandle": "darkspins1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213423,
+  "index": 117,
+  "creationtime": "Sun, 06 Jul 2014 12:21:30 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:21:30 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213360,
+  "index": 118,
+  "creationtime": "Sun, 06 Jul 2014 12:20:59 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:20:59 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213387,
+  "index": 119,
+  "creationtime": "Sun, 06 Jul 2014 12:21:12 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:21:12 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213327,
+  "index": 120,
+  "creationtime": "Sun, 06 Jul 2014 12:20:47 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:20:47 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213306,
+  "index": 121,
+  "creationtime": "Sun, 06 Jul 2014 12:20:36 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:20:36 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213401,
+  "index": 122,
+  "creationtime": "Sun, 06 Jul 2014 12:21:18 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:21:18 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213454,
+  "index": 123,
+  "creationtime": "Sun, 06 Jul 2014 12:21:51 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:21:51 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213344,
+  "index": 124,
+  "creationtime": "Sun, 06 Jul 2014 12:20:53 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:20:53 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213412,
+  "index": 125,
+  "creationtime": "Sun, 06 Jul 2014 12:21:24 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:21:24 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537213372,
+  "index": 126,
+  "creationtime": "Sun, 06 Jul 2014 12:21:05 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:21:05 GMT",
+  "price": 1139,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Hawkeye Pierce",
+  "ownerhandle": "balthezar2",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537145844,
+  "index": 127,
+  "creationtime": "Sat, 05 Jul 2014 23:56:32 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:56:32 GMT",
+  "price": 1145,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Eron Huntinghawk",
+  "ownerhandle": "starfall23461",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537141979,
+  "index": 128,
+  "creationtime": "Sat, 05 Jul 2014 23:25:23 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:25:23 GMT",
+  "price": 1149,
+  "canbid": 1,
+  "currentbid": 1040,
+  "minimumbid": 1040,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Heian Silentread",
+  "ownerhandle": "gatordude51",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537789788,
+  "index": 129,
+  "creationtime": "Thu, 10 Jul 2014 08:03:33 GMT",
+  "expiretime": "Tue, 15 Jul 2014 08:03:33 GMT",
+  "price": 1150,
+  "canbid": 1,
+  "currentbid": 995,
+  "minimumbid": 995,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "klingelfee",
+  "ownerhandle": "sauschwanz",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537789777,
+  "index": 130,
+  "creationtime": "Thu, 10 Jul 2014 08:03:23 GMT",
+  "expiretime": "Tue, 15 Jul 2014 08:03:23 GMT",
+  "price": 1150,
+  "canbid": 1,
+  "currentbid": 995,
+  "minimumbid": 995,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "klingelfee",
+  "ownerhandle": "sauschwanz",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537140083,
+  "index": 131,
+  "creationtime": "Sat, 05 Jul 2014 23:11:22 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:11:22 GMT",
+  "price": 1150,
+  "canbid": 1,
+  "currentbid": 1041,
+  "minimumbid": 1041,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "nrg2burn",
+  "ownerhandle": "nrg2burn",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537140100,
+  "index": 132,
+  "creationtime": "Sat, 05 Jul 2014 23:11:28 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:11:28 GMT",
+  "price": 1150,
+  "canbid": 1,
+  "currentbid": 1041,
+  "minimumbid": 1041,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "nrg2burn",
+  "ownerhandle": "nrg2burn",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537140090,
+  "index": 133,
+  "creationtime": "Sat, 05 Jul 2014 23:11:25 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:11:25 GMT",
+  "price": 1150,
+  "canbid": 1,
+  "currentbid": 1041,
+  "minimumbid": 1041,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "nrg2burn",
+  "ownerhandle": "nrg2burn",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537140070,
+  "index": 134,
+  "creationtime": "Sat, 05 Jul 2014 23:11:17 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:11:17 GMT",
+  "price": 1150,
+  "canbid": 1,
+  "currentbid": 1041,
+  "minimumbid": 1041,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "nrg2burn",
+  "ownerhandle": "nrg2burn",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537140111,
+  "index": 135,
+  "creationtime": "Sat, 05 Jul 2014 23:11:34 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:11:34 GMT",
+  "price": 1150,
+  "canbid": 1,
+  "currentbid": 1041,
+  "minimumbid": 1041,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "nrg2burn",
+  "ownerhandle": "nrg2burn",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537590496,
+  "index": 136,
+  "creationtime": "Tue, 08 Jul 2014 20:09:51 GMT",
+  "expiretime": "Sun, 13 Jul 2014 20:09:51 GMT",
+  "price": 1161,
+  "canbid": 1,
+  "currentbid": 1050,
+  "minimumbid": 1050,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Briesril",
+  "ownerhandle": "acier92",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537407847,
+  "index": 137,
+  "creationtime": "Mon, 07 Jul 2014 17:00:34 GMT",
+  "expiretime": "Sat, 12 Jul 2014 17:00:34 GMT",
+  "price": 1162,
+  "canbid": 1,
+  "currentbid": 1075,
+  "minimumbid": 1075,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Briesril",
+  "ownerhandle": "acier92",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537407876,
+  "index": 138,
+  "creationtime": "Mon, 07 Jul 2014 17:00:57 GMT",
+  "expiretime": "Sat, 12 Jul 2014 17:00:57 GMT",
+  "price": 1162,
+  "canbid": 1,
+  "currentbid": 1075,
+  "minimumbid": 1075,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Briesril",
+  "ownerhandle": "acier92",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537491328,
+  "index": 139,
+  "creationtime": "Tue, 08 Jul 2014 04:20:19 GMT",
+  "expiretime": "Sun, 13 Jul 2014 04:20:19 GMT",
+  "price": 1163,
+  "canbid": 1,
+  "currentbid": 1052,
+  "minimumbid": 1052,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Tacita Bollynn",
+  "ownerhandle": "jakethegooze",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537149308,
+  "index": 140,
+  "creationtime": "Sun, 06 Jul 2014 00:30:11 GMT",
+  "expiretime": "Fri, 11 Jul 2014 00:30:11 GMT",
+  "price": 1175,
+  "canbid": 0,
+  "currentbid": -1,
+  "minimumbid": -1,
+  "numbids": -1,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Blast",
+  "ownerhandle": "araxxit",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537158623,
+  "index": 141,
+  "creationtime": "Sun, 06 Jul 2014 02:03:23 GMT",
+  "expiretime": "Fri, 11 Jul 2014 02:03:23 GMT",
+  "price": 1179,
+  "canbid": 1,
+  "currentbid": 1066,
+  "minimumbid": 1066,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Sabrina",
+  "ownerhandle": "sabrinasmachado",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537774942,
+  "index": 142,
+  "creationtime": "Thu, 10 Jul 2014 04:17:43 GMT",
+  "expiretime": "Sun, 13 Jul 2014 04:17:43 GMT",
+  "price": 1200,
+  "canbid": 1,
+  "currentbid": 7,
+  "minimumbid": 8,
+  "numbids": 7,
+  "biddingplayeraccountid": 11698686,
+  "biddingplayercontainerid": 504530924,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Alambin",
+  "ownerhandle": "alambin1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537633927,
+  "index": 143,
+  "creationtime": "Wed, 09 Jul 2014 03:37:31 GMT",
+  "expiretime": "Mon, 14 Jul 2014 03:37:31 GMT",
+  "price": 1200,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Xvorr",
+  "ownerhandle": "xvorr",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537745873,
+  "index": 144,
+  "creationtime": "Wed, 09 Jul 2014 23:00:05 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:00:05 GMT",
+  "price": 1200,
+  "canbid": 1,
+  "currentbid": 1023,
+  "minimumbid": 1023,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "DontFuck MyBlender",
+  "ownerhandle": "suckmyowndick",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549181,
+  "index": 145,
+  "creationtime": "Tue, 08 Jul 2014 14:57:25 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:57:25 GMT",
+  "price": 1211,
+  "canbid": 1,
+  "currentbid": 31,
+  "minimumbid": 32,
+  "numbids": 11,
+  "biddingplayeraccountid": 11752416,
+  "biddingplayercontainerid": 504569385,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549165,
+  "index": 146,
+  "creationtime": "Tue, 08 Jul 2014 14:57:17 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:57:17 GMT",
+  "price": 1211,
+  "canbid": 1,
+  "currentbid": 20,
+  "minimumbid": 21,
+  "numbids": 9,
+  "biddingplayeraccountid": 11659172,
+  "biddingplayercontainerid": 504542151,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549190,
+  "index": 147,
+  "creationtime": "Tue, 08 Jul 2014 14:57:31 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:57:31 GMT",
+  "price": 1211,
+  "canbid": 1,
+  "currentbid": 14,
+  "minimumbid": 15,
+  "numbids": 14,
+  "biddingplayeraccountid": 5060569,
+  "biddingplayercontainerid": 400031689,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537388734,
+  "index": 148,
+  "creationtime": "Mon, 07 Jul 2014 14:34:05 GMT",
+  "expiretime": "Sat, 12 Jul 2014 14:34:05 GMT",
+  "price": 1222,
+  "canbid": 1,
+  "currentbid": 16,
+  "minimumbid": 17,
+  "numbids": 16,
+  "biddingplayeraccountid": 11694549,
+  "biddingplayercontainerid": 504525233,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537388750,
+  "index": 149,
+  "creationtime": "Mon, 07 Jul 2014 14:34:12 GMT",
+  "expiretime": "Sat, 12 Jul 2014 14:34:12 GMT",
+  "price": 1222,
+  "canbid": 1,
+  "currentbid": 17,
+  "minimumbid": 18,
+  "numbids": 16,
+  "biddingplayeraccountid": 11694549,
+  "biddingplayercontainerid": 504525233,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537388768,
+  "index": 150,
+  "creationtime": "Mon, 07 Jul 2014 14:34:20 GMT",
+  "expiretime": "Sat, 12 Jul 2014 14:34:20 GMT",
+  "price": 1222,
+  "canbid": 1,
+  "currentbid": 14,
+  "minimumbid": 15,
+  "numbids": 14,
+  "biddingplayeraccountid": 11694549,
+  "biddingplayercontainerid": 504525233,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537388711,
+  "index": 151,
+  "creationtime": "Mon, 07 Jul 2014 14:33:57 GMT",
+  "expiretime": "Sat, 12 Jul 2014 14:33:57 GMT",
+  "price": 1222,
+  "canbid": 1,
+  "currentbid": 14,
+  "minimumbid": 15,
+  "numbids": 14,
+  "biddingplayeraccountid": 11694549,
+  "biddingplayercontainerid": 504525233,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537635656,
+  "index": 152,
+  "creationtime": "Wed, 09 Jul 2014 03:58:14 GMT",
+  "expiretime": "Mon, 14 Jul 2014 03:58:14 GMT",
+  "price": 1250,
+  "canbid": 1,
+  "currentbid": 1231,
+  "minimumbid": 1231,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Arwen",
+  "ownerhandle": "pretorien63",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537635664,
+  "index": 153,
+  "creationtime": "Wed, 09 Jul 2014 03:58:23 GMT",
+  "expiretime": "Mon, 14 Jul 2014 03:58:23 GMT",
+  "price": 1250,
+  "canbid": 1,
+  "currentbid": 1231,
+  "minimumbid": 1231,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Arwen",
+  "ownerhandle": "pretorien63",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537562423,
+  "index": 154,
+  "creationtime": "Tue, 08 Jul 2014 16:45:05 GMT",
+  "expiretime": "Sun, 13 Jul 2014 16:45:05 GMT",
+  "price": 1250,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Solaris",
+  "ownerhandle": "lenthow",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537142385,
+  "index": 155,
+  "creationtime": "Sat, 05 Jul 2014 23:28:14 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:28:14 GMT",
+  "price": 1274,
+  "canbid": 1,
+  "currentbid": 1153,
+  "minimumbid": 1153,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Elusion",
+  "ownerhandle": "mackintosh678",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537138510,
+  "index": 156,
+  "creationtime": "Sat, 05 Jul 2014 22:59:50 GMT",
+  "expiretime": "Thu, 10 Jul 2014 22:59:50 GMT",
+  "price": 1283,
+  "canbid": 1,
+  "currentbid": 1160,
+  "minimumbid": 1160,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ahna",
+  "ownerhandle": "karlodun",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537195694,
+  "index": 157,
+  "creationtime": "Sun, 06 Jul 2014 09:37:56 GMT",
+  "expiretime": "Fri, 11 Jul 2014 09:37:56 GMT",
+  "price": 1300,
+  "canbid": 1,
+  "currentbid": 1100,
+  "minimumbid": 1100,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "samdom",
+  "ownerhandle": "samdom",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849811,
+  "index": 158,
+  "creationtime": "Thu, 10 Jul 2014 20:10:33 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:10:33 GMT",
+  "price": 1300,
+  "canbid": 1,
+  "currentbid": 1178,
+  "minimumbid": 1178,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537849786,
+  "index": 159,
+  "creationtime": "Thu, 10 Jul 2014 20:10:26 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:10:26 GMT",
+  "price": 1300,
+  "canbid": 1,
+  "currentbid": 1178,
+  "minimumbid": 1178,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lia Duskwalker",
+  "ownerhandle": "karamazove",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537170834,
+  "index": 160,
+  "creationtime": "Sun, 06 Jul 2014 04:27:09 GMT",
+  "expiretime": "Fri, 11 Jul 2014 04:27:09 GMT",
+  "price": 1314,
+  "canbid": 1,
+  "currentbid": 1189,
+  "minimumbid": 1189,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ariel Wazimuness",
+  "ownerhandle": "wazimuness",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549257,
+  "index": 161,
+  "creationtime": "Tue, 08 Jul 2014 14:58:10 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:58:10 GMT",
+  "price": 1322,
+  "canbid": 1,
+  "currentbid": 10,
+  "minimumbid": 11,
+  "numbids": 10,
+  "biddingplayeraccountid": 10643603,
+  "biddingplayercontainerid": 504506573,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549276,
+  "index": 162,
+  "creationtime": "Tue, 08 Jul 2014 14:58:15 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:58:15 GMT",
+  "price": 1322,
+  "canbid": 1,
+  "currentbid": 10,
+  "minimumbid": 11,
+  "numbids": 10,
+  "biddingplayeraccountid": 5060569,
+  "biddingplayercontainerid": 400031689,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549244,
+  "index": 163,
+  "creationtime": "Tue, 08 Jul 2014 14:58:03 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:58:03 GMT",
+  "price": 1333,
+  "canbid": 1,
+  "currentbid": 21,
+  "minimumbid": 22,
+  "numbids": 6,
+  "biddingplayeraccountid": 9793463,
+  "biddingplayercontainerid": 504477633,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549231,
+  "index": 164,
+  "creationtime": "Tue, 08 Jul 2014 14:57:57 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:57:57 GMT",
+  "price": 1333,
+  "canbid": 1,
+  "currentbid": 9,
+  "minimumbid": 10,
+  "numbids": 9,
+  "biddingplayeraccountid": 11659172,
+  "biddingplayercontainerid": 504542151,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549219,
+  "index": 165,
+  "creationtime": "Tue, 08 Jul 2014 14:57:50 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:57:50 GMT",
+  "price": 1333,
+  "canbid": 1,
+  "currentbid": 9,
+  "minimumbid": 10,
+  "numbids": 9,
+  "biddingplayeraccountid": 5060569,
+  "biddingplayercontainerid": 400031689,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537619804,
+  "index": 166,
+  "creationtime": "Wed, 09 Jul 2014 00:45:55 GMT",
+  "expiretime": "Mon, 14 Jul 2014 00:45:55 GMT",
+  "price": 1345,
+  "canbid": 1,
+  "currentbid": 1216,
+  "minimumbid": 1216,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Morthos Vicelord",
+  "ownerhandle": "taximus666",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537628169,
+  "index": 167,
+  "creationtime": "Wed, 09 Jul 2014 02:24:59 GMT",
+  "expiretime": "Mon, 14 Jul 2014 02:24:59 GMT",
+  "price": 1354,
+  "canbid": 1,
+  "currentbid": 1225,
+  "minimumbid": 1225,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Travok Battlefate",
+  "ownerhandle": "jcprice",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537629589,
+  "index": 168,
+  "creationtime": "Wed, 09 Jul 2014 02:42:22 GMT",
+  "expiretime": "Mon, 14 Jul 2014 02:42:22 GMT",
+  "price": 1360,
+  "canbid": 1,
+  "currentbid": 1231,
+  "minimumbid": 1231,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Medi Kitten",
+  "ownerhandle": "silkilu",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537235798,
+  "index": 169,
+  "creationtime": "Sun, 06 Jul 2014 15:08:14 GMT",
+  "expiretime": "Fri, 11 Jul 2014 15:08:14 GMT",
+  "price": 1389,
+  "canbid": 1,
+  "currentbid": 1256,
+  "minimumbid": 1256,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Keryth",
+  "ownerhandle": "nexturuell",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537525146,
+  "index": 170,
+  "creationtime": "Tue, 08 Jul 2014 11:01:54 GMT",
+  "expiretime": "Sun, 13 Jul 2014 11:01:54 GMT",
+  "price": 1390,
+  "canbid": 1,
+  "currentbid": 1100,
+  "minimumbid": 1100,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "samdom",
+  "ownerhandle": "samdom",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537347914,
+  "index": 171,
+  "creationtime": "Mon, 07 Jul 2014 07:41:43 GMT",
+  "expiretime": "Sat, 12 Jul 2014 07:41:43 GMT",
+  "price": 1400,
+  "canbid": 1,
+  "currentbid": 1300,
+  "minimumbid": 1300,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Neverover",
+  "ownerhandle": "sancak852",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537445629,
+  "index": 172,
+  "creationtime": "Mon, 07 Jul 2014 21:34:15 GMT",
+  "expiretime": "Sat, 12 Jul 2014 21:34:15 GMT",
+  "price": 1400,
+  "canbid": 1,
+  "currentbid": 32,
+  "minimumbid": 33,
+  "numbids": 8,
+  "biddingplayeraccountid": 11491774,
+  "biddingplayercontainerid": 504307561,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Aelar Le Sombre",
+  "ownerhandle": "dedelacagnote",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537754395,
+  "index": 173,
+  "creationtime": "Thu, 10 Jul 2014 00:23:55 GMT",
+  "expiretime": "Tue, 15 Jul 2014 00:23:55 GMT",
+  "price": 1400,
+  "canbid": 1,
+  "currentbid": 1035,
+  "minimumbid": 1035,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Irimar",
+  "ownerhandle": "chefkarotte",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549209,
+  "index": 174,
+  "creationtime": "Tue, 08 Jul 2014 14:57:45 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:57:45 GMT",
+  "price": 1411,
+  "canbid": 1,
+  "currentbid": 50,
+  "minimumbid": 52,
+  "numbids": 8,
+  "biddingplayeraccountid": 11689630,
+  "biddingplayercontainerid": 504552119,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537549198,
+  "index": 175,
+  "creationtime": "Tue, 08 Jul 2014 14:57:39 GMT",
+  "expiretime": "Sun, 13 Jul 2014 14:57:39 GMT",
+  "price": 1411,
+  "canbid": 1,
+  "currentbid": 50,
+  "minimumbid": 52,
+  "numbids": 9,
+  "biddingplayeraccountid": 11689630,
+  "biddingplayercontainerid": 504552119,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537359346,
+  "index": 176,
+  "creationtime": "Mon, 07 Jul 2014 09:50:30 GMT",
+  "expiretime": "Sat, 12 Jul 2014 09:50:30 GMT",
+  "price": 1414,
+  "canbid": 1,
+  "currentbid": 800,
+  "minimumbid": 800,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Channi",
+  "ownerhandle": "hajipoo",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537388782,
+  "index": 177,
+  "creationtime": "Mon, 07 Jul 2014 14:34:27 GMT",
+  "expiretime": "Sat, 12 Jul 2014 14:34:27 GMT",
+  "price": 1444,
+  "canbid": 1,
+  "currentbid": 14,
+  "minimumbid": 15,
+  "numbids": 14,
+  "biddingplayeraccountid": 11650480,
+  "biddingplayercontainerid": 504481635,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217658,
+  "index": 178,
+  "creationtime": "Sun, 06 Jul 2014 12:57:30 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:57:30 GMT",
+  "price": 1470,
+  "canbid": 1,
+  "currentbid": 1330,
+  "minimumbid": 1330,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217637,
+  "index": 179,
+  "creationtime": "Sun, 06 Jul 2014 12:57:22 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:57:22 GMT",
+  "price": 1470,
+  "canbid": 1,
+  "currentbid": 1330,
+  "minimumbid": 1330,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217665,
+  "index": 180,
+  "creationtime": "Sun, 06 Jul 2014 12:57:33 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:57:33 GMT",
+  "price": 1470,
+  "canbid": 1,
+  "currentbid": 1330,
+  "minimumbid": 1330,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537217654,
+  "index": 181,
+  "creationtime": "Sun, 06 Jul 2014 12:57:27 GMT",
+  "expiretime": "Fri, 11 Jul 2014 12:57:27 GMT",
+  "price": 1470,
+  "canbid": 1,
+  "currentbid": 1330,
+  "minimumbid": 1330,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ryu",
+  "ownerhandle": "Shalyen",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537388801,
+  "index": 182,
+  "creationtime": "Mon, 07 Jul 2014 14:34:35 GMT",
+  "expiretime": "Sat, 12 Jul 2014 14:34:35 GMT",
+  "price": 1471,
+  "canbid": 1,
+  "currentbid": 676,
+  "minimumbid": 696,
+  "numbids": 45,
+  "biddingplayeraccountid": 11401295,
+  "biddingplayercontainerid": 504451302,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Leamon",
+  "ownerhandle": "anguis3",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537189230,
+  "index": 183,
+  "creationtime": "Sun, 06 Jul 2014 08:30:46 GMT",
+  "expiretime": "Fri, 11 Jul 2014 08:30:46 GMT",
+  "price": 1471,
+  "canbid": 1,
+  "currentbid": 1330,
+  "minimumbid": 1330,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justice",
+  "ownerhandle": "milaylee",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537189225,
+  "index": 184,
+  "creationtime": "Sun, 06 Jul 2014 08:30:41 GMT",
+  "expiretime": "Fri, 11 Jul 2014 08:30:41 GMT",
+  "price": 1471,
+  "canbid": 1,
+  "currentbid": 1330,
+  "minimumbid": 1330,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justice",
+  "ownerhandle": "milaylee",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537189236,
+  "index": 185,
+  "creationtime": "Sun, 06 Jul 2014 08:30:51 GMT",
+  "expiretime": "Fri, 11 Jul 2014 08:30:51 GMT",
+  "price": 1471,
+  "canbid": 1,
+  "currentbid": 1330,
+  "minimumbid": 1330,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Justice",
+  "ownerhandle": "milaylee",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537414424,
+  "index": 186,
+  "creationtime": "Mon, 07 Jul 2014 17:49:36 GMT",
+  "expiretime": "Sat, 12 Jul 2014 17:49:36 GMT",
+  "price": 1477,
+  "canbid": 1,
+  "currentbid": 1336,
+  "minimumbid": 1336,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "LUCYFER",
+  "ownerhandle": "te078",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537235775,
+  "index": 187,
+  "creationtime": "Sun, 06 Jul 2014 15:08:05 GMT",
+  "expiretime": "Fri, 11 Jul 2014 15:08:05 GMT",
+  "price": 1479,
+  "canbid": 1,
+  "currentbid": 1338,
+  "minimumbid": 1338,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Keryth",
+  "ownerhandle": "nexturuell",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537428426,
+  "index": 188,
+  "creationtime": "Mon, 07 Jul 2014 19:37:10 GMT",
+  "expiretime": "Sat, 12 Jul 2014 19:37:10 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 1483,
+  "minimumbid": 1527,
+  "numbids": 14,
+  "biddingplayeraccountid": 10058615,
+  "biddingplayercontainerid": 504236072,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shahara Moonshadow",
+  "ownerhandle": "dylanraytodd",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537178582,
+  "index": 189,
+  "creationtime": "Sun, 06 Jul 2014 06:21:56 GMT",
+  "expiretime": "Fri, 11 Jul 2014 06:21:56 GMT",
+  "price": 1487,
+  "canbid": 1,
+  "currentbid": 1346,
+  "minimumbid": 1346,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Krakket",
+  "ownerhandle": "Lakeata",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537182242,
+  "index": 190,
+  "creationtime": "Sun, 06 Jul 2014 07:11:32 GMT",
+  "expiretime": "Fri, 11 Jul 2014 07:11:32 GMT",
+  "price": 1487,
+  "canbid": 1,
+  "currentbid": 1346,
+  "minimumbid": 1346,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Calatius",
+  "ownerhandle": "Lakeata",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537182254,
+  "index": 191,
+  "creationtime": "Sun, 06 Jul 2014 07:11:43 GMT",
+  "expiretime": "Fri, 11 Jul 2014 07:11:43 GMT",
+  "price": 1495,
+  "canbid": 1,
+  "currentbid": 1352,
+  "minimumbid": 1352,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Calatius",
+  "ownerhandle": "Lakeata",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537170864,
+  "index": 192,
+  "creationtime": "Sun, 06 Jul 2014 04:27:28 GMT",
+  "expiretime": "Fri, 11 Jul 2014 04:27:28 GMT",
+  "price": 1495,
+  "canbid": 1,
+  "currentbid": 1352,
+  "minimumbid": 1352,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ariel Wazimuness",
+  "ownerhandle": "wazimuness",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537593268,
+  "index": 193,
+  "creationtime": "Tue, 08 Jul 2014 20:37:55 GMT",
+  "expiretime": "Sun, 13 Jul 2014 20:37:55 GMT",
+  "price": 1500,
+  "canbid": 1,
+  "currentbid": 1100,
+  "minimumbid": 1100,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Samantha",
+  "ownerhandle": "samdom",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537141353,
+  "index": 194,
+  "creationtime": "Sat, 05 Jul 2014 23:20:47 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:20:47 GMT",
+  "price": 1500,
+  "canbid": 1,
+  "currentbid": 1357,
+  "minimumbid": 1357,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Elusion",
+  "ownerhandle": "mackintosh678",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537138781,
+  "index": 195,
+  "creationtime": "Sat, 05 Jul 2014 23:01:33 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:01:33 GMT",
+  "price": 1547,
+  "canbid": 1,
+  "currentbid": 1400,
+  "minimumbid": 1400,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Ulvein",
+  "ownerhandle": "maniek1983",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537772891,
+  "index": 196,
+  "creationtime": "Thu, 10 Jul 2014 03:50:23 GMT",
+  "expiretime": "Tue, 15 Jul 2014 03:50:23 GMT",
+  "price": 1550,
+  "canbid": 1,
+  "currentbid": 1200,
+  "minimumbid": 1200,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Keira Hawklight",
+  "ownerhandle": "pretorien63",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537772910,
+  "index": 197,
+  "creationtime": "Thu, 10 Jul 2014 03:50:31 GMT",
+  "expiretime": "Tue, 15 Jul 2014 03:50:31 GMT",
+  "price": 1550,
+  "canbid": 1,
+  "currentbid": 1461,
+  "minimumbid": 1461,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Keira Hawklight",
+  "ownerhandle": "pretorien63",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537746344,
+  "index": 198,
+  "creationtime": "Wed, 09 Jul 2014 23:04:59 GMT",
+  "expiretime": "Mon, 14 Jul 2014 23:04:59 GMT",
+  "price": 1582,
+  "canbid": 1,
+  "currentbid": 1431,
+  "minimumbid": 1431,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "geoff of reporoa",
+  "ownerhandle": "lordgarnett",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537582330,
+  "index": 199,
+  "creationtime": "Tue, 08 Jul 2014 19:11:18 GMT",
+  "expiretime": "Sun, 13 Jul 2014 19:11:18 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 1591,
+  "minimumbid": 1639,
+  "numbids": 25,
+  "biddingplayeraccountid": 11595233,
+  "biddingplayercontainerid": 504421295,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Capitaine Swing",
+  "ownerhandle": "charlesdu17",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537754250,
+  "index": 200,
+  "creationtime": "Thu, 10 Jul 2014 00:22:09 GMT",
+  "expiretime": "Tue, 15 Jul 2014 00:22:09 GMT",
+  "price": 1600,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Irimar",
+  "ownerhandle": "chefkarotte",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537824275,
+  "index": 201,
+  "creationtime": "Thu, 10 Jul 2014 17:02:49 GMT",
+  "expiretime": "Tue, 15 Jul 2014 17:02:49 GMT",
+  "price": 1600,
+  "canbid": 1,
+  "currentbid": 1500,
+  "minimumbid": 1500,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "AndrewRed",
+  "ownerhandle": "andrewred89",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537775005,
+  "index": 202,
+  "creationtime": "Thu, 10 Jul 2014 04:19:00 GMT",
+  "expiretime": "Tue, 15 Jul 2014 04:19:00 GMT",
+  "price": 1600,
+  "canbid": 1,
+  "currentbid": 70,
+  "minimumbid": 72,
+  "numbids": 12,
+  "biddingplayeraccountid": 11401295,
+  "biddingplayercontainerid": 504451302,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Alambin",
+  "ownerhandle": "alambin1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537765262,
+  "index": 203,
+  "creationtime": "Thu, 10 Jul 2014 02:22:15 GMT",
+  "expiretime": "Tue, 15 Jul 2014 02:22:15 GMT",
+  "price": 1614,
+  "canbid": 1,
+  "currentbid": 1461,
+  "minimumbid": 1461,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Renegade",
+  "ownerhandle": "rennegaid",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537765270,
+  "index": 204,
+  "creationtime": "Thu, 10 Jul 2014 02:22:18 GMT",
+  "expiretime": "Tue, 15 Jul 2014 02:22:18 GMT",
+  "price": 1614,
+  "canbid": 1,
+  "currentbid": 1461,
+  "minimumbid": 1461,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Renegade",
+  "ownerhandle": "rennegaid",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537765275,
+  "index": 205,
+  "creationtime": "Thu, 10 Jul 2014 02:22:21 GMT",
+  "expiretime": "Tue, 15 Jul 2014 02:22:21 GMT",
+  "price": 1614,
+  "canbid": 1,
+  "currentbid": 1461,
+  "minimumbid": 1461,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Renegade",
+  "ownerhandle": "rennegaid",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537582296,
+  "index": 206,
+  "creationtime": "Tue, 08 Jul 2014 19:11:07 GMT",
+  "expiretime": "Sun, 13 Jul 2014 19:11:07 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 1639,
+  "minimumbid": 1688,
+  "numbids": 38,
+  "biddingplayeraccountid": 5995312,
+  "biddingplayercontainerid": 504412088,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Capitaine Swing",
+  "ownerhandle": "charlesdu17",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537787766,
+  "index": 207,
+  "creationtime": "Thu, 10 Jul 2014 07:31:58 GMT",
+  "expiretime": "Tue, 15 Jul 2014 07:31:58 GMT",
+  "price": 1683,
+  "canbid": 1,
+  "currentbid": 1522,
+  "minimumbid": 1522,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "doktorek",
+  "ownerhandle": "dzikiero1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537789837,
+  "index": 208,
+  "creationtime": "Thu, 10 Jul 2014 08:04:15 GMT",
+  "expiretime": "Tue, 15 Jul 2014 08:04:15 GMT",
+  "price": 1683,
+  "canbid": 1,
+  "currentbid": 1300,
+  "minimumbid": 1300,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "klingelfee",
+  "ownerhandle": "sauschwanz",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813690,
+  "index": 209,
+  "creationtime": "Thu, 10 Jul 2014 13:09:05 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:05 GMT",
+  "price": 1706,
+  "canbid": 1,
+  "currentbid": 1543,
+  "minimumbid": 1543,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537804081,
+  "index": 210,
+  "creationtime": "Thu, 10 Jul 2014 11:16:44 GMT",
+  "expiretime": "Tue, 15 Jul 2014 11:16:44 GMT",
+  "price": 1706,
+  "canbid": 1,
+  "currentbid": 100,
+  "minimumbid": 103,
+  "numbids": 3,
+  "biddingplayeraccountid": 8839680,
+  "biddingplayercontainerid": 500456853,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Urukas",
+  "ownerhandle": "OV_ohms",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813734,
+  "index": 211,
+  "creationtime": "Thu, 10 Jul 2014 13:09:27 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:27 GMT",
+  "price": 1706,
+  "canbid": 1,
+  "currentbid": 1543,
+  "minimumbid": 1543,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813714,
+  "index": 212,
+  "creationtime": "Thu, 10 Jul 2014 13:09:15 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:15 GMT",
+  "price": 1706,
+  "canbid": 1,
+  "currentbid": 1543,
+  "minimumbid": 1543,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537813759,
+  "index": 213,
+  "creationtime": "Thu, 10 Jul 2014 13:09:41 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:09:41 GMT",
+  "price": 1706,
+  "canbid": 1,
+  "currentbid": 1543,
+  "minimumbid": 1543,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Akisha",
+  "ownerhandle": "rockyforgottenro",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537700099,
+  "index": 214,
+  "creationtime": "Wed, 09 Jul 2014 16:43:26 GMT",
+  "expiretime": "Mon, 14 Jul 2014 16:43:26 GMT",
+  "price": 1750,
+  "canbid": 1,
+  "currentbid": 800,
+  "minimumbid": 800,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Jimmy",
+  "ownerhandle": "jimmyhung",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537700058,
+  "index": 215,
+  "creationtime": "Wed, 09 Jul 2014 16:42:57 GMT",
+  "expiretime": "Mon, 14 Jul 2014 16:42:57 GMT",
+  "price": 1750,
+  "canbid": 1,
+  "currentbid": 800,
+  "minimumbid": 800,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Jimmy",
+  "ownerhandle": "jimmyhung",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537699867,
+  "index": 216,
+  "creationtime": "Wed, 09 Jul 2014 16:40:50 GMT",
+  "expiretime": "Mon, 14 Jul 2014 16:40:50 GMT",
+  "price": 1759,
+  "canbid": 1,
+  "currentbid": 1739,
+  "minimumbid": 1739,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Eliza Hawkflight",
+  "ownerhandle": "rangerwrangler",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537699884,
+  "index": 217,
+  "creationtime": "Wed, 09 Jul 2014 16:41:02 GMT",
+  "expiretime": "Mon, 14 Jul 2014 16:41:02 GMT",
+  "price": 1759,
+  "canbid": 1,
+  "currentbid": 1739,
+  "minimumbid": 1739,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Eliza Hawkflight",
+  "ownerhandle": "rangerwrangler",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537680085,
+  "index": 218,
+  "creationtime": "Wed, 09 Jul 2014 13:36:44 GMT",
+  "expiretime": "Mon, 14 Jul 2014 13:36:44 GMT",
+  "price": 2000,
+  "canbid": 1,
+  "currentbid": 1900,
+  "minimumbid": 1900,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Sune",
+  "ownerhandle": "bialedrzewo",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537539866,
+  "index": 219,
+  "creationtime": "Tue, 08 Jul 2014 13:27:41 GMT",
+  "expiretime": "Sun, 13 Jul 2014 13:27:41 GMT",
+  "price": 2000,
+  "canbid": 1,
+  "currentbid": 1105,
+  "minimumbid": 1105,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "sucha",
+  "ownerhandle": "foloram",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537397146,
+  "index": 220,
+  "creationtime": "Mon, 07 Jul 2014 15:38:08 GMT",
+  "expiretime": "Sat, 12 Jul 2014 15:38:08 GMT",
+  "price": 2000,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Landslide411",
+  "ownerhandle": "iamhippoman",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537139150,
+  "index": 221,
+  "creationtime": "Sat, 05 Jul 2014 23:04:49 GMT",
+  "expiretime": "Thu, 10 Jul 2014 23:04:49 GMT",
+  "price": 2000,
+  "canbid": 1,
+  "currentbid": 1331,
+  "minimumbid": 1331,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "TheMightyShaft",
+  "ownerhandle": "nickstaco",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Waywardwizard_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537850186,
+  "index": 222,
+  "creationtime": "Thu, 10 Jul 2014 20:12:55 GMT",
+  "expiretime": "Tue, 15 Jul 2014 20:12:55 GMT",
+  "price": 3500,
+  "canbid": 1,
+  "currentbid": 1550,
+  "minimumbid": 1550,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "lucy heartphilia",
+  "ownerhandle": "stijnkuppeveld",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dwarfshieldmaiden]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537631602,
+  "index": 223,
+  "creationtime": "Wed, 09 Jul 2014 03:08:51 GMT",
+  "expiretime": "Mon, 14 Jul 2014 03:08:51 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 3880,
+  "minimumbid": 3996,
+  "numbids": 30,
+  "biddingplayeraccountid": 5545910,
+  "biddingplayercontainerid": 504081975,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Pararos Balorborn",
+  "ownerhandle": "taekna",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537501041,
+  "index": 224,
+  "creationtime": "Tue, 08 Jul 2014 06:13:44 GMT",
+  "expiretime": "Sun, 13 Jul 2014 06:13:44 GMT",
+  "price": 4038,
+  "canbid": 1,
+  "currentbid": 3653,
+  "minimumbid": 3653,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shiva",
+  "ownerhandle": "porknyeti",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537501050,
+  "index": 225,
+  "creationtime": "Tue, 08 Jul 2014 06:13:49 GMT",
+  "expiretime": "Sun, 13 Jul 2014 06:13:49 GMT",
+  "price": 4038,
+  "canbid": 1,
+  "currentbid": 3653,
+  "minimumbid": 3653,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shiva",
+  "ownerhandle": "porknyeti",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537501015,
+  "index": 226,
+  "creationtime": "Tue, 08 Jul 2014 06:13:27 GMT",
+  "expiretime": "Sun, 13 Jul 2014 06:13:27 GMT",
+  "price": 4038,
+  "canbid": 1,
+  "currentbid": 3653,
+  "minimumbid": 3653,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shiva",
+  "ownerhandle": "porknyeti",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537501057,
+  "index": 227,
+  "creationtime": "Tue, 08 Jul 2014 06:13:53 GMT",
+  "expiretime": "Sun, 13 Jul 2014 06:13:53 GMT",
+  "price": 4038,
+  "canbid": 1,
+  "currentbid": 3653,
+  "minimumbid": 3653,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shiva",
+  "ownerhandle": "porknyeti",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537501080,
+  "index": 228,
+  "creationtime": "Tue, 08 Jul 2014 06:14:15 GMT",
+  "expiretime": "Sun, 13 Jul 2014 06:14:15 GMT",
+  "price": 4038,
+  "canbid": 1,
+  "currentbid": 3653,
+  "minimumbid": 3653,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shiva",
+  "ownerhandle": "porknyeti",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537501077,
+  "index": 229,
+  "creationtime": "Tue, 08 Jul 2014 06:14:12 GMT",
+  "expiretime": "Sun, 13 Jul 2014 06:14:12 GMT",
+  "price": 4038,
+  "canbid": 1,
+  "currentbid": 3653,
+  "minimumbid": 3653,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shiva",
+  "ownerhandle": "porknyeti",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537501020,
+  "index": 230,
+  "creationtime": "Tue, 08 Jul 2014 06:13:30 GMT",
+  "expiretime": "Sun, 13 Jul 2014 06:13:30 GMT",
+  "price": 4038,
+  "canbid": 1,
+  "currentbid": 3653,
+  "minimumbid": 3653,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Shiva",
+  "ownerhandle": "porknyeti",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537445649,
+  "index": 231,
+  "creationtime": "Mon, 07 Jul 2014 21:34:26 GMT",
+  "expiretime": "Sat, 12 Jul 2014 21:34:26 GMT",
+  "price": 4150,
+  "canbid": 1,
+  "currentbid": 43,
+  "minimumbid": 44,
+  "numbids": 19,
+  "biddingplayeraccountid": 8299268,
+  "biddingplayercontainerid": 401712256,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Aelar Le Sombre",
+  "ownerhandle": "dedelacagnote",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537446638,
+  "index": 232,
+  "creationtime": "Mon, 07 Jul 2014 21:41:09 GMT",
+  "expiretime": "Sat, 12 Jul 2014 21:41:09 GMT",
+  "price": 4173,
+  "canbid": 1,
+  "currentbid": 3776,
+  "minimumbid": 3776,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Travok Battlefate",
+  "ownerhandle": "jcprice",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Sellsword_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537188974,
+  "index": 233,
+  "creationtime": "Sun, 06 Jul 2014 08:27:30 GMT",
+  "expiretime": "Fri, 11 Jul 2014 08:27:30 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 5999,
+  "minimumbid": 6179,
+  "numbids": 1,
+  "biddingplayeraccountid": 11467821,
+  "biddingplayercontainerid": 504289922,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Luusi Milltall",
+  "ownerhandle": "cara9630",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537333821,
+  "index": 234,
+  "creationtime": "Mon, 07 Jul 2014 04:34:11 GMT",
+  "expiretime": "Sat, 12 Jul 2014 04:34:11 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 5999,
+  "minimumbid": 6179,
+  "numbids": 1,
+  "biddingplayeraccountid": 6708107,
+  "biddingplayercontainerid": 100812081,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "ADRIAN BAENE",
+  "ownerhandle": "cara9630",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537188408,
+  "index": 235,
+  "creationtime": "Sun, 06 Jul 2014 08:21:25 GMT",
+  "expiretime": "Fri, 11 Jul 2014 08:21:25 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 6000,
+  "minimumbid": 6180,
+  "numbids": 1,
+  "biddingplayeraccountid": 10299218,
+  "biddingplayercontainerid": 502864780,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "ADRIAN BAENE",
+  "ownerhandle": "cara9630",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537645424,
+  "index": 236,
+  "creationtime": "Wed, 09 Jul 2014 06:01:28 GMT",
+  "expiretime": "Mon, 14 Jul 2014 06:01:28 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 6000,
+  "minimumbid": 6180,
+  "numbids": 1,
+  "biddingplayeraccountid": 5611656,
+  "biddingplayercontainerid": 504571068,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "ADRIAN BAENE",
+  "ownerhandle": "cara9630",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Conartist]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537645924,
+  "index": 237,
+  "creationtime": "Wed, 09 Jul 2014 06:07:36 GMT",
+  "expiretime": "Mon, 14 Jul 2014 06:07:36 GMT",
+  "price": 0,
+  "canbid": 1,
+  "currentbid": 8000,
+  "minimumbid": 8240,
+  "numbids": 1,
+  "biddingplayeraccountid": 4650533,
+  "biddingplayercontainerid": 503340195,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Luusi Milltall",
+  "ownerhandle": "cara9630",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537643498,
+  "index": 238,
+  "creationtime": "Wed, 09 Jul 2014 05:38:31 GMT",
+  "expiretime": "Mon, 14 Jul 2014 05:38:31 GMT",
+  "price": 15000,
+  "canbid": 1,
+  "currentbid": 9000,
+  "minimumbid": 9000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "TAICA-TU",
+  "ownerhandle": "rock2142",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Manatarms_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537570704,
+  "index": 239,
+  "creationtime": "Tue, 08 Jul 2014 17:45:39 GMT",
+  "expiretime": "Sun, 13 Jul 2014 17:45:39 GMT",
+  "price": 32000,
+  "canbid": 1,
+  "currentbid": 30000,
+  "minimumbid": 30000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Aragon",
+  "ownerhandle": "danvukdan",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537816756,
+  "index": 240,
+  "creationtime": "Thu, 10 Jul 2014 13:42:35 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:42:35 GMT",
+  "price": 35000,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1030,
+  "numbids": 3,
+  "biddingplayeraccountid": 11629134,
+  "biddingplayercontainerid": 504484528,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lostzx",
+  "ownerhandle": "darkdelaer",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537816768,
+  "index": 241,
+  "creationtime": "Thu, 10 Jul 2014 13:42:42 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:42:42 GMT",
+  "price": 35000,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1030,
+  "numbids": 2,
+  "biddingplayeraccountid": 11629134,
+  "biddingplayercontainerid": 504484528,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lostzx",
+  "ownerhandle": "darkdelaer",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537816780,
+  "index": 242,
+  "creationtime": "Thu, 10 Jul 2014 13:42:48 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:42:48 GMT",
+  "price": 35000,
+  "canbid": 1,
+  "currentbid": 1061,
+  "minimumbid": 1093,
+  "numbids": 4,
+  "biddingplayeraccountid": 11006353,
+  "biddingplayercontainerid": 504061523,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lostzx",
+  "ownerhandle": "darkdelaer",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537816742,
+  "index": 243,
+  "creationtime": "Thu, 10 Jul 2014 13:42:24 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:42:24 GMT",
+  "price": 35000,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1030,
+  "numbids": 2,
+  "biddingplayeraccountid": 11629134,
+  "biddingplayercontainerid": 504484528,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lostzx",
+  "ownerhandle": "darkdelaer",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537816751,
+  "index": 244,
+  "creationtime": "Thu, 10 Jul 2014 13:42:30 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:42:30 GMT",
+  "price": 35000,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1030,
+  "numbids": 2,
+  "biddingplayeraccountid": 11629134,
+  "biddingplayercontainerid": 504484528,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lostzx",
+  "ownerhandle": "darkdelaer",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537816788,
+  "index": 245,
+  "creationtime": "Thu, 10 Jul 2014 13:42:54 GMT",
+  "expiretime": "Tue, 15 Jul 2014 13:42:54 GMT",
+  "price": 35000,
+  "canbid": 1,
+  "currentbid": 1000,
+  "minimumbid": 1030,
+  "numbids": 3,
+  "biddingplayeraccountid": 11629134,
+  "biddingplayercontainerid": 504484528,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Lostzx",
+  "ownerhandle": "darkdelaer",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537763666,
+  "index": 246,
+  "creationtime": "Thu, 10 Jul 2014 02:05:40 GMT",
+  "expiretime": "Tue, 15 Jul 2014 02:05:40 GMT",
+  "price": 38000,
+  "canbid": 1,
+  "currentbid": 3090,
+  "minimumbid": 3183,
+  "numbids": 14,
+  "biddingplayeraccountid": 11299844,
+  "biddingplayercontainerid": 504146649,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Soma",
+  "ownerhandle": "somantasy",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537685533,
+  "index": 247,
+  "creationtime": "Wed, 09 Jul 2014 14:27:54 GMT",
+  "expiretime": "Mon, 14 Jul 2014 14:27:54 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 1100,
+  "minimumbid": 1133,
+  "numbids": 17,
+  "biddingplayeraccountid": 6603564,
+  "biddingplayercontainerid": 504543662,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Blackshade",
+  "ownerhandle": "michallatko",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524205,
+  "index": 248,
+  "creationtime": "Tue, 08 Jul 2014 10:51:51 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:51:51 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 2653,
+  "minimumbid": 2733,
+  "numbids": 31,
+  "biddingplayeraccountid": 11249752,
+  "biddingplayercontainerid": 504017083,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524247,
+  "index": 249,
+  "creationtime": "Tue, 08 Jul 2014 10:52:12 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:52:12 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 1093,
+  "minimumbid": 1126,
+  "numbids": 25,
+  "biddingplayeraccountid": 9942585,
+  "biddingplayercontainerid": 502341071,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524251,
+  "index": 250,
+  "creationtime": "Tue, 08 Jul 2014 10:52:16 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:52:16 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 3090,
+  "minimumbid": 3183,
+  "numbids": 4,
+  "biddingplayeraccountid": 11513969,
+  "biddingplayercontainerid": 504465500,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524260,
+  "index": 251,
+  "creationtime": "Tue, 08 Jul 2014 10:52:23 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:52:23 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 628,
+  "minimumbid": 647,
+  "numbids": 35,
+  "biddingplayeraccountid": 4218763,
+  "biddingplayercontainerid": 504339576,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524272,
+  "index": 252,
+  "creationtime": "Tue, 08 Jul 2014 10:52:28 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:52:28 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 7250,
+  "minimumbid": 7468,
+  "numbids": 13,
+  "biddingplayeraccountid": 11513969,
+  "biddingplayercontainerid": 504465500,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524286,
+  "index": 253,
+  "creationtime": "Tue, 08 Jul 2014 10:52:35 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:52:35 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 9000,
+  "minimumbid": 9270,
+  "numbids": 37,
+  "biddingplayeraccountid": 11536480,
+  "biddingplayercontainerid": 504345224,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524295,
+  "index": 254,
+  "creationtime": "Tue, 08 Jul 2014 10:52:40 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:52:40 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 1268,
+  "minimumbid": 1306,
+  "numbids": 25,
+  "biddingplayeraccountid": 11249752,
+  "biddingplayercontainerid": 504017083,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524341,
+  "index": 255,
+  "creationtime": "Tue, 08 Jul 2014 10:52:57 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:52:57 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 10000,
+  "minimumbid": 10300,
+  "numbids": 24,
+  "biddingplayeraccountid": 11513969,
+  "biddingplayercontainerid": 504465500,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537526886,
+  "index": 256,
+  "creationtime": "Tue, 08 Jul 2014 11:19:39 GMT",
+  "expiretime": "Sun, 13 Jul 2014 11:19:39 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 10927,
+  "minimumbid": 11255,
+  "numbids": 32,
+  "biddingplayeraccountid": 10978611,
+  "biddingplayercontainerid": 503712431,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Cripple",
+  "ownerhandle": "saniokiwaw1",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537524200,
+  "index": 257,
+  "creationtime": "Tue, 08 Jul 2014 10:51:47 GMT",
+  "expiretime": "Sun, 13 Jul 2014 10:51:47 GMT",
+  "price": 40000,
+  "canbid": 1,
+  "currentbid": 1195,
+  "minimumbid": 1231,
+  "numbids": 12,
+  "biddingplayeraccountid": 11249752,
+  "biddingplayercontainerid": 504017083,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Valynth",
+  "ownerhandle": "jello66",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537490943,
+  "index": 258,
+  "creationtime": "Tue, 08 Jul 2014 04:14:58 GMT",
+  "expiretime": "Sun, 13 Jul 2014 04:14:58 GMT",
+  "price": 98000,
+  "canbid": 1,
+  "currentbid": 90000,
+  "minimumbid": 90000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Brunhild",
+  "ownerhandle": "L5KTrogdor",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537244516,
+  "index": 259,
+  "creationtime": "Sun, 06 Jul 2014 16:09:49 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:09:49 GMT",
+  "price": 100000,
+  "canbid": 1,
+  "currentbid": 72100,
+  "minimumbid": 74263,
+  "numbids": 2,
+  "biddingplayeraccountid": 5082116,
+  "biddingplayercontainerid": 503906152,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Thoradin Straightarn",
+  "ownerhandle": "snowplow37",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537244491,
+  "index": 260,
+  "creationtime": "Sun, 06 Jul 2014 16:09:37 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:09:37 GMT",
+  "price": 100000,
+  "canbid": 1,
+  "currentbid": 65000,
+  "minimumbid": 65000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Thoradin Straightarn",
+  "ownerhandle": "snowplow37",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537247942,
+  "index": 261,
+  "creationtime": "Sun, 06 Jul 2014 16:35:01 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:35:01 GMT",
+  "price": 100000,
+  "canbid": 1,
+  "currentbid": 65000,
+  "minimumbid": 66950,
+  "numbids": 1,
+  "biddingplayeraccountid": 6524176,
+  "biddingplayercontainerid": 501839572,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Koibi",
+  "ownerhandle": "koibibi",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537510925,
+  "index": 262,
+  "creationtime": "Tue, 08 Jul 2014 08:17:37 GMT",
+  "expiretime": "Sun, 13 Jul 2014 08:17:37 GMT",
+  "price": 165489,
+  "canbid": 1,
+  "currentbid": 149728,
+  "minimumbid": 149728,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Tuptuś",
+  "ownerhandle": "tuptus666",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Clericdisciple_White]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537248732,
+  "index": 263,
+  "creationtime": "Sun, 06 Jul 2014 16:40:47 GMT",
+  "expiretime": "Fri, 11 Jul 2014 16:40:47 GMT",
+  "price": 195112,
+  "canbid": 1,
+  "currentbid": 184225,
+  "minimumbid": 184225,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Vee",
+  "ownerhandle": "livgry",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537241074,
+  "index": 264,
+  "creationtime": "Sun, 06 Jul 2014 15:44:37 GMT",
+  "expiretime": "Fri, 11 Jul 2014 15:44:37 GMT",
+  "price": 200000,
+  "canbid": 1,
+  "currentbid": 150000,
+  "minimumbid": 150000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Isterd Derahel",
+  "ownerhandle": "Malfar",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537241130,
+  "index": 265,
+  "creationtime": "Sun, 06 Jul 2014 15:44:57 GMT",
+  "expiretime": "Fri, 11 Jul 2014 15:44:57 GMT",
+  "price": 200000,
+  "canbid": 1,
+  "currentbid": 150000,
+  "minimumbid": 150000,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Isterd Derahel",
+  "ownerhandle": "Malfar",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}, {
+  "containerid": 537276989,
+  "index": 266,
+  "creationtime": "Sun, 06 Jul 2014 19:48:22 GMT",
+  "expiretime": "Fri, 11 Jul 2014 19:48:22 GMT",
+  "price": 255555,
+  "canbid": 1,
+  "currentbid": 199999,
+  "minimumbid": 199999,
+  "numbids": 0,
+  "biddingplayeraccountid": 0,
+  "biddingplayercontainerid": 0,
+  "winning": 0,
+  "owner": 0,
+  "ownername": "Qfzz",
+  "ownerhandle": "qfzz",
+  "slots": [{
+    "itemdef": "@ItemDef[Pet_Dog_Skeleton]",
+    "count": 1
+  }]
+}]

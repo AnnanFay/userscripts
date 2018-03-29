@@ -1,0 +1,1149 @@
+// ==UserScript==
+// @name        NP2 Layers
+// @description Adds various information overlays to the star map
+// @namespace   http://userscripts.org/users/AnnanFay
+// @include     http*://triton.ironhelmet.com/game*
+// @version     2
+// @require     http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.3.0/lodash.js
+// @require     http://d3js.org/d3.v3.min.js
+// @require     ../NP2_Mod_Framework.js
+// @run-at      document-start
+// @grant       none
+// ==/UserScript==
+
+/* globals unsafeWindow, $, _, google, NP2M */
+(function() {
+  "strict true";
+
+  var debug_level = 1;
+  var log = (debug_level > 0 && window.console && window.console.log) ? function log() { return window.console.log.apply(window.console, arguments); } : function(){};
+
+  var overlaySize = 6500;
+  var overlayMiddle = overlaySize / 2;
+  var tileSize = 500; // pixels
+
+  var propulsion;
+  var maxPropDist;
+
+  /*******************/
+  /*     UTILITY     */
+  /*******************/
+  // String.prototype.splice = function(idx, rem, s) {
+  //   return (this.slice(0, idx) + s + this.slice(idx + Math.abs(rem)));
+  // };
+  function noop() {}
+
+  function caller(f) {
+    var args = _.toArray(arguments).slice(1);
+    return function() {
+      return f.apply(this, args);
+    };
+  }
+
+  /********************/
+  /*   MATHEMATICAL   */
+  /********************/
+  function square(x) {
+    return Math.pow(x, 2);
+  }
+
+  function area_to_radius(area) {
+    return Math.sqrt(area / Math.PI);
+  }
+
+  function volume_to_radius(vol) {
+    // v = 1/3 * base_area * height
+    // base_area = (3 * v) / height
+    // radius = area_to_radius((3 * v) / height)
+    return area_to_radius(3 * vol);
+  }
+
+  // each node must have x/y/m attributes
+  function centre_of_mass(nodes) {
+    var totalm = 0;
+    var totalx = 0;
+    var totaly = 0;
+
+    for (var i in nodes) {
+      var node = nodes[i];
+      totalm += node.m;
+      totalx += node.x * node.m;
+      totaly += node.y * node.m;
+    }
+    return {
+      x: totalx / totalm,
+      y: totaly / totalm
+    };
+  }
+  /*******************/
+  /*      IMAGE      */
+  /*******************/
+  function canvas_to_image(c) {
+    var i = document.createElement('img');
+    if (c) {
+      i.src = c.toDataURL();
+    }
+    return i;
+  }
+
+  // copy existing image: canvas(image)
+  // create blank canvas: canvas(width, height)
+  function canvas(width, height) {
+    var image;
+    if (!height) {
+      image = width;
+      width = image.width;
+      height = image.height;
+    }
+    var c = document.createElement('canvas');
+    c.width = width;
+    c.height = height;
+
+    if (image) {
+      var ctx = c.getContext('2d');
+      ctx.drawImage(image, 0, 0);
+    }
+
+    return c;
+  }
+
+  function clearCircle(ctx, x, y, radius) {
+    // ctx.save();
+    // ctx.beginPath();
+    // ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+    // ctx.clip();
+    // ctx.clearRect(x - radius - 1, y - radius - 1,
+    //                   radius * 2 + 2, radius * 2 + 2);
+    // ctx.restore();
+    var gco = ctx.globalCompositeOperation;
+    ctx.globalCompositeOperation = 'destination-out';
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+    ctx.fill();
+
+    ctx.globalCompositeOperation = gco;
+  }
+
+  function tint(image, colour) {
+    var buffer = canvas(image.width, image.height),
+      bctx = buffer.getContext('2d');
+
+    bctx.fillStyle = colour;
+    bctx.fillRect(0, 0, buffer.width, buffer.height);
+
+    bctx.globalCompositeOperation = "destination-atop";
+    bctx.drawImage(image, 0, 0);
+
+    return buffer;
+  }
+
+  function remove_alpha(image) {
+
+    var ctx = canvas(image).getContext('2d');
+
+    function rma(id) {
+      var d = id.data;
+      for (var i = 0; i < d.length; i += 4) {
+        if (d[i + 3] > 0) {
+          d[i + 3] = 255;
+        }
+      }
+      return id;
+
+    }
+    return apply_image_filter(ctx, rma);
+  }
+
+  function scale_alpha(image, scaling_factor) {
+
+    var ctx = canvas(image).getContext('2d');
+
+    function rma(id) {
+      var d = id.data;
+      for (var i = 0; i < d.length; i += 4) {
+        d[i + 3] *= scaling_factor;
+      }
+      return id;
+
+    }
+    return apply_image_filter(ctx, rma);
+  }
+
+  function get_image_data(ctx) {
+    return ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+  }
+
+  function apply_image_filter(ctx, filter) {
+    var args = _.toArray(arguments).slice(2),
+      buffer = canvas(ctx.canvas.width, ctx.canvas.height),
+      bctx = buffer.getContext('2d'),
+      id = get_image_data(ctx);
+
+    args.unshift(id);
+    var nid = filter.apply(this, args);
+
+    bctx.putImageData(nid, 0, 0);
+    return buffer;
+  }
+
+  /*******************/
+  /*  MISCELLANEOUS  */
+  /*******************/
+
+  function pointToScreen (ctx, p) {
+    return [(p.x || p[0]) * 250 + ctx.canvas.width / 2, (p.y || p[1]) * 250 + ctx.canvas.height / 2]
+  }
+
+
+  function drawLine(ctx, posA, posB, ss) {
+    if (ss) {
+      ctx.strokeStyle = ss;
+    }
+    ctx.beginPath();
+    ctx.moveTo((posA.x || posA[0]) * 250 + ctx.canvas.width / 2, (posA.y || posA[1]) * 250 + ctx.canvas.height / 2);
+    ctx.lineTo((posB.x || posB[0]) * 250 + ctx.canvas.width / 2, (posB.y || posB[1]) * 250 + ctx.canvas.height / 2);
+    ctx.stroke();
+  }
+
+  function getStarNeighbours (stars, star, distanceLimit) {
+    var limitSquared = distanceLimit * distanceLimit;
+    var neighbours = [];
+    for (var j in stars) {
+      var otherStar = stars[j];
+      // discard via: identity, already done and bounding box
+      if (star === otherStar || Math.abs(star.x - otherStar.x) > curr_prop_dist || Math.abs(star.y - otherStar.y) > curr_prop_dist) {
+        continue;
+      }
+      var distanceSquared = Math.pow(star.x - otherStar.x, 2) + Math.pow(star.y - otherStar.y, 2);
+      // If the stars are too far apart
+      if (distanceSquared > limitSquared){
+        continue;
+      }
+      neighbours.push(otherStar);
+    }
+    return neighbours;
+  }
+
+  // low values are a s sign of high strategic value!
+  function localClusteringCoefficient (stars, star, distanceLimit) {
+    var neighbours = getStarNeighbours(stars, star, distanceLimit);
+    var neighbourCount = neighbours.length;
+    var
+    var coefficient = 2 * _______________ / neighbourCount * (neighbourCount - 1)
+
+  }
+
+  function clusterStarNet(stars, clusterStars, distanceLimit){
+
+  }
+
+
+  function accessor (k) {
+    return function (o) {
+      return o[k];
+    }
+  }
+
+  function findCommonEdge (a, b) {
+    var edge = [];
+    for (var i = 0, il = a.length; i < il; i++){
+      var pointA = a[i];
+      for (var j = 0, jl = b.length; j < jl; j++) {
+        var pointB = b[j];
+        if (pointA[0] === pointB[0] && pointA[1] === pointB[1]) {
+          edge.push(pointA);
+          break;
+        }
+      }
+      if (edge.length > 1) {
+          return edge;
+      }
+    }
+    return undefined;
+  }
+
+  function point (foo) {
+    return [foo.x || foo[0], foo.y || foo[1]];
+  }
+
+  function midPoint (a, b) {
+    return [
+      (a[0] + b[0]) / 2,
+      (a[1] + b[1]) / 2
+    ];
+  }
+
+
+  function drawPoly(ctx, vertices, width, style) {
+    if (width) {
+      ctx.lineWidth = ss;
+    }
+    if (style) {
+      ctx.strokeStyle = style;
+    }
+    var verticeCount = vertices.length;
+    var start = pointToScreen(ctx, vertices[0]);
+    var canvasCorrectionX = ctx.canvas.width / 2;
+    var canvasCorrectionY = ctx.canvas.height / 2;
+
+    ctx.beginPath();
+    ctx.moveTo(start[0], start[1]);
+    for (var i = 1; i < verticeCount; i++) {
+      var v = vertices[i];
+      // log('lining to ', v);
+      ctx.lineTo(
+        (v.x || v[0]) * 250 + canvasCorrectionX,
+        (v.y || v[1]) * 250 + canvasCorrectionY);
+    }
+    ctx.closePath();
+    ctx.stroke();
+  }
+
+  function drawHalo(ctx, x, y, r, hex_color) {
+    var gradient = ctx.createRadialGradient(x, y, 0, x, y, r);
+
+    // TODO: Remove this hackery!
+    var m = hex_color.match(/#?(..?)(..?)(..?)/);
+    var c = [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)].join(',');
+
+    gradient.addColorStop(0, 'rgba(' + c + ',1)');
+    gradient.addColorStop(1, 'rgba(' + c + ',0)');
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(x - r, y - r, x + r, y + r);
+  }
+
+  function drawFleetHalo(ctx, x, y, size, c) {
+    debug('dfh', arguments);
+    x = x * 250 + ctx.canvas.width / 2;
+    y = y * 250 + ctx.canvas.width / 2;
+    drawHalo(ctx, x, y, overlayMiddle * area_to_radius(size), c);
+  }
+
+  function drawCOM(src, ctx, c, label, color) {
+    //debug('drawCOM', _.toArray(arguments));
+    var offset = ctx.canvas.width / 2,
+      x = c.x * 250 + offset,
+      y = c.y * 250 + offset,
+      sc = 0.2;
+
+    drawSprite(ctx, {
+      screenX: x,
+      screenY: y,
+      width: src.width,
+      height: src.height,
+      pivotX: src.width / 2,
+      pivotY: src.height / 2,
+      rotation: 0,
+      scale: sc,
+      image: src,
+      spriteX: 0,
+      spriteY: 0,
+      visible: true
+    });
+
+    var radius = (src.height * sc) / 2;
+    ctx.fillStyle = color;
+    ctx.font = 'bold ' + (radius * 1.5) + 'px sans-serif';
+    ctx.textBaseline = 'top';
+    var tw = ctx.measureText(label).width;
+    ctx.fillText(label, x - (tw / 2), y - (radius / 2));
+  }
+
+  function drawFleetCentres(src, ctx, player, data) {
+    //debug('drawFleetCentres', _.toArray(arguments));
+    var total = player.total_strength,
+      src = tint(src, player.color);
+
+    function Node(d) {
+      return {
+        x: parseFloat(d.x),
+        y: parseFloat(d.y),
+        m: 1
+      };
+    }
+
+    var player_data = _.filter(data, function(v) {
+        return v.puid === player.uid
+      }),
+      star_data = _.filter(player_data, function(v) {
+        return v.kind === 'star';
+      }),
+      fleet_data = _.filter(player_data, function(v) {
+        return v.kind === 'fleet';
+      }),
+      equal_stars = _.map(star_data, Node),
+      equal_fleets = _.map(fleet_data, Node),
+      resource_stars = _.map(star_data, function(v) {
+        return _.extend(Node(v), {
+          m: v.r
+        });
+      }),
+      industry_stars = _.map(star_data, function(v) {
+        return _.extend(Node(v), {
+          m: v.i
+        });
+      }),
+      fleet_nodes = _.map(player_data, function(v) {
+        return _.extend(Node(v), {
+          m: v.st
+        });
+      });
+
+    // if (equal_stars.length) {
+    //     drawCOM(src, ctx, centre_of_mass(equal_stars), 'S', player.color);
+    // }
+    // if (resource_stars.length) {
+    //     drawCOM(src, ctx, centre_of_mass(resource_stars), 'R', player.color);
+    // }
+    if (industry_stars.length) {
+      drawCOM(src, ctx, centre_of_mass(industry_stars), 'I', player.color);
+    }
+    if (fleet_nodes.length) {
+      drawCOM(src, ctx, centre_of_mass(fleet_nodes), 'F', player.color);
+    }
+    if (equal_fleets.length) {
+      drawCOM(src, ctx, centre_of_mass(equal_fleets), 'C', player.color);
+    }
+  }
+
+
+  /*******************/
+  /*     LAYERS      */
+  /*******************/
+
+  function pathLayer(ctx, data, map) {
+    var universe = data.universe;
+    var stars = universe.galaxy.stars;
+
+    var du = (1 / 8); // distance unit, 1/8th of ly
+    var curr_prop = 3 + (universe.player ? universe.player.tech.propulsion.level : 1);
+    var curr_prop_dist = curr_prop * du;
+    var next_prop_dist = curr_prop * du;
+    // var next_prop_dist = (curr_prop + 1) * du;
+    var ignore_prop_dist = (curr_prop - 2) * du;
+
+    var scurr_prop = square(curr_prop_dist);
+    var snext_prop = square(next_prop_dist);
+    var signore_prop = square(ignore_prop_dist);
+
+    ctx.lineWidth = 1 * map.pixelRatio;
+
+    var done = []; // efficiency hack because stars is an object.
+
+    // TODO: Make more efficient. This is basically collision detection.
+    for (var i in stars) {
+      if (stars.hasOwnProperty(i)) {
+        var starA = stars[i];
+        done[i] = true;
+
+        for (var j in stars) {
+          var starB = stars[j];
+          // discard via: identity, already done and bounding box
+          if (starA === starB || done[j] || Math.abs(starA.x - starB.x) > next_prop_dist || Math.abs(starA.y - starB.y) > next_prop_dist) {
+            continue;
+          }
+
+          var dist2 = Math.pow(starA.x - starB.x, 2) + Math.pow(starA.y - starB.y, 2);
+          // If the stars are too far apart or too close go to next star pair.
+          // We don't want to draw short paths, doing that makes lots of noise.
+          if (dist2 > snext_prop){// || dist2 < signore_prop) {
+            continue;
+          }
+
+          var easy = (dist2 <= scurr_prop);
+          var warped = easy && starA.ga && starB.ga;
+          var ss; // = "rgba(255,255,255,1)";
+
+          if (warped) {
+            ss = "rgba(100, 255, 100, 0.6)";
+          } else if (easy) {
+            ss = "rgba(255, 255, 255, 0.3)";
+          } else {
+            ss = "rgba(255, 100, 100, 0.1)";
+          }
+          drawLine(ctx, starA, starB, ss);
+        }
+      }
+    }
+    return ctx;
+  }
+
+  // this is obscenely expensive.
+  // please find a more efficient algorithm!
+  function nodeNetLayer(ctx, data, map) {
+    var universe = data.universe;
+    var stars = universe.galaxy.stars;
+
+    var du = (1 / 8); // distance unit, 1/8th of ly
+    var curr_prop = 3 + (universe.player ? universe.player.tech.propulsion.level : 1);
+    var curr_prop_dist = curr_prop * du;
+
+    var scurr_prop = square(curr_prop_dist);
+
+    ctx.lineWidth = 3 * map.pixelRatio;
+
+    var done = []; // efficiency hack because stars is an object.
+    for (var i in stars) {
+      if (stars.hasOwnProperty(i)) {
+        var starA = stars[i];
+
+
+        var neighbours = [];
+        for (var j in stars) {
+          var starB = stars[j];
+          // discard via: identity, already done and bounding box
+          if (starA === starB || Math.abs(starA.x - starB.x) > curr_prop_dist || Math.abs(starA.y - starB.y) > curr_prop_dist) {
+            continue;
+          }
+          var dist2 = Math.pow(starA.x - starB.x, 2) + Math.pow(starA.y - starB.y, 2);
+          // If the stars are too far apart
+          if (dist2 > scurr_prop){
+            continue;
+          }
+          neighbours.push(starB);
+        }
+
+        var cluster = [starA];
+        for (var j in stars) {
+          var starB = stars[j];
+          if () {
+
+          }
+          cluster.push(starB);
+        }
+
+
+
+      }
+    }
+    return ctx;
+  }
+
+
+  function voronoiLayer(ctx, data, map) {
+    var universe = data.universe;
+    var stars = _.toArray(universe.galaxy.stars);
+    // var starVertices = _.map(stars, function(star) {
+    //   // return [map.sx + star.x * 100, map.sy + star.y * 100];
+    //   return [star.x, star.y];
+    // });
+    var hull = d3.geom.hull()
+      .x(accessor('x'))
+      .y(accessor('y'))
+      (stars);
+
+    var hullCentre = d3.geom.polygon(_.map(hull, point)).centroid();
+
+    console.log('hull', hull);
+    console.log('hullCentre', hullCentre);
+
+    // TODO: make boundery proportional to maxPropDist.
+
+    for (var i = 0, l = hull.length; i < l; i++) {
+      var hullPoint = hull[i];
+      var nextHullPoint = hull[(i+1) % l];
+      var mid = midPoint(point(hullPoint), point(nextHullPoint));
+
+      // console.log('midPoint', mid);
+      var fakeStar = {
+        x: mid[0] - 0.2 * (hullCentre[0] - mid[0]),
+        y: mid[1] - 0.2 * (hullCentre[1] - mid[1])
+      };
+
+      // console.log('fakeStar', fakeStar);
+
+      // var screenPoint = pointToScreen(ctx, fakeStar);
+      // drawHalo(ctx, screenPoint[0], screenPoint[1], 10, '255,0,0');
+
+      stars.push(fakeStar);
+
+      var fakeStar2 = {
+        x: hullPoint.x - 0.2 * (hullCentre[0] - hullPoint.x),
+        y: hullPoint.y - 0.2 * (hullCentre[1] - hullPoint.y),
+      };
+
+      // var screenPoint = pointToScreen(ctx, fakeStar2);
+      // drawHalo(ctx, screenPoint[0], screenPoint[1], 10, '255,0,0');
+
+
+      stars.push(fakeStar2);
+    }
+
+    // _.each(hull, function (outerStar) {
+    //   var fakeStar = {
+    //     x: outerStar.x - 0.1 * (hullCentre[0] - outerStar.x),
+    //     y: outerStar.y - 0.1 * (hullCentre[1] - outerStar.y),
+    //   };
+    //   // console.log('fakeStar', fakeStar, 'based on', outerStar);
+
+    //   var screenPoint = pointToScreen(ctx, fakeStar);
+    //   drawHalo(ctx, screenPoint[0], screenPoint[1], 10, '255,0,0');
+
+    //   stars.push(fakeStar);
+    // });
+
+
+    // ctx.lineWidth = 2 * map.pixelRatio;
+    // drawPoly(ctx, hull, undefined, 'violet');
+    // drawPoly(hull);
+
+    var extent = undefined;
+    // var extent = [[
+    //   1.4 * d3.min(stars, accessor('x')),
+    //   1.4 * d3.min(stars, accessor('y'))],[
+    //   1.4 * d3.max(stars, accessor('x')),
+    //   1.4 * d3.max(stars, accessor('y'))
+    // ]];
+    log('extent', extent);
+
+    var voronoi = d3.geom.voronoi()
+      .x(accessor('x'))
+      .y(accessor('y'))
+      .clipExtent(extent);
+
+    var voronoiPolygons = voronoi(stars);
+    var delaunayLinks = voronoi.links(stars);
+
+    log('voronoiPolygons', voronoiPolygons);
+    log('delaunayLinks', delaunayLinks);
+    log('stars', stars);
+
+
+    // var voronoiEdges = {};
+    // var starsLength = stars.length;
+
+    // for (var i = 0; i < starsLength; i++) {
+    //   var star = stars[i];
+    //   var poly = voronoiPolygons[i];
+    //   var style = star.player ? star.player.color : 'white';
+    //   for (var j = 0, jl = poly.length; j < jl; j++) {
+    //     var edge = [poly[j], poly[(i+1) % poly.length]];
+
+    //     var eid = edge.toString();
+    //     if (voronoiEdges[eid]) {
+    //       voronoiEdges[eid].stars.push(star);
+    //     } else {
+    //       voronoiEdges[eid] = {
+    //         value: edge,
+    //         stars: [star]
+    //       };
+    //     }
+    //   }
+    // }
+
+    // ctx.globalAlpha = 0.5;
+    // for (var i = 0, l = stars.length; i < l; i++) {
+    //   var star = stars[i];
+    //   var poly = voronoiPolygons[i];
+    //   var style = star.player ? star.player.color : 'white';
+
+    //   log('voronoi', star, poly, style);
+
+    //   drawPoly(ctx, poly, undefined, style);
+    // }
+    // ctx.globalAlpha = 1;
+
+
+    for (var i = 0, l = delaunayLinks.length; i < l; i++) {
+      var link = delaunayLinks[i];
+      var source = link.source;
+      var target = link.target;
+
+      // we have fake and real points
+      // draw border if fake-real OR different real-real
+      // if (!source.n ^ !target.n || source.player || target.player) {
+      if (!source.n ^ !target.n || (source.player !== target.player)) {
+        var interEmpireBorder = (source.player === target.player);
+        if (interEmpireBorder) {
+          ctx.globalAlpha = 0.2;
+          ctx.lineWidth = 1 * map.pixelRatio;
+          ctx.setLineDash([1 * map.pixelRatio, 2 * map.pixelRatio]);
+          ctx.globalAlpha = 1;
+        } else {
+          ctx.lineWidth = 2 * map.pixelRatio;
+          ctx.setLineDash([]);
+        }
+
+        var interestingPolies = _.filter(voronoiPolygons, function (d) {
+          return d.point === source || d.point === target;
+        });
+
+        // log('ip', interestingPolies);
+        var commonEdge = findCommonEdge(interestingPolies[0], interestingPolies[1]);
+        if (!commonEdge) {
+          continue;
+        }
+        // log('commonEdge', commonEdge);
+        var sourceStyle = source.player ? source.player.color : undefined;
+        var targetStyle = target.player ? target.player.color : undefined;
+        if (!sourceStyle && !targetStyle) {
+          var style = 'white';
+        }
+        else if (!sourceStyle || !targetStyle) {
+          var style = sourceStyle || targetStyle;
+        } else {
+          var style = d3.interpolateLab(sourceStyle, targetStyle)(0.5);
+        }
+        // log(style);
+
+        drawLine(ctx, commonEdge[0], commonEdge[1], style);
+      }
+
+    }
+
+
+
+    // ctx.globalAlpha = 0.5;
+    // for (var i = 0, il = voronoiEdges.length; i < il; i++) {
+    //   var edge = voronoiEdges[i];
+    //   var edgeValue = edge.value;
+    //   var stars = edge.stars;
+    //   var style = stars[0].player ? stars[0].player.color : 'white';
+
+    //   drawLine(ctx, edgeValue[0], edgeValue[1], style);
+    //   log('lining', edgeValue[0], edgeValue[1], style);
+    // }
+    // ctx.globalAlpha = 1;
+
+
+
+
+    return ctx;
+  }
+
+  function fleetSizeLayer(ctx, data, map) {
+    var universe = data.universe,
+      stars = universe.galaxy.stars,
+      fleets = universe.galaxy.fleets,
+      players = universe.galaxy.players,
+      total = 0;
+    var i;
+    for (i in players)
+      if (stars.hasOwnProperty(i)) {
+        var p = players[i];
+
+        total += p.total_strength;
+      }
+
+    for (i in stars)
+      if (stars.hasOwnProperty(i)) {
+        var star = stars[i];
+        if (star.totalDefenses > 0) {
+          drawFleetHalo(ctx, star.x, star.y, (star.totalDefenses / total), star.player.color);
+        }
+      }
+    for (i in fleets)
+      if (stars.hasOwnProperty(i)) {
+        var fleet = fleets[i];
+        if (fleet.orbiting !== null) {
+          continue;
+        }
+
+        drawFleetHalo(ctx, parseFloat(fleet.x), parseFloat(fleet.y), (fleet.st / total), fleet.player.color);
+      }
+  }
+
+  function fleetStrengthLayer(ctx, data, map) {
+    // debug('fleetStrengthLayer', _.toArray(arguments));
+    // we want 3 centres
+    // star centre
+    // scannable ship centre
+    // weighted combination
+    // resource centre
+    var universe = data.universe,
+      stars = universe.galaxy.stars,
+      fleets = universe.galaxy.fleets,
+      players = universe.galaxy.players,
+      total = 0,
+      src = scale_alpha(map.fleetWaypointSrc, 3);
+
+    for (var i in players) {
+      var player = players[i];
+      var els = [].concat(_.values(stars), _.values(fleets));
+      drawFleetCentres(src, ctx, player, els);
+    }
+  }
+
+  function drawSprite(ctx, sprite) {
+    if (sprite.visible) {
+      ctx.save();
+      ctx.translate(sprite.screenX, sprite.screenY);
+      ctx.rotate(sprite.rotation);
+      ctx.scale(sprite.scale, sprite.scale);
+      ctx.drawImage(sprite.image, sprite.spriteX, sprite.spriteY, sprite.width, sprite.height, -sprite.pivotX, -sprite.pivotY, sprite.width, sprite.height);
+      ctx.restore();
+    }
+  }
+  // map.drawSprite = function (sprite) {
+  //     map.context.save();
+  //     map.context.translate(sprite.screenX, sprite.screenY);
+  //     map.context.rotate(sprite.rotation);
+  //     map.context.scale(sprite.scale, sprite.scale);
+  //     map.context.drawImage(sprite.image, sprite.spriteX, sprite.spriteY, sprite.width, sprite.height, -sprite.pivotX, -sprite.pivotY, sprite.width , sprite.height);
+  //     map.context.restore();
+  // };
+
+  function hyperdriveBoundaryLayer(ctx, data, map) {
+    debug('hyperdriveBoundaryLayer', arguments);
+    var universe = data.universe,
+      players = universe.galaxy.players,
+      stars = universe.galaxy.stars,
+      image = scale_alpha(map.fleetRangeSrc, 3),
+      negative = scale_alpha(image, 3);
+
+    for (var i in players) {
+      drawHyperdriveBoundary(ctx, stars, players[i], image, negative);
+    }
+    return ctx;
+  }
+
+  function scanningBoundaryLayer(ctx, data, map) {
+    debug('scanningBoundaryLayer', arguments);
+    var universe = data.universe,
+      players = universe.galaxy.players,
+      stars = universe.galaxy.stars,
+      image = scale_alpha(map.scanningRangeSrc, 3),
+      negative = scale_alpha(image, 3);
+
+    for (var i in players) {
+      drawScanningBoundary(ctx, stars, players[i], image, negative);
+    }
+    return ctx;
+  }
+
+  function drawHyperdriveBoundary(ctx, stars, player, image, negative) {
+    debug('drawHyperdriveBoundary', arguments);
+    var buffer = canvas(overlaySize, overlaySize),
+      bctx = buffer.getContext('2d'),
+      player_range = tint(image, player.color),
+      canvas_offset = overlayMiddle;
+
+    for (var j in stars) {
+      if (stars[j].player !== player) {
+        continue;
+      }
+      var star = stars[j],
+        x = star.x * 250 + canvas_offset,
+        y = star.y * 250 + canvas_offset,
+        sc = star.player.tech.propulsion.value + 0.0125;
+
+      drawSprite(bctx, {
+        screenX: x,
+        screenY: y,
+        width: player_range.width,
+        height: player_range.height,
+        pivotX: player_range.width / 2,
+        pivotY: player_range.height / 2,
+        rotation: 0,
+        scale: sc,
+        image: player_range,
+        spriteX: 0,
+        spriteY: 0,
+        visible: true
+      });
+    }
+
+    bctx.globalCompositeOperation = 'destination-out';
+
+    for (var i in stars) {
+      if (stars[i].player !== player) {
+        continue;
+      }
+      var star = stars[i],
+        x = star.x * 250 + canvas_offset,
+        y = star.y * 250 + canvas_offset,
+        sc = star.player.tech.propulsion.value + 0.0125,
+        radius = sc * 243;
+
+      clearCircle(bctx, x, y, radius);
+      drawSprite(bctx, {
+        screenX: x,
+        screenY: y,
+        width: negative.width,
+        height: negative.height,
+        pivotX: negative.width / 2,
+        pivotY: negative.height / 2,
+        rotation: 0,
+        scale: sc * 0.97,
+        image: negative,
+        spriteX: 0,
+        spriteY: 0,
+        visible: true
+      });
+
+    }
+
+    ctx.drawImage(buffer, 0, 0);
+    return ctx;
+  }
+
+  function drawScanningBoundary(ctx, stars, player, image, negative) {
+    debug('drawScanningBoundary', arguments);
+    var buffer = canvas(overlaySize, overlaySize),
+      bctx = buffer.getContext('2d'),
+      player_range = tint(image, player.color),
+      canvas_offset = overlayMiddle;
+
+    for (var j in stars) {
+      if (stars[j].player !== player) {
+        continue;
+      }
+      var star = stars[j],
+        x = star.x * 250 + canvas_offset,
+        y = star.y * 250 + canvas_offset,
+        sc = star.player.tech.scanning.value;
+
+      drawSprite(bctx, {
+        screenX: x,
+        screenY: y,
+        width: player_range.width,
+        height: player_range.height,
+        pivotX: player_range.width / 2,
+        pivotY: player_range.height / 2,
+        rotation: 0,
+        scale: sc,
+        image: player_range,
+        spriteX: 0,
+        spriteY: 0,
+        visible: true
+      });
+    }
+
+    bctx.globalCompositeOperation = 'destination-out';
+
+    for (var i in stars) {
+      if (stars[i].player !== player) {
+        continue;
+      }
+      var star = stars[i],
+        x = star.x * 250 + canvas_offset,
+        y = star.y * 250 + canvas_offset,
+        sc = star.player.tech.scanning.value,
+        radius = sc * 240;
+
+      clearCircle(bctx, x, y, radius);
+      drawSprite(bctx, {
+        screenX: x,
+        screenY: y,
+        width: negative.width,
+        height: negative.height,
+        pivotX: negative.width / 2,
+        pivotY: negative.height / 2,
+        rotation: 0,
+        scale: sc * 0.97,
+        image: negative,
+        spriteX: 0,
+        spriteY: 0,
+        visible: true
+      });
+
+    }
+
+    ctx.drawImage(buffer, 0, 0);
+    return ctx;
+  }
+
+  /*******************/
+  /* LAYER FRAMEWORK */
+  /*******************/
+  function registerLayer(Mousetrap, np, universe, name, key) {
+    var method_name = 'on_' + name,
+      event_name = 'start_' + name,
+      mode_name = name;
+
+    np[method_name] = function(e) {
+      debug(method_name);
+      universe[mode_name] = !universe[mode_name];
+
+      debug(name + ' layer is ' + (universe[mode_name] ? 'ON' : 'OFF'))
+
+      np.trigger("map_refresh");
+    };
+
+    np.on(event_name, np[method_name]);
+    Mousetrap.bind(key, caller(np.trigger, event_name));
+  }
+
+  function getLayer(data, map, layer) {
+    debug('getLayer', arguments)
+    var map_canvas = map.context.canvas,
+      buffer = canvas(overlaySize, overlaySize),
+      bctx = buffer.getContext('2d');
+    layer(bctx, data, map);
+    return buffer;
+  }
+
+  function drawLayer(map, cvs) {
+    var width = cvs.width,
+      height = cvs.height,
+      scale = map.pixelRatio * map.scale / 250,
+      sprite = {
+        screenX: map.sx * map.pixelRatio,
+        screenY: map.sy * map.pixelRatio,
+        width: width,
+        height: height,
+        pivotX: width / 2,
+        pivotY: height / 2,
+        rotation: 0,
+        scale: scale,
+        image: cvs,
+        spriteX: 0,
+        spriteY: 0,
+        visible: true
+      };
+
+    // log('layer sprite:', sprite);
+
+    map.drawSprite(sprite);
+  }
+  /*******************/
+  /*    MOD HOOKS    */
+  /*******************/
+  function pre_init_hook() {
+    log('LAYERS: pre_init_hook');
+  }
+
+  function post_init_hook(data) {
+    log('LAYERS: post_init_hook', data);
+    var Crux = data.Crux;
+    var universe = data.universe;
+    var np = data.np;
+
+    var du  = (1 / 8); // distance unit, 1/8th of ly
+    propulsion = universe.player ? universe.player.tech.propulsion.level : 1;
+    maxPropDist  = (propulsion + 3) * du; // in ly
+
+    var layers = [
+      {
+        setting: 'show_scanning_boundaries',
+        hotkey: 'm s',
+        constructor: scanningBoundaryLayer
+      },
+      {
+        setting: 'show_hyperdrive_boundaries',
+        hotkey: 'm h',
+        constructor: hyperdriveBoundaryLayer
+      },
+      {
+        setting: 'show_paths',
+        hotkey: 'm p',
+        constructor: pathLayer
+      },
+      {
+        setting: 'show_fleet_size_halos',
+        hotkey: 'm a',
+        constructor: fleetSizeLayer
+      },
+      {
+        setting: 'show_centre_of_strength',
+        hotkey: 'm t',
+        constructor: fleetStrengthLayer
+      },
+      {
+        setting: 'show_node_net',
+        hotkey: 'm n',
+        constructor: nodeNetLayer
+      },
+      {
+        setting: 'voronoiLayer',
+        hotkey: 'm v',
+        constructor: voronoiLayer
+      }
+    ];
+
+    layers.forEach(function(layerConf) {
+      registerLayer(Mousetrap, np, universe, layerConf.setting, layerConf.hotkey);
+    });
+
+    // registerLayer(Mousetrap, np, universe, 'show_paths', 'm p');
+    // registerLayer(Mousetrap, np, universe, 'show_node_net', 'm n');
+    // registerLayer(Mousetrap, np, universe, 'show_scanning_boundaries', 'm s');
+    // registerLayer(Mousetrap, np, universe, 'show_hyperdrive_boundaries', 'm h');
+    // registerLayer(Mousetrap, np, universe, 'show_fleet_size_halos', 'm a');
+    // registerLayer(Mousetrap, np, universe, 'show_centre_of_strength', 'm t');
+    // registerLayer(Mousetrap, np, universe, 'voronoiLayer', 'm v');
+
+    NeptunesPride.Map = NP2M.wrap(NeptunesPride.Map, function(args, map) {
+
+      log('NeptunesPride.map', map);
+      var layerCache = {};
+      var sbl, hbl, pl, al, fs, lv, nnl;
+
+      map.createSprites = NP2M.wrap(map.createSprites, function(args, ret) {
+        pl = hbl = sbl = al = fs = lv = nnl = undefined;
+        return ret;
+      });
+
+      map.draw = NP2M.wrap(map.draw, function(args, ret) {
+
+        layers.forEach(function(layerConf) {
+          if (universe[layerConf.setting]) {
+            if (!layerCache[layerConf.setting]) {
+              layerCache[layerConf.setting] = getLayer(data, map, layerConf.constructor);
+            }
+            drawLayer(map, layerCache[layerConf.setting]);
+          }
+        });
+
+        // // TODO: abstract this out a bit
+        // if (universe['show_hyperdrive_boundaries']) {
+        //   if (!hbl) {
+        //     hbl = getLayer(data, map, hyperdriveBoundaryLayer);
+        //   }
+        //   drawLayer(map, hbl);
+        // }
+        // if (universe['show_paths']) {
+        //   // drawPaths(universe, map);
+        //   if (!pl) {
+        //     pl = getLayer(data, map, pathLayer);
+        //   }
+        //   drawLayer(map, pl);
+        // }
+        // if (universe['show_fleet_size_halos']) {
+        //   // drawPaths(universe, map);
+        //   if (!al) {
+        //     al = getLayer(data, map, fleetSizeLayer);
+        //   }
+        //   drawLayer(map, al);
+        // }
+        // if (universe['show_centre_of_strength']) {
+        //   // drawPaths(universe, map);
+        //   if (!fs) {
+        //     fs = getLayer(data, map, fleetStrengthLayer);
+        //   }
+        //   drawLayer(map, fs);
+        // }
+        // if (universe['voronoiLayer']) {
+        //   // drawPaths(universe, map);
+        //   if (!lv) {
+        //     lv = getLayer(data, map, voronoiLayer);
+        //   }
+        //   drawLayer(map, lv);
+        // }
+        // if (universe['show_node_net']) {
+        //   // drawPaths(universe, map);
+        //   if (!nnl) {
+        //     nnl = getLayer(data, map, nodeNetLayer);
+        //   }
+        //   drawLayer(map, nnl);
+        // }
+
+        return ret;
+      });
+
+      // map.drawSprite = NP2M.wrap(map.drawSprite, function (args, ret) {
+      //     debug('drawing sprites', arguments);
+      //     return ret;
+      // });
+
+      // reregister draw function
+      Crux.tickCallbacks.pop();
+      Crux.tickCallbacks.push(map.draw);
+      return map;
+    });
+  }
+
+  NP2M.register("NP2 Layers", "1", pre_init_hook, post_init_hook);
+})();

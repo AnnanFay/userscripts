@@ -1,0 +1,50 @@
+Targets:
+
+    Information Layers to help decision making
+    Historical Logging
+    Strategic goal identification
+    Tactical goal realisation
+    Goal prioritisation
+
+Goals:
+    Capture every star.
+    Minimise total stars to reduce threat.
+
+    Capture stars with:
+        good resources
+        good scanning range
+        good travel links
+
+    Defend territory if it is:
+        in danger: near border of hostiles
+        important: see above section
+
+
+    Build infrastructure:
+        Economy
+
+    Research everything:
+        Prioritise?
+
+    Move ships towards threats.
+
+
+Potential Problems:
+
+If
+ * HR upgrade soon
+ * a carrier which is taskless can jump after upgrade to good star
+Then
+* keep carrier in location to jump after upgrade
+
+
+Star Classification:
+    Stars can be classified depending on:
+RESOURCES:
+    High - 50
+    Low - 1
+    Actual distrobution is?
+Positional Importance
+    Potential Bottleneck
+    Near enemy
+    Safe from enemy

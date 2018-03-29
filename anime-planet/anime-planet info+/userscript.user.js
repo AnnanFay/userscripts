@@ -15,6 +15,86 @@
 
   var NEARLY_FINISHED_THRESHOLD = 6;
 
+  var settings  =
+
+
+GM_config.init( {
+  id: '',
+  title: '',
+  css: '',
+  fields: {
+    // want to watch ongoing settings
+    'S4UFMD': {
+        'section': 'Want to watch Settings',
+        'label': 'display a message label if the anime is not completed',
+        'type': 'checkbox',
+        'default': true
+    },
+    'S4UFML': {
+        'label': 'message to be displayed',
+        'type': 'text',
+        'default': 'ONGOING'
+    },
+    'S4UFMC': {
+        'label': 'message color',
+        'type': 'text',
+        'default': "#151ab0"
+    },
+    'S4URFA': {
+        'label': 'fade away unreleased anime',
+        'type': 'checkbox',
+        'default': true
+    },
+    'S4ECMD': {
+        'label': 'display total episode count message',
+        'type': 'checkbox',
+        'default': true
+    },
+    'S4ECMC': {
+        'label': 'episode count message color',
+        'type': 'text',
+        'default': "#151ab0"
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //
   // Utility Functions
   //

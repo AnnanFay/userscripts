@@ -1,0 +1,23 @@
+﻿// ==UserScript==
+// @name        GCInterface
+// @namespace   http://annanfay.com/
+// @description
+// @include     http://gc.gamestotal.com/*
+// @version     1
+// @grant       none
+// @run-at document-start
+// ==/UserScript==
+
+(function (w) {
+  'use strict';
+  if (w.location.hash !== '#gcinterface'){
+    return;
+  }
+
+  function etopEvent (e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
+  w.addEventListener('beforescriptexecute', stopEvent, true);
+})(window)

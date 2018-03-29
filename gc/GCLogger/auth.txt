@@ -1,0 +1,5 @@
+
+  var USERNAME = 'AnnanFay'; // Choose something which identifies you.
+  var PASSPHRASE =  hash('Choose something that you do not use for anything else. '+
+                    'It can be anything. You do not need to remember it, just keep it here. '+
+                    'It does not _need_ to contain special characters. It is not secure.');

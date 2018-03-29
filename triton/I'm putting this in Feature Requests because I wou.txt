@@ -1,0 +1,79 @@
+I'm putting this in Feature Requests because I would like to promote discussion about battle mechanics and the possibility of change. I don't necessarily think it should be changed, just curious what other players think about the current system.
+
+Battle in Triton and Blight work as follows:
+
+1. Both armies form queues facing each other.
+2. The units (2) at the heads of the queues shoot the enemy army.
+3. Repeat till one army is dead.
+
+That is to say, when 100 units fight 10 each side will lose roughly ~10 units. There is no link between army size and damage done at each stage of the battle. The only thing effecting stage damage is Weapon tech level and defender bonus for Triton. Blight uses an analogous percentage based system but without tech levels or defender advantage.
+
+Now, consider two alternative methods.
+
+**M1** - **Assumption:** All enemies can attack all other enemies. This assumption holds in space battles because all units are ranged, fleets intercept quickly and space between ships makes blocking non-existent. It holds to a lesser extend in all ranged battles (archers, mages, tanks, etc.).
+
+1. Defender does [size] damage.
+2. Attacker does [size] damage.
+3. Repeat till one is dead.
+
+The above [size] damage can be scaled by tech and bonuses depending on the details. The main difference from the original is that damage at each stage is proportional to army size. This gives an advantage to [concentration of forces](https://en.wikipedia.org/wiki/Force_concentration).
+
+> Force concentration is the practice of concentrating a military force so as to bring to bear such overwhelming force against a portion of an enemy force that the disparity between the two forces alone acts as a [force multiplier](https://en.wikipedia.org/wiki/Force_multiplier) in favour of the concentrated forces.
+
+**How would this effect game-play?** I think we should try it out and see what happens!
+
+**M2** - **Assumption:** Big armies are inefficient at attacking small units. Think gorilla warfare. This disadvantages super-massive armies, the logic being that units at the rear will never be utilised.
+
+1. Defender does `sizeA * e^(-0.2(sizeA/sizeB-1))` damage. 
+2. Attacker does damage using above formula.
+3. Repeat till one is dead.
+
+In plain English, the above formula 
+This still benefits from the force multiplier when you have an advantage in numbers, however when you have huge forces you very quickly lose unit efficiency.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+modelling as surface of circle with area 'army size': plot (2 * sqrt(pi) * sqrt(x))^2 for x from 1 to 10
+modelling as surface of sphere with volume 'army size': plot (6^(2/3) * pi^(1/3) * x^(2/3))^2  for x from 1 to 10
+
+
+
+
+
+
+The last few weeks I have been thinking about combat mechanics in Blight and NP. Is there a reason you don't want to allow concentration of force mechanics? This might make the game more tactical. (COF: https://en.wikipedia.org/wiki/Force_concentration) 
+
+Armies doing damage proportional to total size each stage would work. Damage = size * c, PowerFactor = (size * c)^2, where size is army size and c is some constant taking into account defenders advantage, unit type, weapons tech level, etc. Power Factor is overall power of army given force concentration mechanics.
+
+To model inefficiencies of scale, or to allow disadvantage huge armies, you can manipulate the damage given. As long as the modification is greater than a square root it'll be fine.
+
+x = size * c, Damage = sqrt(x), PowerFactor = x, this is kind of what we currently have, where power factor is the same.
+
+Anything less than a sqrt would hugely disadvantage to being bigger than the opponent. Losing carriers and towns in blight would probably still make it more efficient to win battles. But end game NP you would have everyone making 1 ship fleets :P
+
+Something like, Damage = x^(5/6), PowerFactor = x^(5/3), could work. Anyway, I think it's worth experimenting with at some point, time permitting. 
+
+
+
+a = 100
+b = 50
+
+a = ~50
+b = 0

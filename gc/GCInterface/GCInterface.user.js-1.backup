@@ -1,0 +1,41 @@
+﻿// ==UserScript==
+// @name        GCInterface
+// @namespace   http://annanfay.com/
+// @description
+// @include     http://gc.gamestotal.com/*
+// @version     1
+// @grant       none
+// @run-at document-start
+// @require     http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.js
+// ==/UserScript==
+
+
+(function (w) {
+  'use strict';
+  if (w.location.hash !== '#gcinterface'){
+    return;
+  }
+
+  alert('foo' + window._)
+  // _.templateSettings.interpolate = /{{([\s\S]+?)}}/g; // mustache style template syntax
+
+  // var template = {
+  //   page: _.template('<head><title>{{title}}</title></head><body></body>')
+  // }
+
+  // function stopEvent (e) {
+  //   console.log('stopEvent', e.target);
+  //   e.stopPropagation();
+  //   e.preventDefault();
+  // }
+
+  // function blankPage () {
+  //   console.log('blankPage', document.body);
+
+  //   var pageTitle = 'GC Interface';
+  //   document.documentElement.innerHTML = template.page({title: pageTitle});
+  // }
+
+  // w.addEventListener('beforescriptexecute', stopEvent, true);
+  // w.addEventListener('DOMContentLoaded', blankPage, true);
+})(window)

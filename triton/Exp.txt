@@ -1,0 +1,23 @@
+Thanks. I'm not a big fan of Exp to be honest. 
+
+You can calculate the expected and maximum value of Experimentation (Exp.). Maximum value is (72 / ticksPerCycle), equivalent to 3.6 science in this game. Minimum value is zero! This is unlikely and happens when _every_ experiment you get is in Exp.
+
+You get maximum value if you never trade with anyone and want to level up all techs equally. Science normally costs ~100 so you can convert each level into credits. The increase is constant, but the cost is linear. This means the return on investment duration, assuming maximum value, looks like:
+
+y = ticksPerCycle
+x = techLevel
+Cost = 144 * (x - 1) SP
+CumulativeCost = 144 * 1/2 * x * (x - 1)
+MaxValue = (72 * x) / y SP
+lagTime = cost / science (the time taken to research a level)
+ROI = (cost / value) + lagTime
+ROI = ((144 * (x - 1)) / ((72 * x) / y)) + lagTime
+ROI = (2 * (x-1) * y) / x + lagTime
+
+In our case: ROI = (40 (x-1)) / x + ((144 * (x - 1)) / 50)
+
+
+
+MinROI = Cost / MaxValue = (144 * (x - 1)) / ((72 * x) / y) = 2(x-1)y/x
+
+Experimentation isn't very good now that we have three people researching stuff. The important techs being Terra, Manu and Weapons. HR is good for increasing ship throughput and Scanning for tactical decisions.

@@ -1,0 +1,374 @@
+﻿// ==UserScript==
+// @name        GCLogger
+// @namespace   http://annanfay.com/
+// @description GC events logger.
+// @include     http://gc.gamestotal.com/*
+// @version     1
+// @grant       none
+// ==/UserScript==
+
+
+// http://gc.gamestotal.com/i.cfm?popup=useronline ???
+
+(function () {
+  'use strict';
+
+  ///
+  /// USER CONFIGURATION
+  ///
+  // TODO: Save in localstorage?
+  var UPLOAD = true;
+  var USERNAME = 'AnnanFay'; // Choose something which identifies you.
+  var GAMESPEED = 'RT'; // can we auto detect this?
+  var PASSPHRASE =  hash('Annan\'s real passphrase.');
+
+  ///
+  /// CONSTANTS AND EVENTS
+  ///
+  var SCRIPT_NAME = 'GCLogger';
+  var LOG_URL = 'http://annanfay.com/gc/log?';
+  var EVENTS = [
+    {
+      // an example event for very easy testing.
+      name: 'research',
+      enabled: false,
+      detectRegex: /Researcher: .+ technology requires .+ more turn/,
+      handler: function (html) {
+        var dataRegex = /Researcher: (.+) technology requires [\s\S]* You used up (.+) turn\(/;
+        var data = strip(html).match(dataRegex);
+        var record = {
+          type: data[1],
+          turns: parseInt(data[2])
+        };
+        return record;
+      }
+    },
+    {
+      name: 'exploration',
+      enabled: true,
+      detectRegex: /You have discovered a new planet !/,
+      handler: function (html) {
+        var dataRegex = /You have discovered a new planet[\s\S]*Name[\s\S]*>&nbsp;([\s\S]*)&nbsp;<[\s\S]*Useable land[\s\S]*>&nbsp;([\s\S]*)&nbsp;<[\s\S]*Available ore[\s\S]*>&nbsp;([\s\S]*)&nbsp;<[\s\S]*Mineral[\s\S]*>&nbsp;([\s\S]*)&nbsp;<[\s\S]*Planet type[\s\S]*?>&nbsp;([\s\S]*?)&nbsp;</;
+        var data = html.match(dataRegex);
+
+        console.log('exploration handler', data);
+
+        var name = data[1];
+        var land = data[2];
+        var ore = data[3];
+        var mineral = data[4];
+        var type = data[5];
+
+        var record = {
+          name: name,
+          land: parseInt(land),
+          ore: parseInt(ore),
+          mineral: mineral,
+          type: type
+        };
+        return record;
+      }
+    },
+    {
+      name: 'artifact',
+      enabled: true,
+      live: true, // live events will not be hash-checked.
+      detectRegex: /EXCAVATION DIG SITE/,
+      handler: function (html) {
+        var turnsUsedRegex = /You used up (\d+) turn\(s\)/;
+        var shtml = strip(html);
+        var turnsUsed = (shtml.match(turnsUsedRegex) || [])[1];
+        if (!turnsUsed) {
+          return;
+        }
+
+        var foundRegex = /Found ([^\(]+)\(([^\)]+)\)/g;
+        var colid = (window.location.href.match(/colid=(\d+)/) || [])[1];
+        var found = matchAll(shtml, foundRegex);
+        return {
+          colid: parseNumber(colid),
+          turns: parseNumber(turnsUsed),
+          found: found.map(rest)
+        };
+      }
+    },
+    {
+      // this only detects "Important Events" battles at the moment.
+      name: 'battle-log',
+      enabled: true,
+      detectRegex: /Name.*Units.*Casualties.*Remaining/,
+      handler: function (html) {
+        var splitter = /<td bgcolor="#000024">/g;
+        var eventChunkRe = /Event Log([\s\S]*)Previous.*\|.*Next/;
+        var eventChunk = html.match(eventChunkRe)[1];
+        var segments =  eventChunk.split(splitter);
+        var segmentRegex = /(\d+:\d+ [AP]M \d+\/\d+\/\d+) (.+)\. (.+)\|NameUnitsCasualtiesRemaining\|(.*)\`s fleet\|(.*)\|(.*)\`s fleet\|(.*?)\|(?:Colonies Captured\|NameTypeLand Size\|(.*))?$/;
+        var fleetRegex = /[^\|]+\|[\d,]+\|[\d,]+\|[\d,]+/g;
+        var rewardRegex = /([A-Z]\d?\.\d+)([^\|]+)\|([\d,]+)/g;
+
+        function parseFleet (fleetText) {
+          var f = (fleetText || '').match(fleetRegex) || [];
+          for (var i = 0; i < f.length; i++) {
+            var rd = f[i].split('|');
+            f[i] = {
+              ship: rd[0],
+              pre: parseNumber(rd[1]),
+              post: parseNumber(rd[3])
+            };
+          }
+          return f;
+        }
+
+        function parseReward (rewardText) {
+          var text = rewardText || '';
+          var rewards = [];
+          while (true) {
+            var match = rewardRegex.exec(text);
+            if (!match) {
+              break;
+            }
+            rewards.push(match.slice(1));
+          }
+          return rewards;
+        }
+
+        var records = [];
+        for (var i = 1; i < segments.length; i++) {
+          var bare = clean(strip(segments[i]));
+          var data = bare.match(segmentRegex);
+
+          var time = data[1];
+          var attackType = data[2].replace('|', ' ');
+          var result = data[3];
+          var playerA = data[4];
+          var fleetA = parseFleet(data[5]);
+          var playerB = data[6];
+          var fleetB = parseFleet(data[7]);
+          var reward = parseReward(data[8]);
+
+          // fucker = fucker.split('NameUnitsCasualtiesRemaining')[1];
+
+          console.log('segment', data);
+          var record = {
+            time: time,
+            attackType: attackType,
+            result: result,
+            attacker: {player: playerA, fleet: fleetA},
+            defender: {player: playerB, fleet: fleetB},
+            reward: reward
+          };
+          records.push(record);
+        }
+        return records;
+      }
+    },
+    {
+      name: 'market-log',
+      enabled: false,
+      detectRegex: /notimplemented/,
+      handler: function (html) {
+        // we explicitly use current hour so it becomes part of the hash to reduce data records
+        // this is our MAX upload granularity
+        var hour = getHour();
+        var shtml = strip(html);
+        console.log('shtml', shtml);
+
+        var prices = ['NOT IMPLEMENTED!'];
+
+        var record = {
+          hour: hour,
+          prices: prices
+        };
+        return record;
+      }
+    },
+    {
+      // we can potentially log every one's power, planets and online status over time from the ranking pages
+      name: 'rank-log',
+      enabled: false,
+      detectRegex: /notimplemented/,
+      handler: function (html) {
+      }
+    },
+    {
+      // we can log stuff like your own credits and power for self-analysis
+      // power, credits and food can be done generally (but limited upload!)
+      // CGs, minerals would need to be done from market page
+
+      // we need something like a `GROUP BY Hour()` which only uploads when the next record disagrees with the current data.
+
+      name: 'empire',
+      enabled: false,
+      detectRegex: /notimplemented/,
+      handler: function (html) {
+      }
+    }
+  ];
+
+  ///
+  /// INITIALISATION
+  ///
+  function init () {
+    if (!USERNAME){
+      alert(SCRIPT_NAME + ': You must configure me manually. Please edit me to insert your username and password.');
+    }
+
+    if (!window.console) window.console = {};
+    if (!console.log) console.log = function(){};
+
+    console.log('starting script', SCRIPT_NAME);
+
+    document.addEventListener('gc-log-recieved', receiptHandler);
+
+    EVENTS.forEach(processEvent);
+  }
+
+  ///
+  /// UTILITIES
+  ///
+
+  // returns current hour
+  function getHour () {
+    var hourInMs = 1000 * 60 * 60;
+    return Math.floor((new Date()).getTime() / hourInMs);
+  }
+
+  // return new array containing everything except the first element
+  function rest (l) {
+    return l.slice(1);
+  }
+
+  // will always return an array
+  // each element in the array will be a positive match result
+  function matchAll (s, r) {
+    var matches = [];
+    while (true) {
+      var match = r.exec(s);
+      if (!match || !r.global) {
+        break;
+      }
+      matches.push(match);
+    }
+    return matches;
+  }
+
+  function parseNumber (s) {
+    return parseFloat((s || '0').replace(/,/g, ''));
+  }
+
+  function hash(str){
+    // NON-CRYPTO HASH! Java's .hashCode()
+    var h = 0;
+    for (var i = 0, l = str.length; i < l; i++) {
+      h = ((h << 5)-h) + str.charCodeAt(i);
+      h = h & h;
+    }
+    return h;
+  }
+
+  function strip(html) {
+     var tmp = document.createElement('div');
+     tmp.innerHTML = html;
+     return tmp.textContent || tmp.innerText || '';
+  }
+
+  function clean (text) {
+    return (text
+      .replace(/\n+/g, '\n')
+      .replace(/^\s*\n/gm, '\n')
+      .replace(/\s{2,}/g, '|')
+      .replace(/\s*\n\s*/g, '|'));
+  }
+
+  function getStore(name, def) {
+    // console.log('getting from store', name, window.localStorage.getItem(name));
+    var v = window.localStorage.getItem(name);
+    return v ? JSON.parse(v) : def;
+  }
+  function unsetStore(name) {
+      return window.localStorage.removeItem(name);
+  }
+  function setStore(name, data) {
+      return window.localStorage.setItem(name, JSON.stringify(data));
+  }
+
+  ///
+  /// MAIN CODE
+  ///
+  function insertScript (url, parent) {
+    console.log('insertScript', url);
+    var s = document.createElement('script');
+    s.src = url;
+    s.type = 'text/javascript';
+    (parent || document.body).appendChild(s);
+  }
+
+  function upload (data) {
+    data.u = USERNAME;
+    data.p = PASSPHRASE;
+    var urlData = encodeURIComponent(JSON.stringify(data));
+    insertScript(LOG_URL + urlData);
+  }
+
+  function storeRecord (event, eventData) {
+    console.log('storing record for', event.name, eventData, event.live);
+
+    if (!event.live) {
+      eventData.h = hash(JSON.stringify(eventData));
+      var prevEvents = getStore('event-cache-' + event.name, []);
+      if (prevEvents.indexOf(eventData.h) != -1) {
+        console.log('already stored this event', eventData.h);
+        return;
+      }
+    }
+    eventData.t = (new Date()).toUTCString();
+    var data = {e:event.name, d:eventData};
+
+    upload(data);
+  }
+
+  function processEvent (event) {
+    console.log('processing', event.name);
+    if (!event.enabled) {
+      return;
+    }
+    var bodyText = document.body.textContent;
+    var detected = bodyText.match(event.detectRegex);
+    if (detected) {
+      try {
+        var records = event.handler(document.body.innerHTML);
+        if (!records) {
+          return;
+        }
+        if (!records.length) {
+          records = [records];
+        }
+        for (var i = 0; i < records.length; i++) {
+          storeRecord(event, records[i]);
+        }
+      } catch(e){
+        console.error(e);
+      }
+    }
+  }
+
+  function receiptHandler (e) {
+    var cacheSize = 20;
+    console.log('receiptHandler', e.detail);
+    if (e.detail && e.detail.hs) {
+      var hs = e.detail.hs;
+      var t = e.detail.t;
+      var storeName = 'event-cache-' + t;
+      var prevEvents = getStore(storeName, []);
+      // prevEvents = prevEvents.concat(hs);
+      for (var i = 0; i < hs.length; i++) {
+        if (prevEvents.indexOf(hs[i]) == -1) {
+          prevEvents.push(hs[i]);
+        }
+      }
+      setStore(storeName, prevEvents.slice(-cacheSize));
+    }
+  }
+
+  init();
+})();

@@ -12,13 +12,25 @@ TODO:
     Routing Guide
 
 
+semi-compressed image to encoding snippit.
+
+var d = document,
+    c = d.createElement('canvas'),
+    i = d.getElementsByTagName('img')[0],
+    x = c.getContext('2d');
+c.height = i.height;
+c.width = i.width;
+x.drawImage(i, 0, 0);
+u = c.toDataURL('image/png');
+
+
 
 WHERE TO PUT THESE?
     var DEBUG = true;
 
     function debug () {
         if (DEBUG) {
-            console.log.apply(this, arguments);
+            console.log.apply(console, arguments);
         }
     }
 
@@ -99,3 +111,21 @@ FIXED IN GAME
 
 //     return techRow;
 // });
+
+
+
+
+  // Adds an eye button on leader board which centres on the players home star
+  // npui.LeaderboardPlayer = NP2M.wrap(npui.LeaderboardPlayer, function(args, leaderboardPlayer) {
+  //     var player = args[0];
+  //     if (player.home) {
+  //         var eye = Crux.IconButton('icon-eye', 'map_center_slide', player.home)
+  //             .grid(27, 0, 3, 3)
+  //             .roost(leaderboardPlayer);
+
+  //         eye.ui.css('color', 'red');
+  //         eye.ui.attr('title', player.home.n);
+  //     }
+
+  //     return leaderboardPlayer;
+  // });
