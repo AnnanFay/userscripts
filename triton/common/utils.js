@@ -11,12 +11,32 @@ function getParamNames(func) {
 }
 
 
-function func(f) {
+function as_array(a) {
+  var arr = unsafeWindow.Array();
+  for (var i=0; i<a.length; i++) {
+    // console.log(i, a, a[i]);
+    arr.push((a[i] && a[i].wrappedJSObject) || a[i]);
+  }
+  return arr;
+  // return unsafeWindow.Array.prototype.slice.call(a);
+}
+
+// var waiveXrays = Components.utils.waiveXrays;
+//wrappedJSObject
+
+function exported(f) {
   return exportFunction(f, unsafeWindow, {allowCrossOriginArguments: true});
 }
 
 function copy(v) {
-  return cloneInto(v, unsafeWindow);
+  return cloneInto(v, unsafeWindow, {cloneFunctions: true, wrapReflectors: true});
+}
+
+function func(f) {
+  return exported(function export_func_wrapper() {
+    console.log('export_func_wrapper', arguments);
+    return f.apply(this, as_array(arguments));
+  });
 }
 
 // new wrapper style, much simpler
@@ -29,10 +49,6 @@ function copy(v) {
 //    }
 //  })
 
-function arg_copy(a) {
-  return Array.prototype.slice.call(a);
-}
-
 function over(object, name, wrapper) {
   // wrapper.super = object[name];
   // object[name] = func(wrapper);
@@ -41,20 +57,22 @@ function over(object, name, wrapper) {
   var that;
 
   // copy wrapper into unsafeWindow
-  // func(wrapper);
+  // exported(wrapper);
 
   var _super = function _super() {
-    // console.log('_super', name, that, arguments, f);
-    return f.apply(that, arguments.wrappedJSObject);
+    // console.log('over._super', name, that,
+    //   arguments, as_array(arguments), f);
+    return f.apply(that, as_array(arguments));
   };
 
 
-  object[name] = func(function _wrapped() {
+  object[name] = exported(function _wrapped() {
+    // console.log('over._wrapped arguments', arguments, as_array(arguments))
     that = this;
     wrapper.super = _super;
     // wrapper.super = object[name];
     // wrapper.super = unsafeWindow.console.log;
-    return wrapper.apply(this, arguments.wrappedJSObject);
+    return wrapper.apply(this, as_array(arguments));
   });
 }
 
@@ -160,16 +178,25 @@ function getErrorObject() {
   }
 }
 
-var log = (debug_level > 0 && window.console && window.console.log) ? function log() {
-  // var err = getErrorObject();
-  // var caller_line = err.stack.split("\n")[4];
-  // var index = caller_line.indexOf("at ");
-  // var clean = caller_line.slice(index + 2, caller_line.length);
-  var args = Array.prototype.slice.call(arguments); // Make real array from arguments
-  // args.unshift(MODULE_NAME + ',' + clean + ':');
-  args.unshift(MODULE_NAME + ':');
-  return window.console.log.apply(window.console, args);
-} : function() {};
+// var log = (debug_level > 0 && window.console && window.console.log) ? function log() {
+//   // var err = getErrorObject();
+//   // var caller_line = err.stack.split("\n")[4];
+//   // var index = caller_line.indexOf("at ");
+//   // var clean = caller_line.slice(index + 2, caller_line.length);
+//   console.log('inside log');
+//   var args = Array.prototype.slice.call(arguments); // Make real array from arguments
+//   // args.unshift(MODULE_NAME + ',' + clean + ':');
+//   args.unshift(MODULE_NAME + ':');
+//   return window.console.log.apply(window.console, args);
+// } : function() {};
+
+
+function log() {
+  if (debug_level > 0) {
+    return console.log.apply(console, arguments);
+  }
+  return;
+}
 
 // String.prototype.splice = function(idx, rem, s) {
 //   return (this.slice(0, idx) + s + this.slice(idx + Math.abs(rem)));
@@ -205,11 +232,11 @@ function pass(x) {
   return x;
 }
 
-function log() {
-  if (DEBUG) {
-    console.log.apply(console, arguments);
-  }
-}
+// function log() {
+//   if (DEBUG) {
+//     console.log.apply(console, arguments);
+//   }
+// }
 
 function addGlobalStyle(css) {
   var head, style;

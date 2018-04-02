@@ -98,14 +98,11 @@ function getVoronoiData (universe, limit) {
   }
   var stars = _.toArray(universe.galaxy.stars);
   var fakeStars = [];
-  var hullPoints = d3.geom.hull()
-    .x(accessor('x'))
-    .y(accessor('y'))
-    (stars);
+  var hullPoints = d3.polygonHull(stars.map(s=>[s.x, s.y]));
 
-  var hullCentre = d3.geom.polygon(_.map(hullPoints, point)).centroid();
+  var hullCentre = d3.polygonCentroid(_.map(hullPoints, point));
   var cHull = hull(_.map(stars, point), limit);
-  var cHullCentre = d3.geom.polygon(_.map(cHull, point)).centroid();
+  var cHullCentre = d3.polygonCentroid(_.map(cHull, point));
 
   // hull = cHull;
   // hullCentre = cHullCentre;
@@ -183,15 +180,16 @@ function getVoronoiData (universe, limit) {
   //   1.4 * d3.max(stars, accessor('x')),
   //   1.4 * d3.max(stars, accessor('y'))
   // ]];
-  var voronoi = d3.geom.voronoi()
+  var voronoiator = d3.voronoi()
     .x(accessor('x'))
     .y(accessor('y'))
-    .clipExtent(extent);
+    .extent(extent);
 
   var starPoints = [].concat(stars, fakeStars);
 
-  var voronoiPolygons = voronoi(starPoints);
-  var delaunayLinks = voronoi.links(starPoints);
+  var diagram = voronoiator(starPoints);
+  var voronoiPolygons = diagram.polygons(starPoints);
+  var delaunayLinks = diagram.links(starPoints);
 
   voronoiData = {
     hull: hullPoints,
@@ -199,6 +197,7 @@ function getVoronoiData (universe, limit) {
     concaveHull: cHull,
     concaveHullCentre: cHullCentre,
     polygons: voronoiPolygons,
+    diagram: diagram,
     links: delaunayLinks,
     fakeStars: fakeStars,
     starPoints: starPoints
@@ -227,6 +226,7 @@ function voronoiLayer(ctx, data, map, options) {
 
   var voronoiPolygons = voronoiData.polygons;
   var delaunayLinks = voronoiData.links;
+  var voronoiEdges = voronoiData.diagram.edges;
   var hull = voronoiData.hull;
 
   // var voronoiEdges = {};
@@ -274,50 +274,48 @@ function voronoiLayer(ctx, data, map, options) {
   if (options.lineDashPattern) {
     ctx.setLineDash(options.lineDashPattern);
   }
+  var style;
   if (options.stroke) {
-    console.log('stroking');
-    var voronoiPolygonsCache = {};
-    for (i = 0, l = voronoiPolygons.length; i < l; i++) {
-        var p = voronoiPolygons[i];
-        var k = p.point.x + ',' + p.point.y;
-        voronoiPolygonsCache[k] = p;
-    }
+    console.log('stroking!');
+
     var lines = [];
     for (i = 0, l = delaunayLinks.length; i < l; i++) {
       var link = delaunayLinks[i];
+      var edge = voronoiEdges[i];
       var source = link.source;
       var target = link.target;
 
       // we have fake and real points
       // draw border if fake-real OR different real-real
       if (options.borderCondition(source, target)) {
-        // this is _really_ slow
-        // var sourcePoly = _.findWhere(voronoiPolygons, {point: source});
-        // var targetPoly = _.findWhere(voronoiPolygons, {point: target});
-
-        var skey = source.x + ',' + source.y;
-        var tkey = target.x + ',' + target.y;
-        var sourcePoly = voronoiPolygonsCache[skey];
-        var targetPoly = voronoiPolygonsCache[tkey];
+        // var skey = source.x + ',' + source.y;
+        // var tkey = target.x + ',' + target.y;
+        // var sourcePoly = voronoiPolygonsCache[skey];
+        // var targetPoly = voronoiPolygonsCache[tkey];
 
         // if (options.weight) {
         //   // modify sourcePoly to match weight
         //   var weight = options.weight(source, target);
         //   for (var i = 0; i < voronoiPolygons.length; i++) {
         //     var poly = voronoiPolygons[i];
-
         //   }
         // }
 
         // log('ip', interestingPolies);
-        var commonEdge = findCommonEdge(sourcePoly, targetPoly);
-        if (!commonEdge) {
-          continue;
-        }
+        // console.log('findCommonEdge', sourcePoly, targetPoly);
+        // var commonEdge = findCommonEdge(sourcePoly, targetPoly);
+        // if (!commonEdge) {
+        //   continue;
+        // }
         // log('commonEdge', commonEdge);
-        var sourceStyle = source.player ? source.player.color : undefined;
-        var targetStyle = target.player ? target.player.color : undefined;
-        var style;
+
+
+        var sPlayer = source.player;
+        var tPlayer = target.player;
+        var colors = universe.playerColors;
+        var sourceStyle = sPlayer && colors[sPlayer.colorIndex || sPlayer.color];
+        var targetStyle = tPlayer && colors[tPlayer.colorIndex || tPlayer.color];
+
         if (!sourceStyle && !targetStyle) {
           style = 'white';
         } else if (!sourceStyle || !targetStyle) {
@@ -342,8 +340,8 @@ function voronoiLayer(ctx, data, map, options) {
 
         // drawLine(ctx, commonEdge[0], commonEdge[1], style);
         lines.push([
-          commonEdge[0][0], commonEdge[0][1],
-          commonEdge[1][0], commonEdge[1][1],
+          edge[0][0], edge[0][1],
+          edge[1][0], edge[1][1],
           style]);
       }
     }
@@ -356,7 +354,7 @@ function voronoiLayer(ctx, data, map, options) {
         continue;
       }
       var point = poly.point;
-      var style = options.styleModifier({
+      style = options.styleModifier({
         color: point.player.color
       });
       drawPoly(ctx, poly, 2, style.color, true);

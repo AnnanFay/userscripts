@@ -3,41 +3,44 @@ function scanningBoundaryLayer(ctx, data, map) {
   debug('scanningBoundaryLayer', arguments);
   var universe = data.universe;
   var players = universe.galaxy.players;
-  var stars = universe.galaxy.stars;
+  var stars = Object.values(universe.galaxy.stars);
   // var image = scale_alpha(map.scanningRangeSrc, 3);
   // var negative = scale_alpha(image, 3);
 
-  if (universe.player){
-    var playerStars = _.filter(stars, function (star) {
-      return star.player && (
-        star.player === universe.player ||
-        universe.player.war[star.player.uid] === 0);
-    });
-    drawBoundary(ctx, playerStars, true, true);
-  }
-  // for (var i in players) {
-  //   var radius = players[i].tech.scanning.value;
-  //   drawBoundary(ctx, stars, players[i], radius, true, true);
+  // if (universe.player) {
+  //   var playerStars = _.filter(stars, function (star) {
+  //     return star.player && (
+  //       star.player === universe.player ||
+  //       universe.player.war[star.player.uid] === 0);
+  //   });
+  //   drawBoundary(ctx, playerStars, true, true);
   // }
+  for (var i in players) {
+    var player = players[i];
+    var player_stars = stars.filter(s=>s.player == player);
+    var radius = player.tech.scanning.value;
+    drawBoundary(ctx, player_stars, radius, true, true);
+  }
   return ctx;
 }
 function hyperdriveBoundaryLayer(ctx, data, map) {
   log('scanningBoundaryLayer', arguments);
   var universe = data.universe;
   var players = universe.galaxy.players;
-  var stars = universe.galaxy.stars;
+  var stars = Object.values(universe.galaxy.stars);
   // var image = scale_alpha(map.scanningRangeSrc, 3);
   // var negative = scale_alpha(image, 3);
 
   for (var i in players) {
     var radius = players[i].tech.propulsion.value + 0.0125;
-    drawBoundary(ctx, stars, players[i], radius, false, true);
+    var player_stars = stars.filter(s=>s.player == players[i]);
+    drawBoundary(ctx, player_stars, radius, false, true);
   }
   return ctx;
 }
 
-function drawBoundary(ctx, stars, dashed, out) {
-  log('drawScanningBoundary');
+function drawBoundary(ctx, stars, radius, dashed, out) {
+  log('drawBoundary');
 
   // var buffer = canvas(overlaySize, overlaySize);
   // var bctx = buffer.getContext('2d');
@@ -46,18 +49,18 @@ function drawBoundary(ctx, stars, dashed, out) {
   var canvas_offset = overlayMiddle;
   var lineWidth = 3;
 
+  radius *= 250;
+
   if (dashed) {
     ctx.setLineDash([6, 6]);
   }
   var star;
-  var radius;
-  // var radius = techValue * 250;
-
   for (var j in stars) {
     star = stars[j];
-    radius = star.player.tech.scanning.value * 250;
+    // radius = star.player.tech.scanning.value * 250;
     // log('strokeCircle', pointToScreen(ctx, star), radius, {color: star.player.color, width: lineWidth});
-    strokeCircle(ctx, pointToScreen(ctx, star), radius, {color: star.player.color, width: lineWidth});
+    strokeCircle(ctx, pointToScreen(ctx, star), radius,
+      {color: star.player.color, width: lineWidth});
     // strokeCircle(ctx, star, radius, {color: 'white', width: 10});
   }
   ctx.setLineDash([]);
@@ -68,9 +71,7 @@ function drawBoundary(ctx, stars, dashed, out) {
       star = stars[i];
       var x = star.x * 250 + canvas_offset;
       var y = star.y * 250 + canvas_offset;
-      radius = star.player.tech.scanning.value * 250;
       var cradius = radius + 1 - lineWidth;
-      // log('clearCircle', x, y, cradius);
       clearCircle(ctx, x, y, cradius);
     }
   }

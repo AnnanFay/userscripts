@@ -48,11 +48,12 @@ visualisations.voronoi = {
     }
 
     var i, style = {};
+    var source, target;
     if (options.stroke) {
       for (i = 0, l = delaunayLinks.length; i < l; i++) {
         var link = delaunayLinks[i];
-        var source = link.source;
-        var target = link.target;
+        source = link.source;
+        target = link.target;
 
         // we have fake and real points
         // draw border if fake-real OR different real-real
@@ -94,10 +95,10 @@ visualisations.voronoi = {
         var point = poly.point;
         style = {
           color: point.player.color
-        }
+        };
         style = options.styleModifier(style, source, target);
 
-        dataPoints
+        // dataPoints <--wtf is this from? just sitting here....
 
         drawPoly(buffer, poly, 2, style.color, true);
       }
@@ -117,14 +118,11 @@ function new_getVoronoiData (dataPoints, limit) {
   }
   var stars = dataPoints;
   var fakeStars = [];
-  var hullPoints = d3.geom.hull()
-    .x(accessor('x'))
-    .y(accessor('y'))
-    (stars);
+  var hullPoints = d3.polygonHull(stars.map(s=>[s.x, s.y]));
 
-  var hullCentre = d3.geom.polygon(_.map(hullPoints, point)).centroid();
+  var hullCentre = d3.polygonCentroid(_.map(hullPoints, point));
   var cHull = hull(_.map(stars, point), limit);
-  var cHullCentre = d3.geom.polygon(_.map(cHull, point)).centroid();
+  var cHullCentre = d3.polygonCentroid(_.map(cHull, point));
 
   // hull = cHull;
   // hullCentre = cHullCentre;
@@ -199,10 +197,10 @@ function new_getVoronoiData (dataPoints, limit) {
   //   1.4 * d3.max(stars, accessor('x')),
   //   1.4 * d3.max(stars, accessor('y'))
   // ]];
-  var voronoi = d3.geom.voronoi()
+  var voronoi = d3.voronoi()
     .x(accessor('x'))
     .y(accessor('y'))
-    .clipExtent(extent);
+    .extent(extent);
 
   var starPoints = [].concat(stars, fakeStars);
 

@@ -23,11 +23,12 @@ function registerLayer(Mousetrap, npui, layerConf) {
   // we don't want users to accidentally activate experimental layers
   if (layerConf.hidden && !debug_level) return;
 
-  Mousetrap.bind(layerConf.hotkey, function () {
-    npui.trigger('toggle_layer_setting', {
+  Mousetrap.bind(layerConf.hotkey, func(function () {
+    console.log('in bound hotkey', arguments);
+    npui.trigger('toggle_layer_setting', copy({
       settingName: layerConf.setting
-    });
-  });
+    }));
+  }));
 }
 
 function getLayer(data, map, layerConstructor) {
@@ -60,7 +61,7 @@ function drawLayer(map, layer) {
 
   // log('layer sprite:', sprite);
 
-  map.drawSprite(sprite);
+  map.drawSprite(copy(sprite));
 }
 
 function constructQuadtree(universe) {
@@ -68,19 +69,30 @@ function constructQuadtree(universe) {
   var fleets = _.toArray(universe.galaxy.fleets);
   var objects = [].concat(stars, fleets);
 
-  return d3.geom.quadtree()
-    .x(accessor('x'))
-    .y(accessor('y'))
-    (objects);
+  return d3.quadtree(objects.map(o=>[o.x,o.y]));
 }
 
 
 // FIXME: Stop passing so many objects around!!!
 function registerOptions(npui, universe, Crux) {
-  npui.OptionsScreen = NP2M.wrap(npui.OptionsScreen, function (args, optionsScreen) {
+  console.log('WRAPPED?',
+    universe.wrappedJSObject,
+    npui.wrappedJSObject,
+    Crux.wrappedJSObject
+  );
+
+  over(npui,'OptionsScreen', function OptionsScreen() {
+    console.log('WRAPPED?',
+      universe.wrappedJSObject,
+      npui.wrappedJSObject,
+      Crux.wrappedJSObject
+    );
+    var optionsScreen = OptionsScreen.super.apply(this, arguments);
     log('npui.OptionsScreen', optionsScreen);
 
-    OptionsLayers(universe, Crux)
+    over(npui,'OptionsLayers', OptionsLayers);
+
+    npui.OptionsLayers(universe, Crux)
       .roost(optionsScreen);
 
     return optionsScreen;
@@ -106,8 +118,21 @@ function resetLayerCache() {
   layerCache = {};
   voronoiData = undefined;
 }
-
-function drawCircularRuler(map, universe) {
+function simpleShadeColor(color, percent) {
+    var f=parseInt(color.slice(1),16),
+    t=percent<0?0:255,
+    p=percent<0?percent*-1:percent,
+    R=f>>16,
+    G=f>>8&0x00FF,
+    B=f&0x0000FF;
+    return "#"+(
+        0x1000000+
+        (Math.round((t-R)*p)+R)*0x10000+
+        (Math.round((t-G)*p)+G)*0x100+
+        (Math.round((t-B)*p)+B)
+      ).toString(16).slice(1);
+}
+function drawCircularRuler(gameConfig, map, universe) {
   // if (map.scale < 50) { return; }
 
   var centre;
@@ -124,25 +149,32 @@ function drawCircularRuler(map, universe) {
   // map.scanningRangeSprite.scale = universe.selectedStar.player.tech.scanning.value * map.scale * map.pixelRatio / 250;
 
   // map.drawSprite(map.scanningRangeSprite);
-  var color, lineWidth;
-  var jumpTicks = NeptunesPride.gameConfig.turnJumpTicks;
+  var jumpTicks = gameConfig.turnJumpTicks;
   var normalJump = (jumpTicks/3);
-  var radius = Math.max(jumpTicks, universe.selectedStar.player.tech.scanning.value / du);
+  var player = universe.selectedStar.player;
+  var radius = Math.max(jumpTicks, player.tech.scanning.value / du);
+  var playerColorCode = player.colorIndex || player.color;
+  var playerColor = universe.playerColors[playerColorCode];
 
+  var color, lineWidth;
   for (var i = 1; i <= radius; i++) {
     // light speed travel in jump
     if (i % jumpTicks === 0) {
-      color = '#51f';
+      // color = '#51f';
+      color = simpleShadeColor(playerColor, 0.8);
       lineWidth = 2;
     // normal travel in jump
     } else if (i % normalJump === 0 && i < jumpTicks) {
-      color = '#20f';
+      // color = '#20f';
+      color = simpleShadeColor(playerColor, 0.5);
       lineWidth = 2;
     // other light years
     } else {
-      color = '#205';
+      // color = '#205';
+      color = simpleShadeColor(playerColor, 0.1);
       lineWidth = 1;
     }
+
     var r = i * du * map.scale * map.pixelRatio;
     strokeCircle(map.context, map.worldToScreen(centre), r, {
       color: color,
@@ -169,85 +201,85 @@ function makeAndDrawLayer(npGlobals, universe, npui, map, layerConf) {
 }
 
 function mapCreationHandler(npGlobals, universe, npui, map) {
+  console.log('WRAPPED?',
+    npGlobals.wrappedJSObject,
+    universe.wrappedJSObject,
+    npui.wrappedJSObject,
+    map.wrappedJSObject
+    );
 
   layers.quadtree = constructQuadtree(universe);
   log('universe quadtree', layers.quadtree);
 
-  universe.addGalaxy = NP2M.wrap(universe.addGalaxy, function (args, ret) {
+  over(universe,'addGalaxy', function addGalaxy() {
     resetLayerCache();
-    return ret;
+    return addGalaxy.super.apply(this, arguments);
   });
 
   // map.on('map_refresh', resetLayerCache);
-  map.on('map_rebuild', function () {
-    log('event: map_rebuild');
-  });
-  map.on('map_refresh', function () {
-    log('event: map_refresh');
-  });
+  map.on('map_rebuild', func( _=>log('event: map_rebuild')));
+  map.on('map_refresh', func( _=>log('event: map_refresh')));
+
   // map.createSprites = NP2M.wrap(map.createSprites, function(args, ret) {return ret;});
 
   // WARNING: This is called every time the map is zoomed, moved or updated!
 
+  // map.draw = function () {
 
+  //     map.context.lineCap = "round";
+  //     if (map.scale !==  map.scaleTarget) {
+  //         map.zoom(map.scaleTarget - map.scale);
+  //     }
 
-    map.draw = function () {
+  //     map.calcWorldViewport();
+  //     map.calcVisibleRange();
+  //     map.calcVisibleStarsAndFleets();
 
-        map.context.lineCap = "round";
-        if (map.scale !==  map.scaleTarget) {
-            map.zoom(map.scaleTarget - map.scale);
-        }
+  //     map.updateSpritePositions();
 
-        map.calcWorldViewport();
-        map.calcVisibleRange();
-        map.calcVisibleStarsAndFleets();
+  //     map.context.fillStyle = "#000000";
+  //     map.context.globalAlpha = 1;
+  //     map.context.fillRect(0, 0, map.viewportMask.w, map.viewportMask.h);
 
-        map.updateSpritePositions();
+  //     if (!map.miniMapEnabled) {
+  //         map.drawNebular();
+  //     }
+  //     map.drawSelectionRing();
 
-        map.context.fillStyle = "#000000";
-        map.context.globalAlpha = 1;
-        map.context.fillRect(0, 0, map.viewportMask.w, map.viewportMask.h);
+  //     if (universe.interfaceSettings.showRipples && !map.miniMapEnabled) {
+  //        map.drawRipples();
+  //     }
 
-        if (!map.miniMapEnabled) {
-            map.drawNebular();
-        }
-        map.drawSelectionRing();
+  //     map.drawStars();
 
-        if (universe.interfaceSettings.showRipples && !map.miniMapEnabled) {
-           map.drawRipples();
-        }
+  //     map.drawScanningRange();
+  //     map.drawStarFleetRange();
 
-        map.drawStars();
+  //     if (universe.interfaceSettings.showFleets && !map.miniMapEnabled) {
+  //         map.drawFleetRange();
+  //         map.drawFleetPath();
+  //         map.drawOrbitingFleets();
+  //         map.drawFleets();
+  //     }
 
-        map.drawScanningRange();
-        map.drawStarFleetRange();
+  //     if (universe.editMode === "ruler") {
+  //         map.drawRuler();
+  //     }
 
-        if (universe.interfaceSettings.showFleets && !map.miniMapEnabled) {
-            map.drawFleetRange();
-            map.drawFleetPath();
-            map.drawOrbitingFleets();
-            map.drawFleets();
-        }
+  //     map.drawText();
 
-        if (universe.editMode === "ruler") {
-            map.drawRuler();
-        }
+  //     map.context.globalAlpha = 1;
+  // };
 
-        map.drawText();
-
-        map.context.globalAlpha = 1;
-    };
-
-
-  var originalMapDraw = map.draw;
-  map.draw = function () {
-    var returnValue = originalMapDraw.apply(this, arguments);
+  // var originalMapDraw = map.draw;
+  over(map,'draw', function draw() {
+    var returnValue = draw.super.apply(this, arguments);
     for (var i = 0, l = layerConfigs.length; i < l; i++) {
       makeAndDrawLayer(npGlobals, universe, npui, map, layerConfigs[i]);
     }
-    drawCircularRuler(map, universe);
+    drawCircularRuler(npGlobals.NeptunesPride.gameConfig, map, universe);
     return returnValue;
-  };
+  });
 
   // map.draw = function () {
   //   map.context.lineCap = "round";
@@ -299,6 +331,7 @@ function mapCreationHandler(npGlobals, universe, npui, map) {
 
 
   function onToggleLayoutSetting(event, data) {
+    log('onToggleLayoutSetting', arguments);
     var settingName = data.settingName;
     var enabled = !universe.interfaceSettings[settingName];
     log('onToggleLayoutSetting', arguments, enabled);
@@ -306,7 +339,7 @@ function mapCreationHandler(npGlobals, universe, npui, map) {
     map.trigger('map_refresh');
   }
 
-  npui.on('toggle_layer_setting', onToggleLayoutSetting);
+  npui.on('toggle_layer_setting', func(onToggleLayoutSetting));
 
   // map.drawSprite = NP2M.wrap(map.drawSprite, function (args, ret) {
   //     debug('drawing sprites', arguments);
@@ -314,18 +347,22 @@ function mapCreationHandler(npGlobals, universe, npui, map) {
   // });
 
   // reregister draw function
+  var Crux = npGlobals.Crux;
   Crux.tickCallbacks.pop();
   Crux.tickCallbacks.push(map.draw);
 }
 
 function post_init_hook(npGlobals) {
-  log('LAYERS: post_init_hook', npGlobals);
+  log('LAYERS: post_init_hook');
+
   var universe = npGlobals.universe;
   var npui = npGlobals.npui;
+  var NeptunesPride = npGlobals.NeptunesPride;
 
   // slight optimisation
-  universe.distance = universe_distance;
-  universe.isInRange = function isInRange(u1, u2, range) {
+  over(universe, 'distance', universe_distance);
+
+  over(universe, 'isInRange', function isInRange(u1, u2, range) {
     var dx = (u1.x - u2.x);
     var dy = (u1.y - u2.y);
     if (Math.abs(dx) >= range || Math.abs(dy) >= range) {
@@ -338,18 +375,22 @@ function post_init_hook(npGlobals) {
       return true;
     }
     return false;
-  };
+  });
+
   layerConfigs.forEach(function (layerConf) {
     registerLayer(npGlobals.Mousetrap, npGlobals.npui, layerConf);
   });
 
-  NeptunesPride.Map = NP2M.wrap(NeptunesPride.Map, function (args, map) {
-    log('NeptunesPride.map', map);
+  over(NeptunesPride,'Map', function Map(npui, universe) {
+    log('NeptunesPride.map', this, arguments, [npui, universe], arguments.wrappedJSObject);
+    var map = Map.super.apply(this, arguments);
+    log('Map is created!');
+
     layers.map = map;
 
-    map.worldToScreen = function worldToScreen(p) {
+    over(map,'worldToScreen',function worldToScreen(p) {
       return [map.worldToScreenX(p.x || p[0]), map.worldToScreenY(p.y || p[1])];
-    };
+    });
 
     mapCreationHandler(npGlobals, universe, npGlobals.npui, map);
 
@@ -364,9 +405,9 @@ function post_init_hook(npGlobals) {
 
 
 
-    map.outsideScreen = function (screenX, screenY) {
+    over(map,'outsideScreen', function (screenX, screenY) {
       return screenX < 0 || screenY < 0 || screenX > npui.width || y > npui.height;
-    };
+    });
 
 
     // map.drawFleetPath = function () {
@@ -474,7 +515,7 @@ function post_init_hook(npGlobals) {
     // };
 
 
-    map.createSpritesFleets = function () {
+    over(map,'createSpritesFleets',function () {
       var i, j, r, sprite, fleet, fleetj, inRange;
       var fleetSprites, row, col;
       var fleets = universe.galaxy.fleets;
@@ -573,10 +614,10 @@ function post_init_hook(npGlobals) {
 
       map.sortedFleetSprites = sortedFleetSprites;
       map.sortedFleetYPos = sortedFleetYPos;
-    };
+    });
 
 
-    map.createSprites = function fuck() {
+    over(map,'createSprites', function () {
       if (!universe.galaxy.stars) {
         return;
       }
@@ -587,11 +628,11 @@ function post_init_hook(npGlobals) {
       //map.createSpritesOwnershipRings();
 
       Crux.drawReqired = true;
-    };
+    });
 
     replaceWidgetHandlers(map, 'map_rebuild', map.createSprites);
 
-    map.drawScanningRange = function () {
+    over(map,'drawScanningRange',function () {
         if (!universe.selectedStar) return;
         if (map.scale < 150) return;
 
@@ -604,12 +645,8 @@ function post_init_hook(npGlobals) {
         map.scanningRangeSprite.scale = player.tech.scanning.value * map.scale * map.pixelRatio / 250;
 
         map.drawSprite(map.scanningRangeSprite);
-    };
-
-
-
-
-    map.drawStars = function () {
+    });
+    over(map,'drawStars',function () {
         var i, ii, j, star;
         var context = map.context;
         var stars = universe.galaxy.stars;
@@ -630,7 +667,7 @@ function post_init_hook(npGlobals) {
                 context.translate(star.screenX, star.screenY);
 
                 if (stars[star.uid].player && stars[star.uid].player.conceded) {
-                  context.globalAlpha = 0.3;
+                  context.globalAlpha = 1;
                 } else {
                   context.globalAlpha = 1;
                 }
@@ -656,21 +693,15 @@ function post_init_hook(npGlobals) {
             }
         }
         context.globalAlpha = 1;
-    };
-
-
-
-
-
-
+    });
 
     return map;
   });
 
-  if (profiling) {
-    console.log('Layers ending profile!');
-    setTimeout(console.profileEnd, 12000);
-  }
+  // if (profiling) {
+  //   console.log('Layers ending profile!');
+  //   setTimeout(console.profileEnd, 12000);
+  // }
 }
 
 NP2M.register('NP2 Layers', '1', pre_init_hook, post_init_hook);

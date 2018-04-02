@@ -1,5 +1,11 @@
 
 function OptionsLayers(universe, Crux) {
+  console.log('OptionsLayers');
+  console.log('WRAPPED?',
+    universe.wrappedJSObject,
+    Crux.wrappedJSObject
+  );
+
   var GS = Crux.gridSize;
   var optionsLayers = Crux.Widget('rel')
     .size(30 * GS, 32 * GS);
@@ -31,9 +37,9 @@ function OptionsLayers(universe, Crux) {
 
     label.rawHTML(layerConf.name + ' <em>[' + layerConf.hotkey + ']</em>');
 
-    var button = Crux.Button('', 'toggle_layer_setting', {
+    var button = Crux.Button('', 'toggle_layer_setting', copy({
         settingName: layerConf.setting
-      })
+      }))
       .grid(24, 3 + 3 * previous, 6, 3)
       .roost(optionsLayers);
 
@@ -45,15 +51,17 @@ function OptionsLayers(universe, Crux) {
 
   optionsLayers.size(30 * GS, Math.max(3 * previous, 16) * GS);
 
-  optionsLayers.onToggleLayoutSetting = function (event, data) {
+  optionsLayers.onToggleLayoutSetting = func(function (event, data) {
+    console.log('onToggleLayoutSetting');
     var settingName = data.settingName;
     var enabled = !universe.interfaceSettings[settingName];
     log('optionsLayers.onToggleLayoutSetting', arguments, enabled);
 
     var button = optionsLayers.buttons[settingName];
     button.rawHTML(enabled ? 'Disable' : 'Enable');
-  };
+  });
 
+  // optionsLayers.on('toggle_layer_setting', unsafeWindow.alert);
   optionsLayers.on('toggle_layer_setting', optionsLayers.onToggleLayoutSetting);
   return optionsLayers;
-};
+}

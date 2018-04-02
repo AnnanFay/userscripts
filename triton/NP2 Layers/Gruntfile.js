@@ -23,7 +23,8 @@ module.exports = function (grunt) {
         src: [
           'src/header.js',
           'lib/*.js',
-          'node_modules/d3/d3.js',
+          'node_modules/d3/dist/d3.js',
+          'node_modules/lodash/lodash.js',
           '../common/utils.js',
           '../common/framework.js',
           'src/constants.js',
@@ -43,6 +44,11 @@ module.exports = function (grunt) {
       }
     },
     jshint: {
+      options: {
+        sub: true,
+        esversion: 6,
+        loopfunc: true
+      },
       all: ['Gruntfile.js', 'src/*.js', '../common/*.js']
     },
     watch: {
@@ -51,8 +57,20 @@ module.exports = function (grunt) {
         tasks: ['clean', 'concat:css']//, 'cssmin:css']
       },
       js: {
-        files: ['src/*.js', '../common/*.js'],
-        tasks: ['clean', 'concat:js', 'jshint', 'uglify:js']
+        files: ['Gruntfile.js', 'src/*.js', '../common/*.js'],
+        tasks: [
+          'clean',
+          'concat:js',
+          'copy:main',
+          'jshint',
+          // 'uglify:js',
+        ]
+      }
+    },
+    copy: {
+      main: {
+        src: 'build/<%= pkg.name %>.user.js',
+        dest: 'W:/apps/Firefox56/Data/profile/gm_scripts/NP2_Layers/np2-layers.user.js',
       }
     }
   });
@@ -64,13 +82,15 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
   grunt.registerTask('default', [
     'clean',
     'concat:js',
-    'jshint',
-    'uglify:js'
+    'copy:main'
+    // 'jshint',
+    // 'uglify:js',
   ]);
 
 };

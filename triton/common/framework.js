@@ -99,20 +99,15 @@
     }
   };
 
-  /* TODO:
-      more efficiently handly multiple wraps.
-
-      Maybe change syntax to something like
-          NP2M.pre(f, p)
-          NP2M.post(f, p)
-  */
+  // DEFUNCT! Use `over` instead
   NP2M.wrap = function wrap(f, pre, post) {
     if (!post) {
       post = pre;
       pre = undefined;
     }
     var w = function wrapped_function() {
-      var args = arguments;
+      console.log('wrapped_function', f);
+      var args = arguments.wrappedJSObject;
       if (pre) {
         args = pre(args);
         if (args === undefined) {
