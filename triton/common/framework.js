@@ -8,13 +8,7 @@
   }
 
   var NP2M = {};
-
   var installed = false; // to be used so hooks are only installed if a mod registers
-  var pre_code = 'NP2M.pre_init(Mousetrap, Crux, NeptunesPride);';
-  var post_code = 'NP2M.post_init(Mousetrap, Crux, NeptunesPride,' +
-      'typeof mgi !== \'undefined\' ? mgi : undefined, ' +
-      'typeof mgic !== \'undefined\' ? mgic : undefined, ' +
-      'typeof mg !== \'undefined\' ? mg : undefined);\n';
   var mods = [];
   var pre_inits = [];
   var post_inits = [];
@@ -25,35 +19,42 @@
   };
 
   // hook into script loading and append a call to pre/post handlers before and after main jQuery.ready is called.
-
-  function insert_script(content) {
-    // install pre and post init hooks
-    content = String.splice(content, content.indexOf('{') + 1, 0, pre_code);
-    content = String.splice(content, content.lastIndexOf('});'), 0, post_code);
-
-    var s = document.createElement('script');
-    s.innerHTML = content;
-    document.head.appendChild(s);
-  }
-
   function beforescriptexecute_handler(e) {
+    console.log('beforescriptexecute_handler', e.target);
     var content = e.target.innerHTML;
     if (content.indexOf('$(window).ready(function () {') === -1) {
       return;
     }
-    e.preventDefault();
-    e.stopPropagation();
-    unsafeWindow.removeEventListener('beforescriptexecute', beforescriptexecute_handler);
+    console.log('Found main closure. Running mods');
+    window.removeEventListener('beforescriptexecute', beforescriptexecute_handler);
+    window.addEventListener('afterscriptexecute', afterscriptexecute_handler);
 
-    insert_script(content);
+    NPM2.pre_init(Mousetrap, Crux, NeptunesPride);
+  }
+  function afterscriptexecute_handler(e) {
+    // mgi, mgic and mg are all undefined
+    console.log('afterscriptexecute', e.target);
+
+    window.removeEventListener('afterscriptexecute', afterscriptexecute_handler);
+
+    try {
+      unsafeWindow.jQuery(unsafeWindow.document).ready(func(NP2M.post_init));
+
+    } catch(ee) {
+      console.error('fuck', ee);
+    }
+
+    console.log('NP2M.post_init');
   }
 
   function install_handler() {
-    unsafeWindow.addEventListener('beforescriptexecute', beforescriptexecute_handler);
+    window.addEventListener('beforescriptexecute', beforescriptexecute_handler);
   }
 
 
   NP2M.register = function register(name, version, pre_init, post_init) {
+    console.log('Registering', name, version, pre_init, post_init);
+
     if (!installed) {
       install_handler();
       installed = true;
@@ -75,21 +76,20 @@
     }
   };
 
-  NP2M.post_init = function post_init(Mousetrap, Crux, NeptunesPride, mgi, mgic, mg) {
-    var data = {
-      "Mousetrap": Mousetrap,
-      "Crux": Crux,
-      "NeptunesPride": NeptunesPride,
-      "universe": NeptunesPride.universe,
-      "inbox": NeptunesPride.inbox,
-      "npui": NeptunesPride.npui,
-      "npuis": NeptunesPride.npuis,
-      "np": NeptunesPride.np,
-      "si": NeptunesPride.si,
-      "mgi": mgi,
-      "mgic": mgic,
-      "mg": mg
-    };
+  NP2M.post_init = function post_init() {
+    console.log('post_init()');
+
+    var data = unsafeWindow.NeptunesPride;
+
+    data['Mousetrap'] = unsafeWindow.Mousetrap;
+    data['Crux'] = unsafeWindow.Crux;
+    data['NeptunesPride'] = unsafeWindow.NeptunesPride;
+    data['mgi'] = undefined;
+    data['mgic'] = undefined;
+    data['mg'] = undefined;
+
+    console.log('post_init data', data, Object.keys(data));
+
     for (var i = post_inits.length - 1; i >= 0; i--) {
         try {
             post_inits[i](data);
@@ -129,5 +129,6 @@
     return w;
   };
 
-  unsafeWindow.NP2M = NP2M;
+  // root = Function('return this')()
+  this.NP2M = unsafeWindow.NP2M = NP2M;
 })();

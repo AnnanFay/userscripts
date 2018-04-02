@@ -1,3 +1,7 @@
+// This draws fleet paths thicker
+// the more ships they have.
+
+
 map_mods.push(function alternativeFleetPaths(universe, map) {
   over(map, 'drawFleetPath', function self() {
     var paths = [];
@@ -42,6 +46,8 @@ map_mods.push(function alternativeFleetPaths(universe, map) {
 
 function drawPaths (map, paths) {
   // cache as local variables
+  // console.log(n=0);
+  // console.log(n++);
   var ctx = map.context;
   var X = map.worldToScreenX;
   var Y = map.worldToScreenY;
@@ -51,18 +57,21 @@ function drawPaths (map, paths) {
   for (var i=0,l=paths.length;i<l;i++) {
     var path = paths[i];
 
+
     // style
     ctx.globalAlpha = path.alpha;
     ctx.strokeStyle = path.color;
     ctx.lineWidth = path.width;
     if (path.dash) {
-      ctx.setLineDash(path.dash);
+      ctx.setLineDash(copy(path.dash));
     }
+
 
     // draw path
     var ps = path.points;
     ctx.beginPath();
     ctx.moveTo(X(ps[0].x), Y(ps[0].y));
+
     for (var j=1,lj=ps.length; j<lj; j++) {
       ctx.lineTo(X(ps[j].x), Y(ps[j].y));
     }
@@ -70,6 +79,6 @@ function drawPaths (map, paths) {
 
     // cleanup
     ctx.globalAlpha = 1;
-    ctx.setLineDash([]);
+    ctx.setLineDash(copy([]));
   }
 }

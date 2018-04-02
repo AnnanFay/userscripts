@@ -1,13 +1,11 @@
 mods.push(function avoidStarNameFilter(np) {
-  np.validateFleetStarName = function (x) {
-    return x;
-  };
+  np.validateFleetStarName = func(x=>x);
 });
 
 mods.push(function avoidPremiumNag(np) {
-  np.testForNag = function () {};
+  np.testForNag = func(_=>{});
 });
 
-mods.push(function circumventAnonymity() {
+mods.push(function circumventAnonymity(NeptunesPride) {
   NeptunesPride.gameConfig.anonymity = 0;
 });

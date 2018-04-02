@@ -10,6 +10,15 @@ function getParamNames(func) {
   return result;
 }
 
+
+function func(f) {
+  return exportFunction(f, unsafeWindow, {allowCrossOriginArguments: true});
+}
+
+function copy(v) {
+  return cloneInto(v, unsafeWindow);
+}
+
 // new wrapper style, much simpler
 // usage:
 //  over(someObject, "someMethod", function self(a, b, c) {
@@ -19,22 +28,35 @@ function getParamNames(func) {
 //      return v;
 //    }
 //  })
+
+function arg_copy(a) {
+  return Array.prototype.slice.call(a);
+}
+
 function over(object, name, wrapper) {
+  // wrapper.super = object[name];
+  // object[name] = func(wrapper);
+
   var f = object[name];
   var that;
 
-  var _super = function () {
-    return f.apply(that, arguments);
+  // copy wrapper into unsafeWindow
+  // func(wrapper);
+
+  var _super = function _super() {
+    // console.log('_super', name, that, arguments, f);
+    return f.apply(that, arguments.wrappedJSObject);
   };
 
-  object[name] = function _wrapped() {
+
+  object[name] = func(function _wrapped() {
     that = this;
     wrapper.super = _super;
-    return wrapper.apply(this, arguments);
-  };
+    // wrapper.super = object[name];
+    // wrapper.super = unsafeWindow.console.log;
+    return wrapper.apply(this, arguments.wrappedJSObject);
+  });
 }
-
-
 
 // function over(object, name, wrapper) {
 //   var f = object[name];
@@ -218,6 +240,7 @@ function find_widget(widget, needle) {
 function replace_widget_handlers(widget, name, func) {
   var handlers = widget.handlers;
   // remove all previous handlers with that event name
+  console.log('replace_widget_handlers...', name);
   for (var i = handlers.length - 1; i >= 0; i--) {
     var h = widget.handlers[i];
     if (h.name === name) {

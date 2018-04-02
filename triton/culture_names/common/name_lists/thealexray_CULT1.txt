@@ -1,0 +1,183 @@
+﻿### Culture Ship Names
+thealexray_CULT1 = {
+	### SHIPS
+
+	ship_names = {
+
+		generic = {
+							"I Blame My Mother" "I Blame Your Mother" "Highpoint" "Someone Else's Problem" "Lacking That Small Match Temperament" "Hand Me The Gun And Ask Me Again" "But Who's Counting?" "Germane Riposte" "We Haven't Met But You're A Great Fan Of Mine" "All The Same, I Saw It First" "Ravished By The Sheer Implausibility Of That Last Statement" "Zero Credibility" "Charming But Irrational" "Demented But Determined" "You May Not Be The Coolest Person Here" "Lucid Nonsense" "Awkward Customer" "Thorough But... Unreliable" "Advanced Case Of Chronic Patheticism" "Another Fine Product From The Nonsense Factory" "Conventional Wisdom" "In One Ear" "Fine Till You Came Along" "I Blame The Parents" "Inappropriate Response" "A Momentary Lapse Of Sanity" "Lapsed Pacifist" "Reformed Nice Guy" "Pride Comes Before A Fall" "Injury Time" "Now Look What You've Made Me Do" "Kiss This Then" "Hidden Income" "Stood Far Back When The Gravitas Was Handed Out" "Gravitas, What Gravitas?" "Gravitas... Gravitas... No, Don't Help Me, I'll Get It In A Moment..." "Gravitas Free Zone" "Low Gravitas Warning Signal" "Absolutely No You-Know-What"			
+			}
+		corvette = {
+		"Nervous Energy" "Prosthetic Conscience" "Screw Loose" "Flexible Demeanour" "Just Read The Instructions" "Of Course I Still Love You" "Ablation" "Arbitrary" "Arrested Development" "A Series Of Unlikely Explanations" "A Ship With A View" "Big Sexy Beast" "Boo!" "Cantankerous" "Credibility Problem" "Dramatic Exit" "Excuses And Accusations" "Funny, It Worked Last Time..." "God Told Me To Do It" "Halation Effect" "Happy Idiot Talk " "Helpless In The Face Of Your Beauty" "Heresiarch" "I Thought He Was With You" "It'll Be Over By Christmas" "Just Another Victim Of The Ambient Morality" "Minority Report" "Never Talk To Strangers" "Not Wanted On Voyage" "Only Slightly Bent" "Perfidy" "Sacrificial Victim" "Space Monster" "Stranger Here Myself" "Synchronize Your Dogmas" "Thank You And Goodnight" "The Precise Nature Of The Catastrophe" "Ultimate Ship The Second" "Undesirable Alien" "Unwitting Accomplice" "Well I Was In The Neighbourhood" "You'll Thank Me Later" "You Would If You Really Loved Me" "Just Testing" "Sweet and Full of Grace" "Very Little Gravitas Indeed" "Different Tan" "Fate Amenable To Change" "Grey Area (aka Meatfucker)" "It's Character Forming" "Jaundiced Outlook" "Problem Child" "Reasonable Excuse" "Recent Convert" "Tactical Grace" "Unacceptable Behaviour" "Poke It With A Stick" "Experiencing A Significant Gravitas Shortfall" "It's My Party And I'll Sing If I Want To" "Lightly Seared On The Reality Grill" "Pure Big Mad Boat Man" "Qualifier" "Transient Atmospheric Phenomenon" "You Naughty Monsters" "Armchair Traveller" "Bodhisattva, OAQS" "Displacement Activity" "Warm, Considering" "Smile Tolerantly"
+		}
+		
+		destroyer = {
+		"Revisionist" "Trade Surplus" "Limiting Factor" "Gunboat Diplomat" "Zealot" "Xenophobe" "Attitude Adjuster" "Heavy Messing" "Killing Time" "Frank Exchange Of Views" "T3OU 4" "T3OU 118" "T3OU 736" "Full Refund" "Shoot Them Later" "Nuisance Value" "Resistance Is Character-Forming" "All Through With This Niceness And Negotiation Stuff" "I Said, I've Got A Big Stick" "Eight Rounds Rapid" "You'll Clean That Up Before You Leave" "Falling Outside The Normal Moral Constraints" "No One Knows What The Dead Think" "Hylozoist" "Me, I'm Counting" "The Usual But Etymologically Unsatisfactory" "Headcrash" "Questionable Ethics" "Xenocrat" "Caconym" "New Toy" "Learned Response" "Refreshingly Unconcerned With the Vulgar Exigencies of Veracity" "Value Judgement" "Outstanding Contribution to the Historical Process" "Rapid Random Response Unit"
+		}
+		
+		cruiser = {
+		"Profit Margin" "Screw Loose" "Just Passing Through" "Steely Glint" "Misophist" "Serious Callers Only" "Subtle Shift In Emphasis" "Xenoglossicist" "You Call This Clean?" "Not Invented Here" "Don't Try This At Home" "A Fine Disregard for Awkward Facts" "Passing By And Thought I'd Drop In" "Pressure Drop" "Mistake Not…"
+		}
+		
+		battleship = {
+		"Bora Horza Gobuchul" "Determinist" "Eschatologist (temporary name)" "Irregular Apocalypse" "No More Mr Nice Guy" "The Ends Of Invention" "Cargo Cult" "Little Rascal" "So Much For Subtlety" "Unfortunate Conflict Of Evidence" "Youthful Indiscretion" "Bad For Business" "Congenital Optimist" "Size Isn't Everything" "What Are The Civilian Applications?" "Anticipation Of A New Lover's Arrival, The" "Death and Gravity" "Ethics Gradient" "Honest Mistake" "Limivorous" "No Fixed Abode"  "Quietly Confident," "Uninvited Guest" "Use Psychology" "What Is The Answer and Why?" "Wisdom Like Silence" "Yawning Angel" "Zero Gravitas" "Experiencing A Significant Gravitas Shortfall" "Lasting Damage" "Lasting Damage I" "Lasting Damage II" "Sanctioned Parts List" "Seed Drill" "Pelagian" "Sense Amid Madness, Wit Amidst Folly" "Total Internal Reflection" "Contents May Differ" "Empiricist" "Just the Washing Instruction Chip in Life's Rich Tapestry" "Kakistocrat" "Teething Problems" "Unreliable Witness"
+		}
+		
+		science = {
+		"Full Refund" "Now We Try It My Way" "Smile Tolerantly" "Steely Glint" "Subtle Shift In Emphasis"
+		}
+		
+		colonizer = {
+		"Bora Horza Gobuchul" "Determinist" "Eschatologist (temporary name)" "Irregular Apocalypse" "No More Mr Nice Guy" "The Ends Of Invention" "Cargo Cult" "Little Rascal" "So Much For Subtlety" "Unfortunate Conflict Of Evidence" "Youthful Indiscretion" "Bad For Business" "Congenital Optimist" "Size Isn't Everything" "What Are The Civilian Applications?" "Anticipation Of A New Lover's Arrival, The" "Death and Gravity" "Ethics Gradient" "Honest Mistake" "Limivorous" "No Fixed Abode""Quietly Confident," "Uninvited Guest" "Use Psychology" "What Is The Answer and Why?" "Wisdom Like Silence" "Yawning Angel" "Zero Gravitas" "Experiencing A Significant Gravitas Shortfall" "Lasting Damage" "Lasting Damage I" "Lasting Damage II" "Sanctioned Parts List" "Seed Drill" "Pelagian" "Sense Amid Madness, Wit Amidst Folly" "Total Internal Reflection" "Contents May Differ" "Empiricist" "Just the Washing Instruction Chip in Life's Rich Tapestry" "Kakistocrat" "Teething Problems" "Unreliable Witness"
+		}
+		
+		constructor = {
+		"Kiss My Ass" "Prime Mover" "Charitable View" "Vulgarian" "Liveware Problem" "Zoologist"
+		}
+		
+		
+		orbital_station = { 
+		"Vavatch" "Masaq'" "Chiark" "Dinyol-hei" "Dibaldipen"
+		}
+		mining_station = { }
+		research_station = { }
+		wormhole_station = { }
+		terraform_station = { }
+		observation_station = { }
+		outpost_station = {
+			random_names = { }
+			sequential_name = "%O% Orbital"
+		}
+
+		military_station_small = {}
+		military_station_medium = {}
+		military_station_large = {}	
+	}
+
+	fleet_names = {
+		random_names = {
+			"Contact Unit" "Special Circumstances Group" "Active Quietudinal Service" "Restoria Containment Fleet" "Interesting Times Gang" "Special Circumstances" "Quietus" "Contact Fleet" "AhForgetIt Tendency"
+		}
+		sequential_name = "%O% Contact Unit"
+	}
+	
+	army_names = {
+	
+		defense_army = {
+			sequential_name = "%O% Defense Contingent"
+		}
+			
+		assault_army = {
+			sequential_name = "%O% Contact Squadron"
+		}
+		
+		slave_army = {
+			sequential_name = "%O% Serf Contingent"
+		}
+		
+		clone_army = {
+			sequential_name = "%O% Clone Guard"
+		}
+		
+		robotic_army = {
+			sequential_name = "%O% Semisentient Drone Contingent"
+		}
+		
+		android_army = {
+			sequential_name = "%O% Drone Contingent"
+		}
+		
+		psionic_army = {
+			sequential_name = "Field-Manip %R%"
+		}
+		
+		xenomorph_army = {
+			sequential_name = "%O% Battle Brood"
+		}
+		
+		gene_warrior_army = {
+			sequential_name = "%O% E-dust Infantry"
+		}
+	}
+
+
+	### PLANETS
+
+	planet_names = {
+
+		generic = {
+			names = {
+					Phelbas Player Weapons Art Excession Inversions Windward Matter Detail Sonata
+			}
+		}
+		
+		pc_desert = {
+			names = {
+				Qeni-Habraal Qeni-Efiguukh Qeni-Ghirgaam Qeni-Falmareen Qeni-Quurem Qeni-Fheerdaga Qeni-Helgeph Qeni-Lirabeem Qeni-Seraphuus Qeni-Quopaluus Qeni-Sarabaadh
+			}
+		}
+		
+		pc_tropical = {
+			names = {
+				Sara-Flugeer Sara-Marfeem Sara-Kenjaal Sara-Sharaaq Sara-Faleegh Sara-Qlaruumen Sara-Knuumjal Sara-Falaghoor Sara-Qraluen Sara-Pabdeelen Sara-Batoorgh Sara-Onadraakh Sara-Qeejuuq Sara-Krombeed Sara-Ulaasaira
+			}
+		}
+		
+		pc_arid = {
+			names = {
+				 "Phage Rock" Jem-Karanaagh Jem-Fhengoorem Jem-Kaquused Jem-Ruloodeph Jem-Pyrrhenne Jem-Falqeeg Jem-Julkoduur Jem-Jalmeedegh Jem-Jormuung Jem-Ghandreel Jem-Pholtuug Jem-Phogiseen Jem-Kharoqaag Jem-Kaljpheed
+			}
+		}
+		
+		pc_continental = {
+			names = {
+				Thrus-Sanguur Thrus-Klejaamen Thrus-Ythoruum Thrus-Laryphoor Thrus-Odalkhaan Thrus-Bhangheer Thrus-Jhivareed Thrus-Ophaluud Thrus-Cufferaan Thrus-Kharndoor Thrus-Quupherem Thrus-Nihisquur Thrus-Paraluhaad
+			}
+		}
+		
+		pc_ocean = {
+			names = {
+			}
+		}
+		
+		pc_tundra = {
+			names = {
+			}
+		}
+		
+		pc_arctic = {
+			names = {
+			}
+		}
+		
+	}
+
+	### CHARACTERS
+
+	character_names = {
+		default = {
+			# A complete name
+			full_names = {
+				"Sun-Earther Iain El-Bonko Banks of North Queensferry" "Demeisen" "Jolicci" "Nopri" "Amorphia" "Ngaroe" "Scoaliera" "Vyr" "Yime" "Djan Seriy" "Klatsli" "Pone" "Turminder" "Oelph" "DeWar" "Dajeil" "Genar" "Cheradenine" "Jernau" "Morat" "Mawhrin" "Flere" "Perosteck" "Auppi" "Diziet" "Rasd-Coduresa" "Hibin" "Lededje" "Sisela" "Ulver" "Churt" "Zreyn" "Geldri" "Shokas" "Esiel" "Selas" "Serayer" "Leffid" "Geltry" "Usper" "Stemli" "Estray" "Kave" "Feli"
+			}
+			
+			# Always combined with a second name
+			first_names = {
+				"Ngaroe" "Scoaliera" "Vyr" "Yime" "Djan Seriy" "Klatsli" "Pone" "Turminder" "Oelph" "DeWar" "Dajeil" "Genar" "Cheradenine" "Jernau" "Morat" "Mawhrin" "Flere" "Perosteck" "Auppi" "Diziet" "Rasd-Coduresa" "Hibin" "Lededje" "Sisela" "Ulver" "Churt" "Zreyn" "Geldri" "Shokas" "Esiel" "Selas" "Serayer" "Leffid" "Geltry" "Usper" "Stemli" "Estray" "Feli"
+			}
+			
+			# Always combined with a first name
+			second_names = {
+				"QiRia" "Tefwe" "Cossont" "Nsokyi" "Anaplian" "Quike" "Hippinse" "Xuss" "Hofoen" "Zakalwe" "Gurgeh" "Skel" "Imsaho" "Balveda" "Unstril" "Sma" "Jasken" "Y’breq" "Ytheleus" "Seich" "Lyne" "Tramow" "Gelian" "Ispanteli" "Vitrouv"
+			}
+			
+			regnal_first_names = {
+				
+			}
+			
+			regnal_second_names = {
+				
+			}
+		}
+	}
+}

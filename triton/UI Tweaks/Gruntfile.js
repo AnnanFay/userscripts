@@ -23,12 +23,17 @@ module.exports = function (grunt) {
         src: [
           'src/header.js',
           'lib/*.js',
-          // 'node_modules/d3/d3.js',
-          'node_modules/lodash/index.js',
+          // 'node_moduldes/d3/d3.js',
+          'node_modules/lodash/lodash.js',
           '../common/utils.js',
           '../common/framework.js',
           'src/constants.js',
-          'src/mod_*.js',
+          // 'src/mod_universe.js',
+          'src/mod_cheats.js',
+
+          'src/mod_map_mods.js',
+          'src/mod_fleet_paths.js',
+          // 'src/mod_*.js',
           'src/main.js'
         ],
         dest: 'build/<%= pkg.name %>.user.js'
@@ -39,21 +44,39 @@ module.exports = function (grunt) {
       }
     },
     jshint: {
+      // jshintrc: '.jshintrc',
+      options: {
+        sub: true,
+        esversion: 6
+      },
       all: [
         'Gruntfile.js',
         'src/*.js',
         // 'build/<%= pkg.name %>.user.js',
-        '../common/*.js'
+        '../common/*.js',
+        // '!header.js',
+        // '!footer.js'
       ]
     },
     watch: {
       css: {
         files: ['src/*.css'],
-        tasks: ['clean', 'concat:css']//, 'cssmin:css']
+        tasks: ['clean', 'concat:css', 'copy:main']//, 'cssmin:css']
       },
       js: {
         files: ['Gruntfile.js', 'src/*.js', '../common/*.js'],
-        tasks: ['clean', 'concat:js', 'jshint', 'uglify:js']
+        tasks: [
+        'clean',
+        'concat:js',
+        'jshint',
+        // 'uglify:js',
+        'copy:main']
+      }
+    },
+    copy: {
+      main: {
+        src: 'build/<%= pkg.name %>.user.js',
+        dest: 'W:/apps/Firefox56/Data/profile/gm_scripts/NP2_UI_Tweaks/np2-ui-tweaks.user.js',
       }
     }
   });
@@ -65,6 +88,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
 
   // Default task(s).
@@ -72,7 +96,8 @@ module.exports = function (grunt) {
     'clean',
     'concat:js',
     'jshint',
-    'uglify:js'
+    // 'uglify:js',
+    'copy:main'
   ]);
 
 };

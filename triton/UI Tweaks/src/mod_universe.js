@@ -1,4 +1,4 @@
-mods.push(function install_universe_mods(universe) {
+mods.push(function install_universe_mods(universe, NeptunesPride) {
 
   // what does this do?
   // universe.movieMode = true;

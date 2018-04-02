@@ -1,4 +1,3 @@
-//TODO: modualarise the fuck out of this!!!!
 
 function formatTick(tickString) {
   var ticks = parseInt(tickString);
@@ -54,11 +53,13 @@ function handleManagementUI(data) {
 function installMod (mod) {
   var data = this;
   var params = getParamNames(mod);
-  var args = params.map(function(x){return data[x];});
+  var args = params.map(x=>data[x]);
   try {
+    console.log('Installing mod:', mod, params, args);
     mod.apply(this, args);
   } catch (e) {
     console.error('Mod Installation FAILED!:', mod.name, e);
+    console.error('^^^ data is ', data, Object.keys(data));
   }
   console.log('Mod Installed:', mod.name, params);
 }
@@ -70,16 +71,18 @@ function post_init_hook(data) {
     return;
   }
 
+  console.log('mods', mods);
+
   mods.forEach(installMod, data);
 
   // very useful for debugging!
   // logCalls(data.np, 'trigger');
-  logCalls(data.universe, 'addGalaxy');
+  // logCalls(data.universe, 'addGalaxy');
   // logAll(data.universe);
   // logAll(data.npui);
 
-  logCalls(data.npui, 'onRefreshInterface');
-  // logCalls(map, 'onMapRefresh');
+  // logCalls(data.npui, 'onRefreshInterface');
+  // logCalls(data.map, 'onMapRefresh');
 }
 
 NP2M.register('NP2 Layers', '1', pre_init_hook, post_init_hook);
